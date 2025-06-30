@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPO法人 親と教員の会 こどものその - 富山県高岡市の幼児園</title>
+    
+    <!-- Tailwind CSSの読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts "Inter"の読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- アイコンライブラリ (Heroicons) -->
+    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/index.js"></script>
+
+    <style>
+        /* 日本語フォントと基本フォント設定 */
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+        }
+        /* 見出し用のフォント */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            font-weight: 700;
+        }
+        /* アニメーション用のカスタムクラス */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- ===== ヘッダー / ナビゲーションバー ===== -->
+    <header id="header" class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- ロゴ -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <img class="h-16 w-auto" src="kodomonosono_logo.jpg" alt="NPO法人こどものその ロゴ">
+                        <span class="text-lg font-bold text-gray-700 hidden md:block">こどものその</span>
+                    </a>
+                </div>
+
+                <!-- PC用ナビゲーション -->
+                <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+                    <a href="#about" class="text-gray-600 hover:text-green-600 transition duration-300">園について</a>
+                    <a href="#support" class="text-gray-600 hover:text-green-600 transition duration-300">子育て支援</a>
+                    <a href="#life" class="text-gray-600 hover:text-green-600 transition duration-300">園での生活</a>
+                    <a href="#admission" class="text-gray-600 hover:text-green-600 transition duration-300">入園案内</a>
+                    <a href="#faq" class="text-gray-600 hover:text-green-600 transition duration-300">Q&A</a>
+                    <a href="#contact" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300 shadow">お問い合わせ</a>
+                </nav>
+
+                <!-- モバイル用ハンバーガーボタン -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-green-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- モバイル用メニュー -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
+            <a href="#about" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-100">園について</a>
+            <a href="#support" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-100">子育て支援</a>
+            <a href="#life" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-100">園での生活</a>
+            <a href="#admission" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-100">入園案内</a>
+            <a href="#faq" class="block py-3 px-4 text-sm text-gray-600 hover:bg-gray-100">Q&A</a>
+            <a href="#contact" class="block py-3 px-4 text-sm bg-green-500 text-white text-center rounded-b-lg hover:bg-green-600">お問い合わせ</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== キービジュアルとキャッチフレーズ ===== -->
+        <section class="relative h-[60vh] md:h-[80vh] flex items-center justify-center text-white text-center bg-gray-600">
+            <!-- 背景画像 -->
+            <img src="https://www.kodomono.com/wp/wp-content/uploads/2016/09/276A2846-1024x683.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="園庭で遊ぶ子供たち" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/a0aec0/ffffff?text=こどものその';">
+            <div class="relative z-10 p-4 fade-in">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                    こどもだけでなく、<br class="md:hidden">親も育つ。
+                </h1>
+                <p class="text-lg md:text-2xl font-medium" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                    こどもの、こどもによる、こどものための園
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== 「こどものその」って、どんなところ ===== -->
+        <section id="about" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">「こどものその」って、どんなところ？</h2>
+                <p class="text-lg leading-relaxed text-gray-600 mb-8">
+                    こどものそのは、「こどもだけでなく、親も育つ」がモットーです。<br>
+                    幼児園・親・教員の三者が対等なパートナーシップを築き、こどもを中心にすえ、共に育ちあう場、それが「こどものその」です。
+                </p>
+                <img src="https://www.kodomono.com/wp/wp-content/uploads/2016/09/image3-1024x768.jpeg" class="rounded-lg shadow-xl mx-auto" alt="園内の様子" onerror="this.onerror=null;this.src='https://placehold.co/800x600/e2e8f0/ffffff?text=園内の様子';">
+            </div>
+        </section>
+
+        <!-- ===== お知らせ ===== -->
+        <section id="news" class="py-16 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">お知らせ</h2>
+                <div class="max-w-4xl mx-auto space-y-6">
+                    <!-- お知らせアイテム -->
+                    <a href="#" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                            <p class="text-sm text-gray-500 mb-2 sm:mb-0">2025.07.15</p>
+                            <span class="bg-blue-500 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2 sm:mb-0 sm:ml-4">イベント</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2">夏祭りを開催します！</h3>
+                        <p class="text-gray-600 mt-2">園庭にて夏祭りを開催します。在園児以外の方もご参加いただけますので、ぜひお越しください。（要予約）</p>
+                    </a>
+                    <!-- お知らせアイテム -->
+                    <a href="#" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                            <p class="text-sm text-gray-500 mb-2 sm:mb-0">2025.06.30</p>
+                            <span class="bg-green-500 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2 sm:mb-0 sm:ml-4">お知らせ</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2">ウェブサイトをリニューアルしました。</h3>
+                        <p class="text-gray-600 mt-2">こどものそののウェブサイトが新しくなりました。今後ともよろしくお願いいたします。</p>
+                    </a>
+                    <!-- お知らせアイテム -->
+                    <a href="#" class="block bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                            <p class="text-sm text-gray-500 mb-2 sm:mb-0">2025.06.01</p>
+                            <span class="bg-red-500 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2 sm:mb-0 sm:ml-4">入園関連</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mt-2">2026年度の入園説明会の情報を掲載しました。</h3>
+                        <p class="text-gray-600 mt-2">来年度の入園説明会の日程が決まりました。詳細は入園案内のページをご覧ください。</p>
+                    </a>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" class="inline-block bg-green-500 text-white font-bold px-8 py-3 rounded-full hover:bg-green-600 transition-transform transform hover:scale-105 duration-300">お知らせ一覧へ</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== イベントカレンダー ===== -->
+        <section id="calendar" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">イベントカレンダー</h2>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-center mb-6">
+                        <button class="text-gray-600 hover:text-green-600">&lt; 前の月</button>
+                        <h3 class="text-2xl font-bold">2025年 7月</h3>
+                        <button class="text-gray-600 hover:text-green-600">次の月 &gt;</button>
+                    </div>
+                    <div class="grid grid-cols-7 gap-1 text-center">
+                        <div class="font-bold text-red-500">日</div>
+                        <div class="font-bold">月</div>
+                        <div class="font-bold">火</div>
+                        <div class="font-bold">水</div>
+                        <div class="font-bold">木</div>
+                        <div class="font-bold">金</div>
+                        <div class="font-bold text-blue-500">土</div>
+                        
+                        <!-- カレンダーの日付 (ダミー) -->
+                        <div class="text-gray-400 py-2">29</div>
+                        <div class="text-gray-400 py-2">30</div>
+                        <div class="py-2 border-t">1</div>
+                        <div class="py-2 border-t">2</div>
+                        <div class="py-2 border-t">3</div>
+                        <div class="py-2 border-t">4</div>
+                        <div class="py-2 border-t text-blue-500">5</div>
+                        <div class="py-2 border-t text-red-500">6</div>
+                        <div class="py-2 border-t relative">7<span class="absolute bottom-1 left-1/2 -translate-x-1/2 text-xs text-yellow-500">●</span></div>
+                        <div class="py-2 border-t">8</div>
+                        <div class="py-2 border-t">9</div>
+                        <div class="py-2 border-t">10</div>
+                        <div class="py-2 border-t">11</div>
+                        <div class="py-2 border-t text-blue-500">12</div>
+                        <div class="py-2 border-t text-red-500">13</div>
+                        <div class="py-2 border-t">14</div>
+                        <div class="py-2 border-t relative">15<span class="absolute bottom-1 left-1/2 -translate-x-1/2 text-xs text-red-500">●</span></div>
+                        <div class="py-2 border-t">16</div>
+                        <div class="py-2 border-t">17</div>
+                        <div class="py-2 border-t">18</div>
+                        <div class="py-2 border-t text-blue-500">19</div>
+                        <div class="py-2 border-t text-red-500">20</div>
+                        <div class="py-2 border-t text-red-500">21</div>
+                        <div class="py-2 border-t">22</div>
+                        <div class="py-2 border-t">23</div>
+                        <div class="py-2 border-t">24</div>
+                        <div class="py-2 border-t">25</div>
+                        <div class="py-2 border-t text-blue-500">26</div>
+                        <div class="py-2 border-t text-red-500">27</div>
+                        <div class="py-2 border-t">28</div>
+                        <div class="py-2 border-t">29</div>
+                        <div class="py-2 border-t">30</div>
+                        <div class="py-2 border-t">31</div>
+                    </div>
+                    <div class="mt-6 text-sm">
+                        <p><span class="text-red-500 font-bold">●</span> 7/15 夏祭り</p>
+                        <p><span class="text-yellow-500 font-bold">●</span> 7/7 七夕会</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 子育て支援 親ふれ ===== -->
+        <section id="support" class="py-16 sm:py-24 bg-green-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">子育てサロン「親ふれ」</h2>
+                        <p class="text-lg text-green-800 font-semibold mb-6">0〜3歳までの未就園児の親子を対象に、保育士や助産師とお話しながら楽しむことができます。</p>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            通称「親ふれ」は、0歳から3歳までの未就園児親子を対象としたプログラムです。開催日は火・水・木曜日で、保育士や助産師といった専門家が常駐しており、安心して子育ての相談ができます。
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            「親ふれ」で園と関わり始め、慣れてきたら「一時保育」を利用し、最終的には本格的な入園へと繋がる、そんなステップもご用意しています。
+                        </p>
+                        <div class="mt-8">
+                             <a href="#" class="inline-block bg-yellow-500 text-white font-bold px-8 py-3 rounded-full hover:bg-yellow-600 transition-transform transform hover:scale-105 duration-300">「親ふれ」について詳しく</a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://www.kodomono.com/wp/wp-content/uploads/2016/09/image2-2-768x1024.jpeg" class="rounded-lg shadow-lg object-cover w-full h-full" alt="親と子のふれあい広場の様子1" onerror="this.onerror=null;this.src='https://placehold.co/400x500/a0aec0/ffffff?text=親ふれ';">
+                        <img src="https://www.kodomono.com/wp/wp-content/uploads/2016/09/image1-2-768x1024.jpeg" class="rounded-lg shadow-lg object-cover w-full h-full mt-8" alt="親と子のふれあい広場の様子2" onerror="this.onerror=null;this.src='https://placehold.co/400x500/a0aec0/ffffff?text=親ふれ';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 大切にしていること ===== -->
+        <section id="philosophy" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">こどものそのが大切にしていること</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- カード1 -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <h3 class="text-xl font-bold mb-4">縦割り活動</h3>
+                        <p class="text-gray-600">異年齢の子どもたちがグループで生活することで、年長者は思いやりを、年少者は刺激を受け、互いに学び合う環境が形成されます。</p>
+                    </div>
+                    <!-- カード2 -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <h3 class="text-xl font-bold mb-4">自己表現の奨励</h3>
+                        <p class="text-gray-600">毎朝の会での発表を通じて、自分の考えや体験を他者に伝える力を育みます。</p>
+                    </div>
+                    <!-- カード3 -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <h3 class="text-xl font-bold mb-4">モンテッソーリ教育</h3>
+                        <p class="text-gray-600">子どもの自主性を尊重し、知的好奇心を満たすための教具が活動に取り入れられています。</p>
+                    </div>
+                    <!-- カード4 -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <h3 class="text-xl font-bold mb-4">親と家族の参加</h3>
+                        <p class="text-gray-600">親がいつでも保育に参加できる「親が主役」の体制で、親子間の強い絆を育みます。</p>
+                    </div>
+                    <!-- カード5 -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <h3 class="text-xl font-bold mb-4">こども文庫</h3>
+                        <p class="text-gray-600">2,400冊以上の蔵書を誇る文庫は、子どもたちの知的好奇心と読書習慣を育むための重要な資産です。</p>
+                    </div>
+                     <!-- カード6 -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <h3 class="text-xl font-bold mb-4">徹底した対話</h3>
+                        <p class="text-gray-600">月一度の懇談会で、親と教員が子どもの成長を深く話し合い、翌月の活動計画まで共同で決定します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 園生活の一日 ===== -->
+        <section id="life" class="py-16 sm:py-24">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">園生活の一日</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative border-l-4 border-green-200">
+                        <!-- タイムラインアイテム -->
+                        <div class="mb-8 ml-8 p-6 bg-white rounded-lg shadow-md relative">
+                            <div class="absolute -left-11 top-1/2 -translate-y-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
+                            <h3 class="text-xl font-bold text-green-600">8:30〜 順次登園</h3>
+                            <p class="text-gray-600 mt-2">おはようございます！今日も一日元気いっぱい遊びましょう。</p>
+                        </div>
+                         <!-- タイムラインアイテム -->
+                        <div class="mb-8 ml-8 p-6 bg-white rounded-lg shadow-md relative">
+                            <div class="absolute -left-11 top-1/2 -translate-y-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
+                            <h3 class="text-xl font-bold text-green-600">9:30〜 朝の会・自由遊び</h3>
+                            <p class="text-gray-600 mt-2">みんなでお歌をうたったり、好きな遊びを見つけて楽しみます。</p>
+                        </div>
+                        <!-- タイムラインアイテム -->
+                        <div class="mb-8 ml-8 p-6 bg-white rounded-lg shadow-md relative">
+                            <div class="absolute -left-11 top-1/2 -translate-y-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
+                            <h3 class="text-xl font-bold text-green-600">12:00〜 お昼ごはん</h3>
+                            <p class="text-gray-600 mt-2">みんなで食べるごはんは美味しいね。おかずは業者弁当、主食は持参です。</p>
+                        </div>
+                        <!-- タイムラインアイテム -->
+                        <div class="ml-8 p-6 bg-white rounded-lg shadow-md relative">
+                            <div class="absolute -left-11 top-1/2 -translate-y-1/2 w-6 h-6 bg-green-500 rounded-full border-4 border-white"></div>
+                            <h3 class="text-xl font-bold text-green-600">15:00〜 順次降園</h3>
+                            <p class="text-gray-600 mt-2">今日あったことをおうちの人に話してね。また明日！延長保育もあります。</p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- ===== 入園案内 ===== -->
+        <section id="admission" class="py-16 sm:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">入園案内</h2>
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">募集要項</h3>
+                        <div class="space-y-4 text-gray-700">
+                           <p><strong class="font-bold text-green-700">対象：</strong>歩行可能で普通食の子どもから（おむつが外れていなくても可）</p>
+                           <p><strong class="font-bold text-green-700">保育時間：</strong>通常 8:30〜15:00</p>
+                           <p><strong class="font-bold text-green-700">早朝保育：</strong>7:00〜</p>
+                           <p><strong class="font-bold text-green-700">延長保育：</strong>〜19:00</p>
+                        </div>
+                    </div>
+                     <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">費用について</h3>
+                        <div class="space-y-4 text-gray-700">
+                           <p><strong class="font-bold text-green-700">月額保育料：</strong>40,000円</p>
+                           <p><strong class="font-bold text-green-700">給食費：</strong>5,000円 (月額)</p>
+                           <p class="text-sm text-gray-500">※1歳6か月以下は+2,000円。その他、一時保育の料金もございます。</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">送迎について</h3>
+                        <p class="text-gray-700">親と教員の直接のコミュニケーションを重視するため、送迎バスは意図的に導入していません。毎日の送迎時に顔を合わせ、子どもの成長を共有する大切な時間を確保するためです。</p>
+                    </div>
+                     <div class="bg-gray-50 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">給食について</h3>
+                        <p class="text-gray-700">主食はご家庭から持参いただき、おかずは栄養バランスを考慮した業者弁当を提供します。食物アレルギーにも対応可能ですので、ご相談ください。</p>
+                    </div>
+                </div>
+                 <div class="text-center mt-12">
+                    <a href="#" class="inline-block bg-red-500 text-white font-bold px-8 py-3 rounded-full hover:bg-red-600 transition-transform transform hover:scale-105 duration-300">募集要項の詳細・見学申込</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Q&A ===== -->
+        <section id="faq" class="py-16 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">よくいただくご質問</h2>
+                <div class="space-y-6">
+                    <!-- Q&A Item -->
+                    <div class="bg-white rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg p-6 cursor-pointer flex justify-between items-center" onclick="toggleFaq(this)">
+                            <span>Q. おむつがとれていなくても大丈夫ですか？</span>
+                            <svg class="w-6 h-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </h3>
+                        <div class="px-6 pb-6 text-gray-600 hidden">
+                            <p>A. はい、大丈夫です。一人ひとりの発達に合わせて、園とご家庭で連携しながらトイレトレーニングを進めていきますのでご安心ください。</p>
+                        </div>
+                    </div>
+                    <!-- Q&A Item -->
+                     <div class="bg-white rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg p-6 cursor-pointer flex justify-between items-center" onclick="toggleFaq(this)">
+                            <span>Q. 延長保育は何時まで、料金はいくらですか？</span>
+                            <svg class="w-6 h-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </h3>
+                        <div class="px-6 pb-6 text-gray-600 hidden">
+                           <p>A. 延長保育は午後7時まで対応しています。料金は午後6時までは30分毎に50円、午後6時以降は60分毎に200円です。</p>
+                        </div>
+                    </div>
+                    <!-- Q&A Item -->
+                    <div class="bg-white rounded-lg shadow-md">
+                        <h3 class="font-bold text-lg p-6 cursor-pointer flex justify-between items-center" onclick="toggleFaq(this)">
+                            <span>Q. アレルギーがあるのですが、給食は対応してもらえますか？</span>
+                             <svg class="w-6 h-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </h3>
+                        <div class="px-6 pb-6 text-gray-600 hidden">
+                           <p>A. はい、対応可能です。入園前に詳しくお話を伺い、アレルギーに対応した食事を提供しますので、ご相談ください。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 林先生の言葉 ===== -->
+        <section id="founder-words" class="py-16 sm:py-24 bg-gray-800 text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold mb-8">創設者・林三雄の言葉</h2>
+                 <blockquote class="text-xl md:text-2xl leading-relaxed italic">
+                    <p>「日本の小・中・高校でいじめ、自殺、非行が続発するのは、園や学校が親たちを中心的存在にしないからだ。」</p>
+                 </blockquote>
+                 <p class="mt-8 text-gray-400">この想いが、親が主役となる「こどものその」の原点です。</p>
+            </div>
+        </section>
+        
+        <!-- ===== Googleマップ ===== -->
+        <section id="contact" class="py-16 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">アクセス</h2>
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="w-full h-96 lg:h-full rounded-lg shadow-lg overflow-hidden">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3184.455427184242!2d137.0039209156093!3d36.79374097994966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff77da09337b515%3A0x6a1e3e0734a7876a!2sNPO%E6%B3%95%E4%BA%BA%E8%A6%AA%E3%81%A8%E6%95%99%E5%93%A1%E3%81%AE%E4%BC%9A%E3%81%93%E3%81%A9%E3%82%82%E3%81%AE%E3%81%9D%E3%81%AE!5e0!3m2!1sja!2sjp!4v1688100000000!5m2!1sja!2sjp"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                     <div>
+                        <h3 class="text-2xl font-bold mb-4">NPO法人 親と教員の会 こどものその</h3>
+                        <p class="text-gray-600 mb-2">〒933-0804 富山県高岡市問屋町233</p>
+                        <p class="text-gray-600 mb-6">TEL. 0766-24-2611</p>
+                        <a href="https://maps.google.com/?q=富山県高岡市問屋町233" target="_blank" class="inline-block bg-green-500 text-white font-bold px-6 py-3 rounded-full hover:bg-green-600 transition duration-300">Googleマップで開く</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== フッター ===== -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- ロゴと情報 -->
+                <div>
+                    <img src="kodomonosono_logo.jpg" class="h-20 mb-4 bg-white rounded-full p-2" alt="こどものその ロゴ">
+                    <h4 class="font-bold text-lg mb-2">NPO法人 親と教員の会 こどものその</h4>
+                    <p class="text-sm text-gray-400">〒933-0804 富山県高岡市問屋町233</p>
+                    <p class="text-sm text-gray-400">TEL: 0766-24-2611</p>
+                </div>
+
+                <!-- サイトマップ -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">サイトマップ</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="text-gray-400 hover:text-white">園について</a></li>
+                        <li><a href="#philosophy" class="text-gray-400 hover:text-white">大切にしていること</a></li>
+                        <li><a href="#life" class="text-gray-400 hover:text-white">園生活の一日</a></li>
+                        <li><a href="#admission" class="text-gray-400 hover:text-white">入園案内</a></li>
+                        <li><a href="#support" class="text-gray-400 hover:text-white">子育て支援（親ふれ）</a></li>
+                        <li><a href="#news" class="text-gray-400 hover:text-white">お知らせ</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white">よくいただくご質問</a></li>
+                         <li><a href="#" class="text-gray-400 hover:text-white">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- NPO法人について -->
+                <div>
+                     <h4 class="font-bold text-lg mb-4">NPO法人について</h4>
+                     <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white">法人概要</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">ご支援のお願い（寄付・会員）</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-500">
+                <p>&copy; 2025 NPO法人こどものその. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // モバイルメニューのトグル機能
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // ナビゲーションリンクをクリックしたらメニューを閉じる
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Q&Aのアコーディオン機能
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('svg');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+
+</body>
+</html>
