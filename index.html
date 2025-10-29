@@ -43,7 +43,7 @@
         .group:hover .group-hover\:block { display: block; }
         .dropdown-menu {
             opacity: 0;
-            transform: translateY(-10px) scale(0.95);
+            transform: translateY(10px) scale(0.98); /* Slightly adjusted starting position */
             transition: opacity 0.2s ease-out, transform 0.2s ease-out;
             pointer-events: none;
         }
@@ -61,7 +61,7 @@
         /* Carousel */
         .carousel-item {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0; transition: opacity 1.5s ease-in-out;
+            opacity: 0; transition: opacity 1.5s ease-in-out; /* Fade duration */
             z-index: 1;
         }
         .carousel-item.active {
@@ -73,12 +73,12 @@
         /* Fixed Buttons */
         .fixed-action-button {
             position: fixed;
-            right: 20px;
+            right: 25px; /* Increased spacing from edge */
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
             border-radius: 50%;
-            width: 72px;
-            height: 72px;
+            width: 72px; /* Size */
+            height: 72px; /* Size */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -86,10 +86,11 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
             z-index: 1000;
             text-align: center;
-            font-size: 12px;
-            line-height: 1.2;
+            font-size: 11px; /* Adjusted for お問い合わせ */
+            line-height: 1.1; /* Adjusted for お問い合わせ */
             padding: 5px;
             box-sizing: border-box;
+            cursor: pointer;
         }
         .fixed-action-button:hover {
             background-color: rgba(0, 0, 0, 0.8);
@@ -99,18 +100,18 @@
             font-size: 36px;
         }
         #fixed-contact {
-            bottom: 100px;
-            background-color: rgba(52, 211, 153, 0.7);
+            bottom: 105px; /* Position above Instagram */
+            background-color: rgba(52, 211, 153, 0.7); /* green-400 opacity */
         }
         #fixed-contact:hover {
-             background-color: rgba(16, 185, 129, 1);
+             background-color: rgba(16, 185, 129, 1); /* green-500 */
         }
         #fixed-instagram {
-            bottom: 20px;
-            background-color: rgba(239, 68, 68, 0.7);
+            bottom: 25px; /* Increased spacing from bottom */
+            background-color: rgba(239, 68, 68, 0.7); /* red-500 opacity */
         }
          #fixed-instagram:hover {
-            background-color: rgba(220, 38, 38, 1);
+            background-color: rgba(220, 38, 38, 1); /* red-600 */
         }
     </style>
 </head>
@@ -120,21 +121,21 @@
     <header id="header" class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
                 <div class="flex-shrink-0">
                     <a href="#" class="flex items-center space-x-2">
                         <img class="h-16 w-auto" src="kodomonosono_logo.png" alt="NPO法人こどものその ロゴ" onerror="this.onerror=null;this.src='https://placehold.co/100x64/f0f0f0/333333?text=Logo';">
                         <div>
-                            <span class="block text-xs text-gray-500">NPO法人</span>
+                            <span class="block text-xs text-gray-500 -mb-1">NPO法人</span>
                             <span class="block font-bold text-gray-700 md:text-lg">こどものその</span>
                         </div>
                     </a>
                 </div>
+                <!-- PC Navigation -->
                 <nav class="hidden md:flex space-x-4 lg:space-x-6 items-center">
                     <div class="relative group">
-                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center">
-                            園について
-                        </button>
-                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">園について</button>
+                        <div class="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
                             <a href="#about-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園について</a>
                             <a href="#philosophy-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">大切にしていること</a>
                             <a href="#life-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園生活の一日</a>
@@ -142,33 +143,28 @@
                         </div>
                     </div>
                     <div class="relative group">
-                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center">
-                            子育て支援
-                        </button>
-                        <div class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
-                            <a href="#support-salon-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">子育てサロン<br>「親と子のふれあい広場」</a>
+                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">子育て支援</button>
+                        <div class="absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                            <a href="#support-salon-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
                             <a href="#support-cafe-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ほっとひと息カフェ</a>
                         </div>
                     </div>
                     <div class="relative group">
-                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center">
-                            入園案内
-                        </button>
-                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">入園案内</button>
+                        <div class="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
                             <a href="#admission-info-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">入園案内</a>
                             <a href="#parent-voices-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">保護者の声</a>
                         </div>
                     </div>
                     <div class="relative group">
-                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center">
-                            よくある質問
-                        </button>
-                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">よくある質問</button>
+                        <div class="absolute right-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
                             <a href="#faq-main-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">よくある質問</a>
                             <a href="#access-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">アクセス</a>
                         </div>
                     </div>
                 </nav>
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center space-x-4">
                     <button id="mobile-menu-button" class="text-gray-600 hover:text-green-600 focus:outline-none">
                          <ion-icon name="menu-outline" class="text-3xl" id="menu-open-icon"></ion-icon>
@@ -177,7 +173,8 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg z-40"> {/* z-index調整 */}
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg z-40">
             <div>
                 <input type="checkbox" id="submenu-about-mobile" class="hidden peer">
                 <label for="submenu-about-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
@@ -198,7 +195,7 @@
                     <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
                 </label>
                 <div class="submenu bg-gray-50 pl-6">
-                    <a href="#support-salon-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">子育てサロン<br>「親と子のふれあい広場」</a>
+                    <a href="#support-salon-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
                     <a href="#support-cafe-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">ほっとひと息カフェ</a>
                 </div>
             </div>
@@ -228,17 +225,20 @@
     </header>
 
     <main>
+        <!-- Hero Carousel -->
         <section id="hero-carousel" class="relative h-[60vh] md:h-[80vh] flex items-center justify-center text-white text-center bg-gray-600 overflow-hidden">
             <div class="carousel-item active">
-                <img src="top1.jpg" alt="園庭で遊ぶ子供たち1" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/a0aec0/ffffff?text=こどものその1';">
+                <img src="top1.jpg" alt="園庭で遊ぶ子供たち1" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/a0aec0/ffffff?text=こどものその1';">
+                 <div class="absolute inset-0 bg-black opacity-40"></div> <!-- Overlay for text visibility -->
             </div>
             <div class="carousel-item">
-                <img src="top2.jpg" alt="園庭で遊ぶ子供たち2" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/e0e0e0/ffffff?text=こどものその2';">
+                <img src="top2.jpg" alt="園庭で遊ぶ子供たち2" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/e0e0e0/ffffff?text=こどものその2';">
+                 <div class="absolute inset-0 bg-black opacity-40"></div> <!-- Overlay for text visibility -->
             </div>
             <div class="carousel-item">
-                <img src="top3.jpg" alt="園庭で遊ぶ子供たち3" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/c0c0c0/ffffff?text=こどものその3';">
+                <img src="top3.jpg" alt="園庭で遊ぶ子供たち3" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/c0c0c0/ffffff?text=こどものその3';">
+                 <div class="absolute inset-0 bg-black opacity-40"></div> <!-- Overlay for text visibility -->
             </div>
-
             <div class="relative z-10 p-4">
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-4 fade-in" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
                     生命力全開
@@ -249,31 +249,33 @@
             </div>
         </section>
 
+        <!-- News Section -->
         <section id="news-section" class="py-16 sm:py-24 observer-target">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="md:flex md:items-center md:space-x-12">
-                     <div class="md:w-1/4 mb-8 md:mb-0 text-center md:text-left flex md:justify-center slide-in-left">
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">お知らせ</h2>
+                 <div class="md:flex md:items-center md:space-x-12"> <!-- items-center for vertical alignment -->
+                     <div class="md:w-1/4 mb-8 md:mb-0 flex md:justify-center items-center slide-in-left"> <!-- Flex alignment for heading -->
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center md:text-left">お知らせ</h2>
                      </div>
-                     <div class="md:w-3/4 space-y-3">
-                        <a href="#" class="block bg-white p-3 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex items-center slide-in-right">
-                            <p class="text-sm text-gray-500 mr-3 flex-shrink-0 w-20">2025.07.15</p>
-                            <p class="text-gray-800 text-sm md:text-base flex-grow truncate">夏祭りを開催します！</p>
-                            <ion-icon name="arrow-forward-outline" class="text-gray-500 text-lg ml-3 flex-shrink-0"></ion-icon>
+                     <div class="md:w-3/4 space-y-4">
+                        <a href="#" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex items-center slide-in-right">
+                            <span class="text-sm text-gray-500 mr-4 flex-shrink-0 w-24">2025.07.15</span>
+                            <span class="text-gray-800 text-sm md:text-base flex-grow truncate mr-2">夏祭りを開催します！</span>
+                            <ion-icon name="arrow-forward-outline" class="text-gray-400 text-lg ml-auto flex-shrink-0"></ion-icon>
                         </a>
-                        <a href="#" class="block bg-white p-3 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex items-center slide-in-right" style="transition-delay: 0.1s;">
-                            <p class="text-sm text-gray-500 mr-3 flex-shrink-0 w-20">2025.06.30</p>
-                            <p class="text-gray-800 text-sm md:text-base flex-grow truncate">ウェブサイトをリニューアルしました。</p>
-                            <ion-icon name="arrow-forward-outline" class="text-gray-500 text-lg ml-3 flex-shrink-0"></ion-icon>
+                        <a href="#" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex items-center slide-in-right" style="transition-delay: 0.1s;">
+                            <span class="text-sm text-gray-500 mr-4 flex-shrink-0 w-24">2025.06.30</span>
+                            <span class="text-gray-800 text-sm md:text-base flex-grow truncate mr-2">ウェブサイトをリニューアルしました。</span>
+                            <ion-icon name="arrow-forward-outline" class="text-gray-400 text-lg ml-auto flex-shrink-0"></ion-icon>
                         </a>
-                        <div class="text-center md:text-right mt-5 slide-in-bottom">
-                            <a href="#" class="inline-block bg-gray-500 text-white font-bold px-5 py-2 rounded-full hover:bg-gray-600 transition-transform transform hover:scale-105 duration-300 text-xs">お知らせ一覧へ</a>
+                        <div class="text-center md:text-right mt-6 slide-in-bottom">
+                            <a href="#" class="inline-block bg-gray-500 text-white font-bold px-6 py-2 rounded-full hover:bg-gray-600 transition-transform transform hover:scale-105 duration-300 text-sm">お知らせ一覧へ</a>
                         </div>
                     </div>
                  </div>
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about-section" class="py-16 sm:py-24 bg-white observer-target">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -294,14 +296,15 @@
             </div>
         </section>
 
+        <!-- Support Section -->
         <section id="support-salon-section" class="py-16 sm:py-24 bg-green-50 observer-target">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="grid grid-cols-2 gap-4 slide-in-left lg:order-last">
+                     <div class="grid grid-cols-2 gap-4 slide-in-left">
                         <img src="oya1.jpg" class="rounded-lg shadow-lg object-cover w-full aspect-[4/5]" alt="親と子のふれあい広場の様子1" onerror="this.onerror=null;this.src='https://placehold.co/400x500/a0aec0/ffffff?text=親ふれ';">
                         <img src="oya2.jpg" class="rounded-lg shadow-lg object-cover w-full aspect-[4/5] mt-8" alt="親と子のふれあい広場の様子2" onerror="this.onerror=null;this.src='https://placehold.co/400x500/a0aec0/ffffff?text=親ふれ';">
                     </div>
-                    <div class="slide-in-right lg:order-first">
+                    <div class="slide-in-right">
                         <h2 class="text-3xl md:text-4xl font-bold mb-4">親と子のふれあいサロン「親ふれ」</h2>
                         <p class="text-lg text-green-800 font-semibold mb-6">0〜3歳までの未就園児の親子を対象に、保育士や助産師とお話しながら楽しむことができます。</p>
                         <p class="text-gray-600 leading-relaxed mb-4">
@@ -318,7 +321,8 @@
             </div>
         </section>
 
-         <section id="access-section" class="py-16 sm:py-24 observer-target">
+         <!-- Access Section -->
+        <section id="access-section" class="py-16 sm:py-24 observer-target">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 slide-in-bottom">アクセス</h2>
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -340,85 +344,42 @@
             </div>
         </section>
 
-        
-
-<section id="philosophy-section" class="py-16 sm:py-24 bg-white hidden">
-             
-
-</section>
-        
-
-<section id="life-section" class="py-16 sm:py-24 hidden">
-             
-
-</section>
-        
-
-<section id="npo-info-section" class="py-16 sm:py-24 hidden">
-             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold mb-4">NPO法人について</h2>
-                 <p class="text-lg text-gray-600">（NPO法人に関する情報をここに追加します）</p>
-             </div>
-        </section>
-        
-
-<section id="support-cafe-section" class="py-16 sm:py-24 bg-green-50 hidden">
-             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold mb-4">ほっとひと息カフェ</h2>
-                 <p class="text-lg text-gray-600">子育て中の息抜きに。お茶を飲みながら気軽に話せる場です。（内容は後で追加）</p>
-             </div>
-        </section>
-        
-
-<section id="admission-info-section" class="py-16 sm:py-24 bg-white hidden">
-             
-
-</section>
-         
-
-<section id="parent-voices-section" class="py-16 sm:py-24 bg-green-50 hidden">
-             
-
-</section>
-        
-
-<section id="faq-main-section" class="py-16 sm:py-24 hidden">
-             
-
-</section>
+        <!-- Hidden Sections for Navigation Links -->
+        <section id="philosophy-section" class="py-16 sm:py-24 bg-white hidden"> </section>
+        <section id="life-section" class="py-16 sm:py-24 hidden"> </section>
+        <section id="npo-info-section" class="py-16 sm:py-24 hidden"></section>
+        <section id="support-cafe-section" class="py-16 sm:py-24 bg-green-50 hidden"></section>
+        <section id="admission-info-section" class="py-16 sm:py-24 bg-white hidden"></section>
+        <section id="parent-voices-section" class="py-16 sm:py-24 bg-green-50 hidden"></section>
+        <section id="faq-main-section" class="py-16 sm:py-24 hidden"></section>
     </main>
 
-    
-
-<a href="#contact" id="fixed-contact" class="fixed-action-button" aria-label="お問い合わせ">
+    <!-- Fixed Buttons -->
+    <a href="#contact" id="fixed-contact" class="fixed-action-button" aria-label="お問い合わせ">
         お問い<br>合わせ
     </a>
     <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" id="fixed-instagram" class="fixed-action-button" aria-label="Instagram">
         <ion-icon name="logo-instagram"></ion-icon>
     </a>
 
-    
-
-<footer class="bg-gray-800 text-white pt-16 pb-8">
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 mb-12">
-                
-
-<div class="md:col-span-1">
-                     <div>
-                        <span class="block text-xs text-gray-400">NPO法人</span>
+                <!-- Info & Download -->
+                <div class="md:col-span-1">
+                    <div>
+                        <span class="block text-xs text-gray-400 -mb-1">NPO法人</span>
                         <span class="block font-bold text-lg mb-2">こどものその</span>
                     </div>
                     <p class="text-sm text-gray-400">〒933-0916 富山県高岡市大町11-19</p>
                     <p class="text-sm text-gray-400 mb-4">TEL: 0766-25-2231</p>
-                    <a href="#" download="登園許可証.pdf" class="inline-flex items-center bg-yellow-500 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-600 transition duration-300 text-sm">
+                    <a href="#" class="inline-flex items-center bg-yellow-500 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-600 transition duration-300 text-sm mt-4">
                         <ion-icon name="document-text-outline" class="mr-2 text-lg"></ion-icon>登園許可証<br>ダウンロード
                     </a>
                 </div>
-
-                
-
-<div class="md:col-span-1">
+                <!-- Sitemap -->
+                <div class="md:col-span-1">
                     <h4 class="font-bold text-lg mb-4 text-gray-300">園について</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="#about-section" class="text-gray-400 hover:text-white">園について</a></li>
@@ -430,7 +391,7 @@
                  <div class="md:col-span-1">
                     <h4 class="font-bold text-lg mb-4 text-gray-300">子育て支援</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#support-salon-section" class="text-gray-400 hover:text-white">子育てサロン<br>「親と子のふれあい広場」</a></li>
+                        <li><a href="#support-salon-section" class="text-gray-400 hover:text-white leading-tight">子育てサロン<br>「親と子のふれあい広場」</a></li>
                         <li><a href="#support-cafe-section" class="text-gray-400 hover:text-white">ほっとひと息カフェ</a></li>
                     </ul>
                 </div>
@@ -450,8 +411,8 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
+            <!-- Copyright & Privacy -->
             <div class="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-500">
                 <p>&copy; 2025 NPO法人こどものその. All Rights Reserved.</p>
                  <a href="#" class="text-gray-500 hover:text-white ml-4">プライバシーポリシー</a>
@@ -459,20 +420,17 @@
         </div>
     </footer>
 
-
     <script>
-        // モバイルメニュー
+        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuOpenIcon = document.getElementById('menu-open-icon');
         const menuCloseIcon = document.getElementById('menu-close-icon');
-
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             menuOpenIcon.classList.toggle('hidden');
             menuCloseIcon.classList.toggle('hidden');
         });
-
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -482,20 +440,16 @@
             });
         });
 
-        // スムーズスクロール
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (this.closest('#mobile-menu') && !href.includes('-section') && href !== '#') return;
-                if (href === '#') {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    return;
-                }
+                if (href === '#') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
                 const targetElement = document.querySelector(href);
                 if (targetElement) {
                     e.preventDefault();
-                    const headerOffset = document.getElementById('header').offsetHeight;
+                    const headerOffset = document.getElementById('header')?.offsetHeight || 80; // Added fallback height
                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                     const offsetPosition = elementPosition - headerOffset;
                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -503,47 +457,56 @@
             });
         });
 
-        // カルーセル (フェード)
+        // Hero Carousel (Fade)
         let currentSlide = 0;
         const slides = document.querySelectorAll('#hero-carousel .carousel-item');
         const totalSlides = slides.length;
-
         function showSlide(index) {
-            slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+            slides.forEach((slide, i) => slide.classList.remove('active'));
+            slides[index]?.classList.add('active'); // Added optional chaining
         }
-
         function nextSlide() {
             currentSlide = (currentSlide + 1) % totalSlides;
             showSlide(currentSlide);
         }
+        if (totalSlides > 1) {
+            setInterval(nextSlide, 5000); // 5 seconds interval
+        }
+        if (slides.length > 0) { showSlide(currentSlide); }
 
-        if (totalSlides > 1) setInterval(nextSlide, 5000);
-        if (slides.length > 0) showSlide(currentSlide);
-
-        // Intersection Observer (アニメーション)
+        // Intersection Observer Animation
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-bottom, .fade-in')
-                        .forEach(el => el.classList.add('visible'));
+                        .forEach((el, index) => {
+                             // Add a slight delay based on index for staggered effect
+                             el.style.transitionDelay = `${index * 0.1}s`;
+                             el.classList.add('visible');
+                        });
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
-
         document.querySelectorAll('.observer-target').forEach(section => observer.observe(section));
 
+        // Initial animation for elements visible on load
         document.addEventListener('DOMContentLoaded', () => {
-             // Heroセクションの要素に適用
              document.querySelectorAll('#hero-carousel .fade-in').forEach(el => el.classList.add('visible'));
-             // 最初のオブザーバー対象もすぐに見えるようにする
+             // Trigger animation for the first observer target slightly delayed
              const firstObserverTarget = document.querySelector('.observer-target');
              if (firstObserverTarget) {
-                 const initialElements = firstObserverTarget.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-bottom, .fade-in');
-                 setTimeout(() => initialElements.forEach(el => el.classList.add('visible')), 100);
+                 setTimeout(() => {
+                    firstObserverTarget.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-bottom, .fade-in')
+                        .forEach((el, index) => {
+                             el.style.transitionDelay = `${index * 0.1}s`;
+                             el.classList.add('visible');
+                        });
+                 }, 100); // 100ms delay
              }
         });
+
     </script>
 
 </body>
