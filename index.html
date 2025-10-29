@@ -27,7 +27,7 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .fade-in { animation: fadeIn 1s ease-in-out forwards; opacity: 0; } /* forwardsを追加 */
+        .fade-in { animation: fadeIn 1s ease-in-out forwards; opacity: 0; }
 
         .slide-in-left, .slide-in-right, .slide-in-bottom {
             opacity: 0;
@@ -45,12 +45,12 @@
             opacity: 0;
             transform: translateY(-10px) scale(0.95);
             transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-            pointer-events: none; /* Initially hide from interaction */
+            pointer-events: none;
         }
         .group:hover .dropdown-menu {
             opacity: 1;
             transform: translateY(0) scale(1);
-            pointer-events: auto; /* Allow interaction on hover */
+            pointer-events: auto;
         }
 
         /* Mobile Menu Accordion */
@@ -61,12 +61,12 @@
         /* Carousel */
         .carousel-item {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0; transition: opacity 1.5s ease-in-out; /* フェード時間調整 */
-            z-index: 1; /* Hide non-active slides */
+            opacity: 0; transition: opacity 1.5s ease-in-out;
+            z-index: 1;
         }
         .carousel-item.active {
             opacity: 1;
-            z-index: 2; /* Show active slide */
+            z-index: 2;
         }
         .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -74,43 +74,43 @@
         .fixed-action-button {
             position: fixed;
             right: 20px;
-            background-color: rgba(0, 0, 0, 0.6); /* 半透明の背景 */
+            background-color: rgba(0, 0, 0, 0.6);
             color: white;
             border-radius: 50%;
-            width: 72px; /* 少し大きく */
-            height: 72px; /* 少し大きく */
+            width: 72px;
+            height: 72px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s ease, transform 0.3s ease;
             z-index: 1000;
-            text-align: center; /* お問い合わせ用 */
-            font-size: 12px; /* お問い合わせ用 */
-            line-height: 1.2; /* お問い合わせ用 */
-            padding: 5px; /* お問い合わせ用 */
-            box-sizing: border-box; /* お問い合わせ用 */
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.2;
+            padding: 5px;
+            box-sizing: border-box;
         }
         .fixed-action-button:hover {
             background-color: rgba(0, 0, 0, 0.8);
             transform: scale(1.05);
         }
         .fixed-action-button ion-icon {
-            font-size: 36px; /* アイコンサイズ調整 */
+            font-size: 36px;
         }
         #fixed-contact {
-            bottom: 100px; /* Instagramの上に配置 */
-            background-color: rgba(52, 211, 153, 0.7); /* Tailwind green-400 with opacity */
+            bottom: 100px;
+            background-color: rgba(52, 211, 153, 0.7);
         }
         #fixed-contact:hover {
-             background-color: rgba(16, 185, 129, 1); /* Tailwind green-500 */
+             background-color: rgba(16, 185, 129, 1);
         }
         #fixed-instagram {
             bottom: 20px;
-            background-color: rgba(239, 68, 68, 0.7); /* Tailwind red-500 with opacity */
+            background-color: rgba(239, 68, 68, 0.7);
         }
          #fixed-instagram:hover {
-            background-color: rgba(220, 38, 38, 1); /* Tailwind red-600 */
+            background-color: rgba(220, 38, 38, 1);
         }
     </style>
 </head>
@@ -177,7 +177,7 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg">
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg z-40"> {/* z-index調整 */}
             <div>
                 <input type="checkbox" id="submenu-about-mobile" class="hidden peer">
                 <label for="submenu-about-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
@@ -251,23 +251,23 @@
 
         <section id="news-section" class="py-16 sm:py-24 observer-target">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="md:flex md:items-start md:space-x-12">
-                     <div class="md:w-1/4 mb-8 md:mb-0 text-center md:text-left slide-in-left">
+                 <div class="md:flex md:items-center md:space-x-12">
+                     <div class="md:w-1/4 mb-8 md:mb-0 text-center md:text-left flex md:justify-center slide-in-left">
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-800">お知らせ</h2>
                      </div>
-                     <div class="md:w-3/4 bg-white p-6 rounded-lg shadow-md slide-in-bottom">
-                         <div class="news-item">
-                             <span class="news-date">2025.07.15</span>
-                             <span class="news-category news-category-event">イベント</span>
-                             <a href="#" class="news-title">夏祭りを開催します！親子での参加お待ちしております。</a>
-                         </div>
-                         <div class="news-item">
-                             <span class="news-date">2025.06.30</span>
-                             <span class="news-category news-category-notice">お知らせ</span>
-                             <a href="#" class="news-title">ウェブサイトをリニューアルしました。</a>
-                         </div>
-                        <div class="text-center md:text-center mt-6 slide-in-bottom">
-                            <a href="#" class="inline-block bg-gray-500 text-white font-bold px-6 py-2 rounded-full hover:bg-gray-600 transition-transform transform hover:scale-105 duration-300 text-sm">お知らせ一覧へ</a>
+                     <div class="md:w-3/4 space-y-3">
+                        <a href="#" class="block bg-white p-3 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex items-center slide-in-right">
+                            <p class="text-sm text-gray-500 mr-3 flex-shrink-0 w-20">2025.07.15</p>
+                            <p class="text-gray-800 text-sm md:text-base flex-grow truncate">夏祭りを開催します！</p>
+                            <ion-icon name="arrow-forward-outline" class="text-gray-500 text-lg ml-3 flex-shrink-0"></ion-icon>
+                        </a>
+                        <a href="#" class="block bg-white p-3 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex items-center slide-in-right" style="transition-delay: 0.1s;">
+                            <p class="text-sm text-gray-500 mr-3 flex-shrink-0 w-20">2025.06.30</p>
+                            <p class="text-gray-800 text-sm md:text-base flex-grow truncate">ウェブサイトをリニューアルしました。</p>
+                            <ion-icon name="arrow-forward-outline" class="text-gray-500 text-lg ml-3 flex-shrink-0"></ion-icon>
+                        </a>
+                        <div class="text-center md:text-right mt-5 slide-in-bottom">
+                            <a href="#" class="inline-block bg-gray-500 text-white font-bold px-5 py-2 rounded-full hover:bg-gray-600 transition-transform transform hover:scale-105 duration-300 text-xs">お知らせ一覧へ</a>
                         </div>
                     </div>
                  </div>
@@ -411,8 +411,8 @@
                     </div>
                     <p class="text-sm text-gray-400">〒933-0916 富山県高岡市大町11-19</p>
                     <p class="text-sm text-gray-400 mb-4">TEL: 0766-25-2231</p>
-                    <a href="#" class="inline-flex items-center bg-yellow-500 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-600 transition duration-300 text-sm">
-                        <ion-icon name="document-text-outline" class="mr-2 text-lg"></ion-icon>登園許可証ダウンロード
+                    <a href="#" download="登園許可証.pdf" class="inline-flex items-center bg-yellow-500 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-600 transition duration-300 text-sm">
+                        <ion-icon name="document-text-outline" class="mr-2 text-lg"></ion-icon>登園許可証<br>ダウンロード
                     </a>
                 </div>
 
@@ -461,7 +461,7 @@
 
 
     <script>
-        // モバイルメニューのトグル機能
+        // モバイルメニュー
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuOpenIcon = document.getElementById('menu-open-icon');
@@ -473,15 +473,12 @@
             menuCloseIcon.classList.toggle('hidden');
         });
 
-        // モバイルメニューのリンクをクリックしたらメニューを閉じる
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
                 menuOpenIcon.classList.remove('hidden');
                 menuCloseIcon.classList.add('hidden');
-                 document.querySelectorAll('#mobile-menu input[type="checkbox"]').forEach(checkbox => {
-                    checkbox.checked = false;
-                 });
+                 document.querySelectorAll('#mobile-menu input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
             });
         });
 
@@ -489,9 +486,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (this.closest('#mobile-menu') && !href.includes('-section') && href !== '#') {
-                     return;
-                }
+                if (this.closest('#mobile-menu') && !href.includes('-section') && href !== '#') return;
                 if (href === '#') {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -508,16 +503,13 @@
             });
         });
 
-        // トップ写真カルーセル機能 (フェード)
+        // カルーセル (フェード)
         let currentSlide = 0;
         const slides = document.querySelectorAll('#hero-carousel .carousel-item');
         const totalSlides = slides.length;
 
         function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('active');
-            });
-            slides[index].classList.add('active');
+            slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
         }
 
         function nextSlide() {
@@ -525,16 +517,11 @@
             showSlide(currentSlide);
         }
 
-        if (totalSlides > 1) {
-             setInterval(nextSlide, 5000); // 5秒ごとに切り替え
-        }
-        if (slides.length > 0) { // Ensure slides exist before showing
-             showSlide(currentSlide);
-        }
+        if (totalSlides > 1) setInterval(nextSlide, 5000);
+        if (slides.length > 0) showSlide(currentSlide);
 
-        // Intersection Observer API を使ったアニメーション
+        // Intersection Observer (アニメーション)
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -545,24 +532,18 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.observer-target').forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('.observer-target').forEach(section => observer.observe(section));
 
-        // ページロード時にも一部アニメーション適用 (ヒーローセクションなど)
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('#hero-carousel .fade-in').forEach(el => el.classList.add('visible'));
-            // 最初のオブザーバー対象もすぐに見えるようにする
+             // Heroセクションの要素に適用
+             document.querySelectorAll('#hero-carousel .fade-in').forEach(el => el.classList.add('visible'));
+             // 最初のオブザーバー対象もすぐに見えるようにする
              const firstObserverTarget = document.querySelector('.observer-target');
              if (firstObserverTarget) {
                  const initialElements = firstObserverTarget.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-bottom, .fade-in');
-                 // 少し遅延させて表示開始
-                 setTimeout(() => {
-                     initialElements.forEach(el => el.classList.add('visible'));
-                 }, 100);
+                 setTimeout(() => initialElements.forEach(el => el.classList.add('visible')), 100);
              }
         });
-
     </script>
 
 </body>
