@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NPO法人 親と教員の会 こどものその - 富山県高岡市の幼児園</title>
 
-    <!-- Tailwind CSSの読み込み -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    
 
-    <!-- Google Fonts "Inter" & "Noto Sans JP" の読み込み -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<script src="https://cdn.tailwindcss.com"></script>
+
+    
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- アイコンライブラリ (Ionicons) -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <style>
         /* 日本語フォントと基本フォント設定 */
         body {
             font-family: 'Noto Sans JP', 'Inter', sans-serif;
-            scroll-behavior: smooth; /* スムーズスクロール */
+            scroll-behavior: smooth; /* スムーズスクロールを有効に */
         }
         /* 見出し用のフォント */
         h1, h2, h3, h4, h5, h6 {
@@ -30,41 +33,48 @@
         }
         /* アニメーション用のカスタムクラス */
         .fade-in {
-            animation: fadeIn 1s ease-in-out forwards; /* forwardsを追加して状態を維持 */
-            opacity: 0; /* 初期状態を透明に */
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+             opacity: 0;
+             transition: opacity 1s ease-in-out;
         }
         /* スライドインアニメーション */
-        .slide-in-left, .slide-in-right, .slide-in-bottom {
+        .slide-in-left {
             opacity: 0;
+            transform: translateX(-50px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        .slide-in-left { transform: translateX(-50px); }
-        .slide-in-right { transform: translateX(50px); }
-        .slide-in-bottom { transform: translateY(50px); }
-
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .slide-in-bottom {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
         .visible {
             opacity: 1;
             transform: translateX(0) translateY(0);
         }
 
         /* ドロップダウンメニュー用 */
-        .group:hover .group-hover\:block { display: block; }
-        /* .group:hover .group-hover\:rotate-180 { transform: rotate(180deg); } */ /* 矢印回転削除 */
-
+        .group:hover .group-hover\:block {
+            display: block;
+        }
         /* モバイルメニューのアコーディオン */
         .submenu {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
-        input[type="checkbox"]:checked + label + .submenu { max-height: 500px; }
-        input[type="checkbox"] { display: none; }
+        input[type="checkbox"]:checked + label + .submenu {
+            max-height: 500px; /* 十分な高さを確保 */
+        }
+        input[type="checkbox"] {
+            display: none; /* チェックボックス自体は非表示 */
+        }
 
-        /* カルーセル用のスタイル */
+        /* カルーセル用のスタイル (フェード) */
         .carousel-item {
             display: none;
             position: absolute;
@@ -72,10 +82,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            transition: opacity 1.5s ease-in-out; /* トランジションを長く */
+            transition: opacity 1.5s ease-in-out; /* フェード時間調整 */
             opacity: 0;
         }
-        .carousel-item.active { display: block; opacity: 1; }
+        .carousel-item.active {
+            display: block;
+            opacity: 1;
+            z-index: 1; /* アクティブなスライドを手前に */
+        }
+         .carousel-item:not(.active) {
+            z-index: 0; /* 非アクティブなスライドを背後に */
+        }
         .carousel-item img {
             width: 100%;
             height: 100%;
@@ -85,138 +102,186 @@
         /* 固定ボタン共通スタイル */
         .fixed-action-button {
             position: fixed;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.6); /* 半透明の背景 */
+            right: 25px;
+            background-color: rgba(0, 0, 0, 0.6); /* 半透明の黒 */
             color: white;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 70px; /* サイズを大きく */
+            height: 70px; /* サイズを大きく */
             display: flex;
+            flex-direction: column; /* アイコンとテキストを縦に */
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s ease, transform 0.3s ease;
             z-index: 1000;
-            text-decoration: none; /* 下線除去 */
-        }
-        .fixed-action-button:hover {
-            background-color: rgba(0, 0, 0, 0.8); /* ホバー時濃く */
-            transform: scale(1.05);
+            text-align: center;
+            font-size: 10px; /* テキストサイズ調整 */
+            line-height: 1.2;
+            padding: 5px; /* 内側の余白 */
+            box-sizing: border-box;
         }
         .fixed-action-button ion-icon {
-            font-size: 32px;
+            font-size: 28px; /* アイコンサイズ調整 */
+            margin-bottom: 2px; /* アイコンとテキストの間隔 */
         }
-        /* 各固定ボタンの位置調整 */
-        .fixed-instagram {
-            bottom: 20px;
-            background-color: rgba(225, 48, 108, 0.7); /* Instagram Pink */
+        .fixed-action-button:hover {
+            background-color: rgba(0, 0, 0, 0.8); /* ホバー時少し濃く */
+            transform: scale(1.05);
         }
-        .fixed-instagram:hover {
-             background-color: rgba(225, 48, 108, 1);
-        }
+
+        /* お問い合わせボタンの位置 */
         .fixed-contact {
-            bottom: 95px; /* Instagramボタンの上 */
-             background-color: rgba(52, 211, 153, 0.7); /* Tailwind Emerald 400 */
+            bottom: 105px; /* Instagramボタンの上に配置 */
+            background-color: rgba(52, 211, 153, 0.7); /* Tailwind emerald-400 with opacity */
         }
          .fixed-contact:hover {
-             background-color: rgba(16, 185, 129, 1); /* Tailwind Emerald 500 */
-         }
-         .fixed-contact span {
-             font-size: 10px; /* 文字サイズ調整 */
-             text-align: center;
-             line-height: 1.2;
-             font-weight: bold;
+            background-color: rgba(16, 185, 129, 0.9); /* Tailwind emerald-500 with opacity */
          }
 
-        /* セクション見出しスタイル調整 */
-        .section-category-title {
-            text-align: center;
-            font-size: 1.25rem; /* text-xl */
-            font-weight: 600; /* font-semibold */
-            color: #6b7280; /* text-gray-500 */
-            margin-bottom: 0.5rem; /* mb-2 */
-            margin-top: -3rem; /* 上のセクションに少し重ねる */
-            display: inline-block; /* 中央寄せのため */
-            background-color: #f9fafb; /* bg-gray-50 ほぼ背景と同化 */
-            padding: 0 1rem; /* 左右に少し余白 */
-            position: relative; /* z-indexのため */
-            z-index: 10;
-        }
-        /* 見出しを中央に配置するためのラッパー */
-        .section-category-title-wrapper {
-            text-align: center;
-            margin-bottom: 2rem; /* 下のコンテンツとの間隔 */
-        }
 
+        /* Instagramボタンの位置 */
+        .fixed-instagram {
+            bottom: 25px;
+            background-color: rgba(239, 68, 68, 0.7); /* Tailwind red-500 with opacity */
+        }
+         .fixed-instagram:hover {
+             background-color: rgba(220, 38, 38, 0.9); /* Tailwind red-600 with opacity */
+         }
+
+         /* お知らせセクションのデザイン */
+        .news-item {
+            border-bottom: 1px dashed #ccc;
+            padding: 1rem 0;
+            display: flex;
+            flex-wrap: wrap; /* モバイルで折り返し */
+            gap: 0.5rem 1rem; /* 縦横の隙間 */
+            align-items: center;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-date {
+            color: #555;
+            font-size: 0.9em;
+            flex-shrink: 0; /* 日付が縮まないように */
+        }
+        .news-category {
+            font-size: 0.75em;
+            padding: 0.2em 0.6em;
+            border-radius: 4px;
+            color: white;
+            flex-shrink: 0;
+        }
+        .news-title {
+            color: #333;
+            text-decoration: none;
+            flex-grow: 1; /* タイトルが残りのスペースを埋める */
+            min-width: 0; /* 折り返しのために必要 */
+        }
+         .news-title:hover {
+            text-decoration: underline;
+         }
+         .news-category-event { background-color: #3b82f6; } /* blue-500 */
+         .news-category-notice { background-color: #10b981; } /* emerald-500 */
+         .news-category-admission { background-color: #ef4444; } /* red-500 */
+         .news-category-other { background-color: #6b7280; } /* gray-500 */
+
+        .section-separator {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+            margin: 4rem 0;
+        }
     </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- ===== ヘッダー / ナビゲーションバー ===== -->
-    <header id="header" class="bg-white shadow-md sticky top-0 z-50">
+    
+
+<header id="header" class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- ロゴ -->
-                <div class="flex-shrink-0">
+                
+
+<div class="flex-shrink-0">
                     <a href="#" class="flex items-center space-x-2">
                         <img class="h-16 w-auto" src="kodomonosono_logo.png" alt="NPO法人こどものその ロゴ" onerror="this.onerror=null;this.src='https://placehold.co/100x64/f0f0f0/333333?text=Logo';">
-                        <span class="font-bold text-gray-700 md:text-lg">こどものその</span>
+                        <div class="flex flex-col">
+                           <span class="text-xs text-gray-500">NPO法人</span>
+                           <span class="font-bold text-gray-700 md:text-lg leading-tight">こどものその</span>
+                        </div>
                     </a>
                 </div>
 
-                <!-- PC用ナビゲーション -->
-                <nav class="hidden md:flex space-x-4 lg:space-x-6 items-center">
-                    <!-- 園について Dropdown -->
-                    <div class="relative group">
+                
+
+<nav class="hidden md:flex space-x-4 lg:space-x-6 items-center">
+                    
+
+<div class="relative group">
                         <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center">
                             園について
-                            <!-- SVG矢印削除 -->
-                        </button>
+                            
+
+</button>
                         <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10">
                             <a href="#about-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園について</a>
                             <a href="#philosophy-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">大切にしていること</a>
                             <a href="#life-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園生活の一日</a>
-                        </div>
+                            <a href="#npo-info-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">NPO法人について</a> 
+
+</div>
                     </div>
-                    <!-- 子育て支援 Dropdown -->
-                    <div class="relative group">
+                    
+
+<div class="relative group">
                         <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center">
                             子育て支援
-                            <!-- SVG矢印削除 -->
-                        </button>
-                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10">
-                            <a href="#support-salon-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">子育てサロン「親ふれ」</a>
+                            
+
+</button>
+                        <div class="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10"> 
+
+<a href="#support-salon-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">子育てサロン「親ふれ」</a>
                             <a href="#support-cafe-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ほっとひと息カフェ</a>
                         </div>
                     </div>
-                    <!-- 入園案内 Dropdown -->
-                    <div class="relative group">
+                    
+
+<div class="relative group">
                         <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center">
                             入園案内
-                            <!-- SVG矢印削除 -->
-                        </button>
+                            
+
+</button>
                         <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10">
                             <a href="#admission-info-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">入園案内</a>
                             <a href="#parent-voices-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">保護者の声</a>
                         </div>
                     </div>
-                    <!-- Q&A Dropdown -->
-                    <div class="relative group">
+                    
+
+<div class="relative group">
                         <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center">
-                            Q&A
-                            <!-- SVG矢印削除 -->
-                        </button>
-                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10">
-                            <a href="#faq-main-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">よくある質問</a>
+                            よくある質問
+                            
+
+</button>
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block z-10"> 
+
+<a href="#faq-main-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">よくある質問</a>
                             <a href="#access-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">アクセス</a>
                         </div>
                     </div>
-                    <!-- お問い合わせボタン削除 -->
-                </nav>
+                    
 
-                <!-- モバイル用ハンバーガーボタン -->
-                <div class="md:hidden flex items-center space-x-4">
+</nav>
+
+                
+
+<div class="md:hidden flex items-center space-x-4">
                     <button id="mobile-menu-button" class="text-gray-600 hover:text-green-600 focus:outline-none">
                          <ion-icon name="menu-outline" class="text-3xl" id="menu-open-icon"></ion-icon>
                          <ion-icon name="close-outline" class="text-3xl hidden" id="menu-close-icon"></ion-icon>
@@ -225,10 +290,11 @@
             </div>
         </div>
 
-        <!-- モバイル用メニュー -->
-        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto">
-             <!-- 園について -->
-            <div>
+        
+
+<div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto"> 
+
+<div>
                 <input type="checkbox" id="submenu-about-mobile" class="hidden peer">
                 <label for="submenu-about-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
                     園について
@@ -238,10 +304,13 @@
                     <a href="#about-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園について</a>
                     <a href="#philosophy-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">大切にしていること</a>
                     <a href="#life-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園生活の一日</a>
-                </div>
+                    <a href="#npo-info-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">NPO法人について</a> 
+
+</div>
             </div>
-             <!-- 子育て支援 -->
-             <div>
+             
+
+<div>
                 <input type="checkbox" id="submenu-support-mobile" class="hidden peer">
                 <label for="submenu-support-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
                     子育て支援
@@ -252,8 +321,9 @@
                     <a href="#support-cafe-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">ほっとひと息カフェ</a>
                 </div>
             </div>
-            <!-- 入園案内 -->
-            <div>
+            
+
+<div>
                 <input type="checkbox" id="submenu-admission-mobile" class="hidden peer">
                 <label for="submenu-admission-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
                     入園案内
@@ -264,11 +334,12 @@
                     <a href="#parent-voices-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">保護者の声</a>
                 </div>
             </div>
-            <!-- Q&A -->
-            <div>
+            
+
+<div>
                 <input type="checkbox" id="submenu-faq-mobile" class="hidden peer">
                 <label for="submenu-faq-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
-                    Q&A
+                    よくある質問
                     <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
                 </label>
                 <div class="submenu bg-gray-50 pl-6">
@@ -276,27 +347,33 @@
                     <a href="#access-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">アクセス</a>
                 </div>
             </div>
+            <a href="#contact" class="block py-3 px-4 text-sm bg-green-500 text-white text-center hover:bg-green-600 mobile-link">お問い合わせ</a>
         </div>
     </header>
 
     <main>
-        <!-- ===== キービジュアル ===== -->
-        <section id="hero-carousel" class="relative h-[60vh] md:h-[80vh] flex items-center justify-center text-white text-center bg-gray-600 overflow-hidden">
-            <!-- カルーセルアイテム -->
-            <div class="carousel-item active">
-                <img src="top.jpg" alt="園庭で遊ぶ子供たち1" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/a0aec0/ffffff?text=こどものその1';">
+        
+
+<section id="hero-carousel" class="relative h-[60vh] md:h-[80vh] flex items-center justify-center text-white text-center bg-gray-600 overflow-hidden">
+            
+
+<div class="carousel-item active">
+                <img src="https://placehold.co/1200x800/a0aec0/ffffff?text=こどものその1" class="absolute inset-0 w-full h-full object-cover" alt="園庭で遊ぶ子供たち1">
             </div>
             <div class="carousel-item">
-                <!-- 仮の画像URL。後で実際の画像パスに置き換えてください -->
-                <img src="catch.jpg" alt="園内の様子" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/e0e0e0/ffffff?text=こどものその2';">
+                <img src="https://placehold.co/1200x800/b7ccdb/ffffff?text=こどものその2" class="absolute inset-0 w-full h-full object-cover" alt="園庭で遊ぶ子供たち2">
             </div>
             <div class="carousel-item">
-                 <!-- 仮の画像URL。後で実際の画像パスに置き換えてください -->
-                <img src="oya1.jpg" alt="親と子のふれあい広場の様子1" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/c0c0c0/ffffff?text=こどものその3';">
+                <img src="https://placehold.co/1200x800/cadbe7/ffffff?text=こどものその3" class="absolute inset-0 w-full h-full object-cover" alt="園庭で遊ぶ子供たち3">
             </div>
 
-            <div class="relative z-10 p-4 fade-in">
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+            
+
+<div class="absolute inset-0 bg-black opacity-40 z-0"></div>
+
+            <div class="relative z-10 p-4 fade-in visible"> 
+
+<h1 class="text-4xl md:text-6xl font-extrabold mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
                     生命力全開
                 </h1>
                 <p class="text-lg md:text-2xl font-medium" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
@@ -305,41 +382,50 @@
             </div>
         </section>
 
-        <!-- ===== お知らせ ===== -->
-        <section id="news-section" class="py-16 sm:py-24 observer-target">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        
+
+<section id="news-section" class="py-16 sm:py-24 observer-target">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
                  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 slide-in-bottom">お知らせ</h2>
-                 <div class="max-w-3xl mx-auto space-y-6">
-                    <!-- お知らせアイテム 1 -->
-                    <a href="#" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex items-center slide-in-left">
-                        <p class="text-sm text-gray-500 mr-4 flex-shrink-0 w-24">2025.07.15</p>
-                        <p class="text-gray-800 text-lg flex-grow truncate mr-4">夏祭りを開催します！</p>
-                        <ion-icon name="arrow-forward-outline" class="text-gray-500 text-xl ml-auto flex-shrink-0"></ion-icon>
-                    </a>
-                    <!-- お知らせアイテム 2 -->
-                    <a href="#" class="block bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 flex items-center slide-in-right">
-                        <p class="text-sm text-gray-500 mr-4 flex-shrink-0 w-24">2025.06.30</p>
-                        <p class="text-gray-800 text-lg flex-grow truncate mr-4">ウェブサイトをリニューアルしました。</p>
-                        <ion-icon name="arrow-forward-outline" class="text-gray-500 text-xl ml-auto flex-shrink-0"></ion-icon>
-                    </a>
+                 <div class="bg-white p-6 rounded-lg shadow-md slide-in-bottom">
+                    
+
+<div class="news-item">
+                        <span class="news-date">2025.07.15</span>
+                        <span class="news-category news-category-event">イベント</span>
+                        <a href="#" class="news-title">夏祭りを開催します！親子での参加お待ちしております。</a>
+                    </div>
+                    
+
+<div class="news-item">
+                        <span class="news-date">2025.06.30</span>
+                        <span class="news-category news-category-notice">お知らせ</span>
+                        <a href="#" class="news-title">ウェブサイトをリニューアルしました。</a>
+                    </div>
                 </div>
-                <div class="text-center mt-12 slide-in-bottom">
-                    <a href="#" class="inline-block bg-gray-500 text-white font-bold px-8 py-3 rounded-full hover:bg-gray-600 transition-transform transform hover:scale-105 duration-300">お知らせ一覧へ</a>
+                <div class="text-center mt-8 slide-in-bottom">
+                    <a href="#" class="inline-block text-green-600 font-semibold hover:underline">
+                        もっと見る <ion-icon name="arrow-forward-outline" class="inline-block align-middle"></ion-icon>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- ===== 園について ===== -->
-        <section id="about-section" class="py-16 sm:py-24 bg-white observer-target relative">
+        <hr class="section-separator observer-target slide-in-bottom">
+
+
+        
+
+<section id="about-section" class="py-16 sm:py-24 bg-white observer-target">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div class="slide-in-left">
-                        <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">「こどものその」って、どんなところ？</h3>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">「こどものその」って、どんなところ？</h2>
                         <p class="text-lg leading-relaxed text-gray-600 mb-8">
                             こどものそのは、「こどもだけでなく、親も育つ」がモットーです。<br>
                             幼児園・親・教員の三者が対等なパートナーシップを築き、こどもを中心にすえ、共に育ちあう場、それが「こどものその」です。
                         </p>
-                        <div class="text-center lg:text-center">
+                        <div class="text-center lg:text-left">
                              <a href="#about-section" class="inline-block bg-green-500 text-white font-bold px-10 py-3 rounded-full hover:bg-green-600 transition-transform transform hover:scale-105 duration-300">園について詳しく</a>
                         </div>
                     </div>
@@ -350,16 +436,20 @@
             </div>
         </section>
 
-        <!-- ===== 子育て支援 ===== -->
-        <section id="support-salon-section" class="py-16 sm:py-24 bg-green-50 observer-target relative">
+        <hr class="section-separator observer-target slide-in-bottom">
+
+
+        
+
+<section id="support-salon-section" class="py-16 sm:py-24 bg-green-50 observer-target">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="grid grid-cols-2 gap-4 slide-in-left lg:order-1">
+                    <div class="grid grid-cols-2 gap-4 slide-in-left">
                         <img src="oya1.jpg" class="rounded-lg shadow-lg object-cover w-full aspect-[4/5]" alt="親と子のふれあい広場の様子1" onerror="this.onerror=null;this.src='https://placehold.co/400x500/a0aec0/ffffff?text=親ふれ';">
                         <img src="oya2.jpg" class="rounded-lg shadow-lg object-cover w-full aspect-[4/5] mt-8" alt="親と子のふれあい広場の様子2" onerror="this.onerror=null;this.src='https://placehold.co/400x500/a0aec0/ffffff?text=親ふれ';">
                     </div>
-                    <div class="slide-in-right lg:order-2">
-                        <h3 class="text-3xl md:text-4xl font-bold mb-4">親と子のふれあいサロン「親ふれ」</h3>
+                    <div class="slide-in-right">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">親と子のふれあいサロン「親ふれ」</h2>
                         <p class="text-lg text-green-800 font-semibold mb-6">0〜3歳までの未就園児の親子を対象に、保育士や助産師とお話しながら楽しむことができます。</p>
                         <p class="text-gray-600 leading-relaxed mb-4">
                             通称「親ふれ」は、0歳から3歳までの未就園児親子を対象としたプログラムです。開催日は火・水・木曜日で、保育士や助産師といった専門家が常駐しており、安心して子育ての相談ができます。
@@ -367,7 +457,7 @@
                         <p class="text-gray-600 leading-relaxed">
                             「親ふれ」で園と関わり始め、慣れてきたら「一時保育」を利用し、最終的には本格的な入園へと繋がる、そんなステップもご用意しています。
                         </p>
-                        <div class="mt-8 text-center lg:text-center">
+                        <div class="mt-8 text-center lg:text-left">
                              <a href="#support-salon-section" class="inline-block bg-yellow-500 text-white font-bold px-8 py-3 rounded-full hover:bg-yellow-600 transition-transform transform hover:scale-105 duration-300">「親ふれ」について詳しく</a>
                         </div>
                     </div>
@@ -375,8 +465,12 @@
             </div>
         </section>
 
-         <!-- ===== アクセス ===== -->
-        <section id="access-section" class="py-16 sm:py-24 observer-target">
+        <hr class="section-separator observer-target slide-in-bottom">
+
+
+         
+
+<section id="access-section" class="py-16 sm:py-24 observer-target">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 slide-in-bottom">アクセス</h2>
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -388,7 +482,7 @@
                     </div>
                      <div class="slide-in-right">
                         <h3 class="text-2xl font-bold mb-4">NPO法人 親と教員の会 こどものその</h3>
-                        <p class="text-gray-600 mb-2">〒933-0916  富山県高岡市大町11-19</p>
+                        <p class="text-gray-600 mb-2">〒933-0916 富山県高岡市大町11-19</p>
                         <p class="text-gray-600 mb-6">TEL. 0766-25-2231</p>
                         <a href="https://maps.google.com/?q=富山県高岡市大町11-19" target="_blank" class="inline-block bg-blue-500 text-white font-bold px-6 py-3 rounded-full hover:bg-blue-600 transition duration-300">
                              <ion-icon name="map-outline" class="mr-2 align-middle text-xl"></ion-icon>Googleマップで開く
@@ -461,29 +555,44 @@
 
 </div>
         </section>
+        
+
+<section id="npo-info-section" class="py-16 sm:py-24 bg-gray-100 hidden">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold mb-4">NPO法人について</h2>
+                 <p class="text-lg text-gray-600">NPO法人 親と教員の会 こどものその の活動や概要について説明します。（内容は後で追加）</p>
+             </div>
+        </section>
     </main>
 
     
 
 <a href="#contact" class="fixed-action-button fixed-contact">
-        <span>お問い合わせ</span>
+        <ion-icon name="mail-outline"></ion-icon>
+        <span>お問い<br>合わせ</span>
     </a>
     <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="fixed-action-button fixed-instagram" aria-label="Instagram">
         <ion-icon name="logo-instagram"></ion-icon>
+        <span>Insta<br>gram</span>
     </a>
 
     
 
 <footer class="bg-gray-800 text-white pt-16 pb-8">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12"> 
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
                 
 
-<div class="md:col-span-2"> 
+<div class="md:col-span-1">
                     <img src="kodomonosono_logo.png" class="h-20 mb-4 bg-white rounded-full p-2" alt="こどものその ロゴ" onerror="this.onerror=null;this.src='https://placehold.co/100x80/f0f0f0/333333?text=Logo';">
                     <h4 class="font-bold text-lg mb-2">NPO法人 親と教員の会 こどものその</h4>
                     <p class="text-sm text-gray-400">〒933-0916 富山県高岡市大町11-19</p>
                     <p class="text-sm text-gray-400">TEL: 0766-25-2231</p>
+                    <div class="mt-4">
+                       <a href="#" class="inline-block bg-blue-500 text-white text-sm font-semibold px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
+                           <ion-icon name="document-text-outline" class="mr-1 align-middle"></ion-icon>登園許可証ダウンロード
+                       </a>
+                    </div>
                 </div>
 
                 
@@ -494,7 +603,9 @@
                         <li><a href="#about-section" class="text-gray-400 hover:text-white">園について</a></li>
                         <li><a href="#philosophy-section" class="text-gray-400 hover:text-white">大切にしていること</a></li>
                         <li><a href="#life-section" class="text-gray-400 hover:text-white">園生活の一日</a></li>
-                    </ul>
+                        <li><a href="#npo-info-section" class="text-gray-400 hover:text-white">NPO法人について</a></li> 
+
+</ul>
                 </div>
                  <div class="md:col-span-1">
                     <h4 class="font-bold text-lg mb-4 text-gray-300">子育て支援</h4>
@@ -503,9 +614,7 @@
                         <li><a href="#support-cafe-section" class="text-gray-400 hover:text-white">ほっとひと息カフェ</a></li>
                     </ul>
                 </div>
-                
-
-<div class="md:col-span-1 grid grid-cols-2 md:grid-cols-1 gap-8 md:gap-0">
+                <div class="md:col-span-1 grid grid-cols-2 gap-8">
                     <div>
                         <h4 class="font-bold text-lg mb-4 text-gray-300">入園案内</h4>
                         <ul class="space-y-2 text-sm">
@@ -513,8 +622,8 @@
                             <li><a href="#parent-voices-section" class="text-gray-400 hover:text-white">保護者の声</a></li>
                         </ul>
                     </div>
-                    <div class="mt-0 md:mt-6"> 
-                        <h4 class="font-bold text-lg mb-4 text-gray-300">Q&A</h4>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-gray-300">よくある質問</h4>
                         <ul class="space-y-2 text-sm">
                             <li><a href="#faq-main-section" class="text-gray-400 hover:text-white">よくある質問</a></li>
                             <li><a href="#access-section" class="text-gray-400 hover:text-white">アクセス</a></li>
@@ -576,18 +685,13 @@
                     return;
                 }
 
+                // 固定ヘッダーの高さを考慮
                 const targetElement = document.querySelector(href);
                 if (targetElement) {
                     e.preventDefault();
-                    const headerOffset = document.getElementById('header').offsetHeight;
+                    const headerOffset = document.getElementById('header')?.offsetHeight || 0;
                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    // カテゴリ見出し分を考慮してオフセットを微調整 (任意)
-                    let extraOffset = 0;
-                    if (targetElement.id === 'about-section' || targetElement.id === 'support-salon-section') {
-                        extraOffset = 50; // 見出しの高さ分程度
-                    }
-                    const offsetPosition = elementPosition - headerOffset - extraOffset;
-
+                    const offsetPosition = elementPosition - headerOffset - 20; // 少し余白を追加
 
                     window.scrollTo({
                          top: offsetPosition,
@@ -598,16 +702,17 @@
         });
 
 
-        // トップ写真カルーセル機能
+        // トップ写真カルーセル機能 (フェード)
         let currentSlide = 0;
         const slides = document.querySelectorAll('#hero-carousel .carousel-item');
         const totalSlides = slides.length;
 
         function showSlide(index) {
             slides.forEach((slide, i) => {
-                slide.classList.remove('active');
                 if (i === index) {
                     slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
                 }
             });
         }
@@ -617,79 +722,57 @@
             showSlide(currentSlide);
         }
 
-        if (totalSlides > 1) {
-            setInterval(nextSlide, 5000); // 5秒ごとにスライド
+        // 5秒ごとにスライドを切り替える
+        if (totalSlides > 1) { // スライドが複数ある場合のみ自動再生
+             // 最初のスライドを即座に表示
+             slides[currentSlide].classList.add('active');
+             setInterval(nextSlide, 5000);
+        } else if (totalSlides === 1) {
+             slides[0].classList.add('active'); // スライドが1枚ならそれを表示
         }
-        showSlide(currentSlide); // 初回表示
 
 
         // Intersection Observer API を使ったアニメーション
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.1
+            threshold: 0.1 // 要素の10%が見えたら発火
         };
 
-        const observerCallback = (entries, observer) => {
-             entries.forEach(entry => {
-                 if (entry.isIntersecting) {
-                     // 要素内のアニメーション対象要素に visible クラスを追加
-                     entry.target.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-bottom, .fade-in').forEach(el => {
-                         // すでに visible クラスが付いていない場合のみ追加
-                         if (!el.classList.contains('visible')) {
-                             el.classList.add('visible');
-                         }
-                     });
-                     // トップレベルの fade-in も処理（キービジュアルなど）
-                     if (entry.target.classList.contains('fade-in') && !entry.target.classList.contains('visible')) {
-                         entry.target.classList.add('visible');
-                     }
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 要素が見えたらアニメーションクラスを追加
+                    entry.target.querySelectorAll('.slide-in-left').forEach(el => el.classList.add('visible'));
+                    entry.target.querySelectorAll('.slide-in-right').forEach(el => el.classList.add('visible'));
+                    entry.target.querySelectorAll('.slide-in-bottom').forEach(el => el.classList.add('visible'));
+                    entry.target.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
 
-                     // 一度表示されたら監視を停止（オプション）
-                     // observer.unobserve(entry.target);
-                 } else {
-                     // 画面外に出たらアニメーションクラスを削除（繰り返しアニメーションさせたい場合）
-                     // entry.target.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-bottom, .fade-in').forEach(el => {
-                     //     el.classList.remove('visible');
-                     // });
-                     // if (entry.target.classList.contains('fade-in')) {
-                     //     entry.target.classList.remove('visible');
-                     // }
-                 }
-             });
-         };
+                    // 一度アニメーションしたら監視を停止
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
+        // 監視対象の要素
         document.querySelectorAll('.observer-target').forEach(section => {
+             // アニメーション用のクラスを初期状態で追加しておく
+            section.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-bottom, .fade-in').forEach(el => {
+                // visibleクラスはまだつけない
+            });
             observer.observe(section);
-             // 初期状態でアニメーション対象要素を非表示にするためのクラスを追加しておく
-             section.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-bottom, .fade-in').forEach(el => {
-                 // ここで初期非表示状態を設定
-             });
         });
 
-        // ページロード時にも初期表示要素のアニメーションをトリガー
+        // ページロード時にもし要素が見えていたらアニメーション発火
         document.addEventListener('DOMContentLoaded', () => {
-             const initialTargets = document.querySelectorAll('#hero-carousel .fade-in'); // 例: キービジュアル
-             initialTargets.forEach(el => {
-                 // 少し遅延させて表示開始
-                 setTimeout(() => el.classList.add('visible'), 100);
-             });
-             // 初期状態でビューポート内にある可能性のある他の要素も監視対象に追加
              document.querySelectorAll('.observer-target').forEach(section => {
                  const rect = section.getBoundingClientRect();
                  if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                      // 初期表示時に見える要素のアニメーションを即時適用
-                      section.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-bottom, .fade-in').forEach(el => {
-                           if (!el.classList.contains('visible')) {
-                              //  少し遅延させて表示開始
-                               setTimeout(() => el.classList.add('visible'), 100);
-                           }
-                      });
-                       if (section.classList.contains('fade-in') && !section.classList.contains('visible')) {
-                            setTimeout(() => section.classList.add('visible'), 100);
-                       }
+                     section.querySelectorAll('.slide-in-left').forEach(el => el.classList.add('visible'));
+                     section.querySelectorAll('.slide-in-right').forEach(el => el.classList.add('visible'));
+                     section.querySelectorAll('.slide-in-bottom').forEach(el => el.classList.add('visible'));
+                     section.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+                     observer.unobserve(section); // すでに見えているので監視解除
                  }
              });
         });
