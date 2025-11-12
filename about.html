@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>園について - NPO法人 親と教員の会 こどものその</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Kosugi+Maru&display=swap" rel="stylesheet">
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        /* Base styles */
+        body { font-family: 'Noto Sans JP', 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Noto Sans JP', 'Inter', sans-serif; font-weight: 700; }
+        /* Kosugi Maru for specific sections if needed */
+        .font-kosugi { font-family: 'Kosugi Maru', sans-serif; }
+
+        /* Dropdown Menu */
+        .group .group-hover\\:block { display: none; }
+        .group:hover .group-hover\\:block { display: block; }
+        .dropdown-menu {
+            opacity: 0;
+            transform: translateY(10px) scale(0.98);
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+            pointer-events: none;
+        }
+        .group:hover .dropdown-menu {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        /* Mobile Menu Accordion */
+        .submenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        input[type="checkbox"]:checked + label + .submenu { max-height: 500px; }
+        input[type="checkbox"] { display: none; }
+
+        /* Daily Life Table Style */
+        .daily-schedule-item:nth-child(odd) {
+            background-color: #f7fafc; /* gray-50 */
+        }
+        .daily-schedule-item:nth-child(even) {
+             background-color: #e6fffa; /* teal-50 */
+        }
+
+        /* Fixed Buttons */
+        .fixed-action-button {
+            position: fixed;
+            right: 25px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 50%;
+            width: 72px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.1;
+            padding: 5px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        .fixed-action-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.05);
+        }
+        .fixed-action-button ion-icon {
+            font-size: 36px;
+        }
+        #fixed-contact {
+            bottom: 105px;
+            background-color: rgba(52, 211, 153, 0.7); /* green-400 opacity */
+        }
+        #fixed-contact:hover {
+             background-color: rgba(16, 185, 129, 1); /* green-500 */
+        }
+        #fixed-instagram {
+            bottom: 25px;
+            background-color: rgba(239, 68, 68, 0.7); /* red-500 opacity */
+        }
+         #fixed-instagram:hover {
+            background-color: rgba(220, 38, 38, 1); /* red-600 */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header (Updated) -->
+    <header id="header" class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img class="h-16 w-auto" src="kodomonosono_logo.png" alt="NPO法人こどものその ロゴ" onerror="this.onerror=null;this.src='https://placehold.co/100x64/f0f0f0/333333?text=Logo';">
+                        <div>
+                            <span class="block text-xs text-gray-500 -mb-1">NPO法人</span>
+                            <span class="block font-bold text-gray-700 md:text-lg">こどものその</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- PC Navigation (Updated) -->
+                <nav class="hidden md:flex space-x-4 lg:space-x-6 items-center">
+                    <div class="relative group">
+                        <button class="text-green-600 font-semibold inline-flex items-center py-2">園について</button> <!-- Active style -->
+                        <div class="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                            <a href="about.html" class="block px-4 py-2 text-sm text-green-600 font-semibold hover:bg-gray-100">園について</a>
+                            <a href="about.html#motto" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">大切にしていること</a>
+                            <a href="about.html#daily-life" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園生活の一日</a>
+                            <a href="about.html#npo-info" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">NPO法人について</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">子育て支援</button>
+                        <div class="absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                            <a href="support.html#salon" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
+                            <a href="support.html#cafe" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ほっとひと息カフェ</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">入園案内</button>
+                        <div class="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                            <a href="index.html#admission-info-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">入園案内</a>
+                            <a href="index.html#parent-voices-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">保護者の声</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">よくある質問</button>
+                        <div class="absolute right-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                            <a href="index.html#faq-main-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">よくある質問</a>
+                            <a href="index.html#access-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">アクセス</a>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-green-600 focus:outline-none">
+                         <ion-icon name="menu-outline" class="text-3xl" id="menu-open-icon"></ion-icon>
+                         <ion-icon name="close-outline" class="text-3xl hidden" id="menu-close-icon"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Updated) -->
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg z-40">
+            <div>
+                <input type="checkbox" id="submenu-about-mobile" class="hidden peer" checked> <!-- Open by default -->
+                <label for="submenu-about-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+                    園について
+                    <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
+                </label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="about.html" class="block py-2 px-4 text-sm text-green-600 font-semibold hover:bg-gray-200 mobile-link">園について</a>
+                    <a href="about.html#motto" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">大切にしていること</a>
+                    <a href="about.html#daily-life" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園生活の一日</a>
+                    <a href="about.html#npo-info" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">NPO法人について</a>
+                </div>
+            </div>
+             <div>
+                <input type="checkbox" id="submenu-support-mobile" class="hidden peer">
+                <label for="submenu-support-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+                    子育て支援
+                    <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
+                </label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="support.html#salon" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
+                    <a href="support.html#cafe" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">ほっとひと息カフェ</a>
+                </div>
+            </div>
+            <div>
+                <input type="checkbox" id="submenu-admission-mobile" class="hidden peer">
+                <label for="submenu-admission-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+                    入園案内
+                    <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
+                </label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="index.html#admission-info-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">入園案内</a>
+                    <a href="index.html#parent-voices-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">保護者の声</a>
+                </div>
+            </div>
+            <div>
+                <input type="checkbox" id="submenu-faq-mobile" class="hidden peer">
+                <label for="submenu-faq-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+                    よくある質問
+                    <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
+                </label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="index.html#faq-main-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">よくある質問</a>
+                    <a href="index.html#access-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">アクセス</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Title -->
+        <section class="bg-gradient-to-r from-green-100 to-teal-100 py-12 sm:py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800">園について</h1>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="py-16 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+
+                <!-- Introduction Section -->
+                <section id="about-top" class="mb-16 text-center">
+                    <h2 class="text-2xl md:text-3xl font-normal text-gray-700 mb-4">ともに育ち、ともに学ぶ園。</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-green-700 mb-8 font-kosugi">――こども・親・先生、みんなが主役です。</h3>
+                    <div class="text-left text-base md:text-lg text-gray-600 leading-relaxed space-y-6">
+                        <p>「こどものその」には、子どもたちがのびのびと自分らしく育つ環境があります。<br>
+                        でも、それだけではありません。<br>
+                        ここは“親も一緒に育つ”場所です。</p>
+                        <p>親と教員が子どもの成長を語り合い、考え合う。<br>
+                        そして、子どもたちの世界を一緒に見つめていく。<br>
+                        そんな対話と共感の中で、学び合いの輪が広がっていきます。</p>
+                        <p>子どもたちは、自分の力で考え、行動し、生きる喜びを感じながら大きくなっていきます。<br>
+                        その姿を見守り、支えるのが、私たち大人の役割です。</p>
+                        <p>「こどものその」は、“こどもの、こどもによる、こどものための園”。<br>
+                        子ども・親・教員がともに育ち合う――それが、私たちの願いです。</p>
+                    </div>
+                </section>
+
+                <!-- Summary Section -->
+                <section id="summary" class="mb-16">
+                    <h2 class="text-3xl font-bold text-center mb-8">園概要</h2>
+                    <div class="overflow-x-auto bg-white rounded-lg shadow-md border border-gray-200">
+                        <table class="w-full text-sm md:text-base">
+                            <tbody>
+                                <tr class="border-b border-gray-200">
+                                    <th class="w-1/3 md:w-1/4 p-4 bg-gray-100 text-left font-semibold text-gray-700">名称</th>
+                                    <td class="w-2/3 md:w-3/4 p-4 text-gray-600">NPO法人こどものその</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <th class="p-4 bg-gray-100 text-left font-semibold text-gray-700">園長</th>
+                                    <td class="p-4 text-gray-600">柳　美喜子</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <th class="p-4 bg-gray-100 text-left font-semibold text-gray-700">所在地</th>
+                                    <td class="p-4 text-gray-600">〒933-0916 高岡市大町11-19</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <th class="p-4 bg-gray-100 text-left font-semibold text-gray-700">園児数</th>
+                                    <td class="p-4 text-gray-600">（2020年度）</td>
+                                </tr>
+                                <tr>
+                                    <th class="p-4 bg-gray-100 text-left font-semibold text-gray-700">スタッフ数</th>
+                                    <td class="p-4 text-gray-600">園長＋保育士４名</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Philosophy Section -->
+                <section id="motto" class="mb-16">
+                    <h2 class="text-3xl font-bold text-center mb-10">大切にしていること</h2>
+                    <div class="space-y-10">
+                        
+                        <!-- Item 1 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-green-700 mb-4">1. 子どもひとりひとりが主役です</h3>
+                            <div class="text-gray-600 leading-relaxed space-y-4">
+                                <p>私たちは、子どもを他の誰かと比べることはしません。<br>
+                                一人ひとりが持っている個性や成長のペースを尊重し、その子自身の「今」を大切に見守ります。</p>
+                                <p>「こどものその」では、保護者と教員が一緒になって、子どもの成長を考え、支え合います。<br>
+                                自分の子だけでなく、園に通うすべての子どもたちの姿を共に見守る――そんな温かな関わりの中で、互いに学び合い、育ち合う環境が生まれています。</p>
+                            </div>
+                        </div>
+                        <hr class="border-gray-200">
+                        
+                        <!-- Item 2 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-green-700 mb-4">2. じっくり考え、のびのびと動く力を育てます</h3>
+                            <div class="text-gray-600 leading-relaxed space-y-4">
+                                <p>子どもたちは、自分でやりたいことを見つけ、目標を立て、達成する喜びを味わいます。<br>
+                                それは小さな挑戦の積み重ねかもしれませんが、そこにこそ「生きる力」が育ちます。</p>
+                                <p>「こどものその」では、子どもが自分のペースでじっくり取り組める時間と空間を大切にしています。<br>
+                                大人が結果を急がず、子どもを信じて見守ることで、子どもたちは自分の中にある力を信じ、行動する意欲をのばしていきます。</p>
+                            </div>
+                        </div>
+                        <hr class="border-gray-200">
+
+                        <!-- Item 3 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-green-700 mb-4">3. 自然とふれあい、五感で感じる体験を大切にします</h3>
+                            <div class="text-gray-600 leading-relaxed space-y-4">
+                                <p>泥んこになって遊ぶ、風や光を感じる、絵の具で思いきり表現する――。<br>
+                                そんな「身体で感じる体験」が、子どもたちの感性と想像力を育てます。</p>
+                                <p>自然の中での遊びや表現活動は、子どもが“自分で考える力”や“感じ取る心”を育む大切な時間です。<br>
+                                私たちは、子どもが自由に探索し、失敗し、また挑戦できる環境を整えています。<br>
+                                自然とともに過ごす日々が、心と身体をしなやかに育てていきます。</p>
+                            </div>
+                        </div>
+                        <hr class="border-gray-200">
+
+                        <!-- Item 4 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-green-700 mb-4">4. 親も子も、いっしょに育つ園です</h3>
+                            <div class="text-gray-600 leading-relaxed space-y-4">
+                                <p>「こどものその」は、子どもだけでなく、親も一緒に成長していく場所です。<br>
+                                保護者や家族はいつでも園に足を運び、子どもと一緒に遊び、日々の成長の瞬間に立ち会うことができます。</p>
+                                <p>子どもが初めて挑戦をやり遂げたとき――その感動を、親子で分かち合える環境があります。<br>
+                                また、懇談会や日々の交流を通して、保護者同士が育児の悩みを語り合い、支え合うことも大切にしています。<br>
+                                家庭と園が手を取り合いながら、子どもたちの健やかな成長を支えていく。<br>
+                                それが「こどものその」の大きな特徴です。</p>
+                            </div>
+                        </div>
+                        <hr class="border-gray-200">
+
+                        <!-- Item 5 -->
+                        <div>
+                            <h3 class="text-2xl font-bold text-green-700 mb-4">5. モンテッソーリ教育を基盤にした学び</h3>
+                            <div class="text-gray-600 leading-relaxed space-y-4">
+                                <p>「こどものその」では、モンテッソーリ教育の理念を取り入れています。<br>
+                                子ども自身が興味をもった教具を自分で選び、納得するまで取り組む。<br>
+                                その過程で得られる集中と満足の経験は、子どもに大きな自信を与えます。</p>
+                                <p>繰り返し挑戦する中で、自ら学び、考える姿勢が育ち、やがて「次の挑戦」へとつながっていきます。<br>
+                                モンテッソーリ教育の目的は、子どもが自分の力を最大限に発揮し、責任感と他者への思いやりを持つこと。<br>
+                                私たちはその理念のもとに、一人ひとりの成長を丁寧に支援しています。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Daily Life Section -->
+                <section id="daily-life" class="mb-16">
+                    <h2 class="text-3xl font-bold text-center mb-10">園生活の1日</h2>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-6">● 一日の流れ</h3>
+                    <div class="rounded-lg shadow-md overflow-hidden border border-gray-200">
+                        <div class="daily-schedule-item flex flex-col md:flex-row items-start md:items-center p-4 md:p-6">
+                            <div class="flex-shrink-0 w-full md:w-1/4 mb-2 md:mb-0">
+                                <span class="text-xl font-bold text-green-700">8：30</span>
+                            </div>
+                            <div class="flex-grow text-gray-700">登園・自由活動</div>
+                        </div>
+                        <div class="daily-schedule-item flex flex-col md:flex-row items-start md:items-center p-4 md:p-6">
+                            <div class="flex-shrink-0 w-full md:w-1/4 mb-2 md:mb-0">
+                                <span class="text-xl font-bold text-green-700">9：15</span>
+                            </div>
+                            <div class="flex-grow text-gray-700">運動</div>
+                        </div>
+                        <div class="daily-schedule-item flex flex-col md:flex-row items-start md:items-center p-4 md:p-6">
+                            <div class="flex-shrink-0 w-full md:w-1/4 mb-2 md:mb-0">
+                                <span class="text-xl font-bold text-green-700">9：30</span>
+                            </div>
+                            <div class="flex-grow text-gray-700">朝の会</div>
+                        </div>
+                        <div class="daily-schedule-item flex flex-col md:flex-row items-start md:items-center p-4 md:p-6">
+                            <div class="flex-shrink-0 w-full md:w-1/4 mb-2 md:mb-0">
+                                <span class="text-xl font-bold text-green-700">10：00</span>
+                            </div>
+                            <div class="flex-grow text-gray-700">年齢別活動・自由遊び</div>
+                        </div>
+                        <div class="daily-schedule-item flex flex-col md:flex-row items-start md:items-center p-4 md:p-6">
+                            <div class="flex-shrink-0 w-full md:w-1/4 mb-2 md:mb-0">
+                                <span class="text-xl font-bold text-green-700">11：00</span>
+                            </div>
+                            <div class="flex-grow text-gray-700">当番活動 昼食準備をその日のお当番さんたちが行います。</div>
+                        </div>
+                        <div class="daily-schedule-item flex flex-col md:flex-row items-start md:items-center p-4 md:p-6">
+                            <div class="flex-shrink-0 w-full md:w-1/4 mb-2 md:mb-0">
+                                <span class="text-xl font-bold text-green-700">11：30</span>
+                            </div>
+                            <div class="flex-grow text-gray-700">昼食・自由活動</div>
+                        </div>
+                        <div class="daily-schedule-item flex flex-col md:flex-row items-start md:items-center p-4 md:p-6">
+                            <div class="flex-shrink-0 w-full md:w-1/4 mb-2 md:mb-0">
+                                <span class="text-xl font-bold text-green-700">13：00</span>
+                            </div>
+                            <div class="flex-grow text-gray-700">年齢別活動</div>
+                        </div>
+                        <div class="daily-schedule-item flex flex-col md:flex-row items-start md:items-center p-4 md:p-6">
+                            <div class="flex-shrink-0 w-full md:w-1/4 mb-2 md:mb-0">
+                                <span class="text-xl font-bold text-green-700">13：50</span>
+                            </div>
+                            <div class="flex-grow text-gray-700">おやつ・整理整頓・掃除・降園準備</div>
+                        </div>
+                        <div class="daily-schedule-item flex flex-col md:flex-row items-start md:items-center p-4 md:p-6">
+                            <div class="flex-shrink-0 w-full md:w-1/4 mb-2 md:mb-0">
+                                <span class="text-xl font-bold text-green-700">14：50</span>
+                            </div>
+                            <div class="flex-grow text-gray-700">帰りの会・降園（19時までの延長保育もあります）</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NPO Info Section -->
+                <section id="npo-info" class="mb-16">
+                    <h2 class="text-3xl font-bold text-center mb-6">NPO法人こどものそのについて</h2>
+                    <h3 class="text-2xl font-kosugi text-center text-gray-700 mb-10">― 子どもも、おとなも、育ちあう ―</h3>
+                    
+                    <div class="space-y-10">
+                        <hr class="border-gray-300">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">こどものそののはじまり</h3>
+                            <div class="text-gray-600 leading-relaxed space-y-4">
+                                <p>1977年、教育者・林三雄先生の想いから生まれた「こどものその」。<br>
+                                “子どもたちの笑顔が真ん中にある場所をつくりたい”<br>
+                                その願いのもと、親と教員が力を合わせて歩み始めました。</p>
+                                <p>今も変わらず、私たちは 「子どもが主役・親も共に育つ」 という理念を大切にしています。<br>
+                                子どもたちが自分らしくのびのびと育つこと、<br>
+                                そして親が安心して子育てを楽しめること。<br>
+                                その両方を支えながら、地域に根ざした活動を続けています。</p>
+                            </div>
+                        </div>
+                        <hr class="border-gray-300">
+                        
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">NPO法人としての歩み</h3>
+                            <div class="text-gray-600 leading-relaxed space-y-4">
+                                <p>2006年にNPO法人となってからは、<br>
+                                園の枠をこえて、地域の親子や先生たちと手を取り合い、<br>
+                                「子どもと大人がいっしょに育ち合う社会」を広げています。</p>
+                                <p>子どもの「やってみたい！」を応援し、<br>
+                                親の「こんなときどうしたら？」に寄り添う。<br>
+                                その積み重ねが、こどものそののあたたかい輪をつくっています。</p>
+                            </div>
+                        </div>
+                        <hr class="border-gray-300">
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">活動内容</h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="text-xl font-semibold text-green-700 mb-2">■ 保育事業</h4>
+                                    <p class="text-gray-600 leading-relaxed">幼稚園型施設「こどものその」を運営。<br>
+                                    子ども一人ひとりの興味やペースを尊重し、<br>
+                                    “やりたい！”を大切にした保育を行っています。</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-green-700 mb-2">■ 子育て支援事業</h4>
+                                    <p class="text-gray-600 leading-relaxed">「親と子のふれあい広場」や「つみき広場」「親子体操講座」など、<br>
+                                    親子で楽しめるイベントを開催。<br>
+                                    笑顔の中で、学びとつながりが自然に生まれます。</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-green-700 mb-2">■ 普及・発信活動</h4>
+                                    <p class="text-gray-600 leading-relaxed">園だよりや通信で、日々の活動や子育てのヒントを発信。<br>
+                                    地域とつながりながら、子どもの育ちを応援しています。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border-gray-300">
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">会員・ご支援のお願い</h3>
+                            <div class="text-gray-600 leading-relaxed space-y-4">
+                                <p>「こどものその」の活動は、たくさんの想いと手に支えられています。<br>
+                                子どもたちの未来を一緒につくっていく仲間を募集中です🌿</p>
+                                <ul class="list-disc list-inside space-y-2 pl-4">
+                                    <li>正会員：活動に参加する個人（年会費 2,000円）</li>
+                                    <li>サポート会員：活動を応援する個人・団体（個人 2,000円／団体 5,000円）</li>
+                                    <li>寄付：随時受付中です</li>
+                                </ul>
+                                <p>[お問い合わせフォーム] からお気軽にご連絡ください。<br>
+                                （ゆうちょ銀行 当座 0057010／加入者名：NPO法人こどものその）</p>
+                            </div>
+                        </div>
+                        <hr class="border-gray-300">
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">法人概要</h3>
+                            <div class="text-gray-600 leading-relaxed">
+                                <p>〒933-0916 富山県高岡市大町11-19<br>
+                                代表理事：柳 美喜子</p>
+                            </div>
+                        </div>
+                        <hr class="border-gray-300">
+                        
+                        <div class="text-center pt-6">
+                            <h3 class="text-2xl font-kosugi text-gray-800 mb-4">未来へつなぐ、やさしいまなざし。</h3>
+                            <p class="text-lg text-gray-600 leading-relaxed">子ども、親、地域が響きあい、笑顔がひろがる。<br>
+                            ここから、あたらしい育ちの物語がはじまります。</p>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Fixed Buttons -->
+    <a href="#contact" id="fixed-contact" class="fixed-action-button" aria-label="お問い合わせ">
+        予約・<br>お問い<br>合わせ
+    </a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" id="fixed-instagram" class="fixed-action-button" aria-label="Instagram">
+        <ion-icon name="logo-instagram"></ion-icon>
+    </a>
+
+    <!-- Footer (Updated) -->
+     <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Info & Download -->
+                <div class="md:col-span-1">
+                    <div>
+                        <span class="block text-xs text-gray-400 -mb-1">NPO法人</span>
+                        <span class="block font-bold text-lg mb-2">こどものその</span>
+                    </div>
+                    <p class="text-sm text-gray-400">〒933-0916 富山県高岡市大町11-19</p>
+                    <p class="text-sm text-gray-400 mb-4">TEL: 0766-25-2231</p>
+                    <a href="#" class="inline-flex items-center bg-yellow-500 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-600 transition duration-300 text-sm mt-4">
+                        <ion-icon name="document-text-outline" class="mr-2 text-lg"></ion-icon>登園許可証<br>ダウンロード
+                    </a>
+                </div>
+                <!-- Sitemap -->
+                <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg mb-4 text-gray-300">園について</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">園について</a></li>
+                        <li><a href="about.html#motto" class="text-gray-400 hover:text-white">大切にしていること</a></li>
+                        <li><a href="about.html#daily-life" class="text-gray-400 hover:text-white">園生活の一日</a></li>
+                        <li><a href="about.html#npo-info" class="text-gray-400 hover:text-white">NPO法人について</a></li>
+                    </ul>
+                </div>
+                 <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg mb-4 text-gray-300">子育て支援</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="support.html#salon" class="text-gray-400 hover:text-white leading-tight">子育てサロン<br>「親と子のふれあい広場」</a></li>
+                        <li><a href="support.html#cafe" class="text-gray-400 hover:text-white">ほっとひと息カフェ</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-1 grid grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-gray-300">入園案内</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="index.html#admission-info-section" class="text-gray-400 hover:text-white">入園案内</a></li>
+                            <li><a href="index.html#parent-voices-section" class="text-gray-400 hover:text-white">保護者の声</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-gray-300">よくある質問</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="index.html#faq-main-section" class="text-gray-400 hover:text-white">よくある質問</a></li>
+                            <li><a href="index.html#access-section" class="text-gray-400 hover:text-white">アクセス</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright & Privacy -->
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-500">
+                <p>&copy; 2025 NPO法人こどものその. All Rights Reserved.</p>
+                 <a href="#" class="text-gray-500 hover:text-white ml-4">プライバシーポリシー</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOpenIcon = document.getElementById('menu-open-icon');
+        const menuCloseIcon = document.getElementById('menu-close-icon');
+
+        if (mobileMenuButton && mobileMenu && menuOpenIcon && menuCloseIcon) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuOpenIcon.classList.toggle('hidden');
+                menuCloseIcon.classList.toggle('hidden');
+            });
+        }
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                
+                // Only close menu if it's an anchor link on the same page
+                if (href && (href.startsWith('about.html#') || href.startsWith('support.html') || href.startsWith('index.html'))) {
+                     if (mobileMenu && menuOpenIcon && menuCloseIcon) {
+                        mobileMenu.classList.add('hidden');
+                        menuOpenIcon.classList.remove('hidden');
+                        menuCloseIcon.classList.add('hidden');
+                    }
+                } else if (!href || href.startsWith('#')) {
+                     if (mobileMenu && menuOpenIcon && menuCloseIcon) {
+                        mobileMenu.classList.add('hidden');
+                        menuOpenIcon.classList.remove('hidden');
+                        menuCloseIcon.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"], a[href^="about.html#"]').forEach(anchor => {
+             anchor.addEventListener('click', function (e) {
+                let href = this.getAttribute('href');
+                
+                let targetId;
+                if (href.startsWith('about.html#')) {
+                    targetId = href.substring(href.indexOf('#'));
+                } else if (href.startsWith('#')) {
+                    targetId = href;
+                } else {
+                    return; // Allow navigation to other pages
+                }
+
+                if (targetId === '#') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const header = document.getElementById('header');
+                    const headerOffset = header ? header.offsetHeight : 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
