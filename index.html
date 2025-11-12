@@ -39,8 +39,8 @@
         .visible { opacity: 1; transform: translateX(0) translateY(0); }
 
         /* Dropdown Menu */
-        .group .group-hover\:block { display: none; }
-        .group:hover .group-hover\:block { display: block; }
+        .group .group-hover\\:block { display: none; }
+        .group:hover .group-hover\\:block { display: block; }
         .dropdown-menu {
             opacity: 0;
             transform: translateY(10px) scale(0.98); /* Slightly adjusted starting position */
@@ -123,7 +123,7 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <a href="#" class="flex items-center space-x-2">
+                    <a href="index.html" class="flex items-center space-x-2">
                         <img class="h-16 w-auto" src="kodomonosono_logo.png" alt="NPO法人こどものその ロゴ" onerror="this.onerror=null;this.src='https://placehold.co/100x64/f0f0f0/333333?text=Logo';">
                         <div>
                             <span class="block text-xs text-gray-500 -mb-1">NPO法人</span>
@@ -131,29 +131,28 @@
                         </div>
                     </a>
                 </div>
-                <!-- PC Navigation -->
+                <!-- PC Navigation (Updated) -->
                 <nav class="hidden md:flex space-x-4 lg:space-x-6 items-center">
                     <div class="relative group">
                         <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">園について</button>
                         <div class="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
-                            <a href="#about-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園について</a>
-                            <a href="motto" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">大切にしていること</a>
-                            <a href="#life-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園生活の一日</a>
-                            <a href="#npo-info-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">NPO法人について</a>
+                            <a href="about.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園について</a>
+                            <a href="about.html#motto" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">大切にしていること</a>
+                            <a href="about.html#daily-life" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園生活の一日</a>
+                            <a href="about.html#npo-info" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">NPO法人について</a>
                         </div>
                     </div>
                     <div class="relative group">
                         <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">子育て支援</button>
                         <div class="absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
-                            <a href="#support-salon-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
-                            <a href="#support-cafe-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ほっとひと息カフェ</a>
+                            <a href="support.html#salon" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
+                            <a href="support.html#cafe" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ほっとひと息カフェ</a>
                         </div>
                     </div>
                     <div class="relative group">
                         <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">入園案内</button>
                         <div class="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
                             <a href="#admission-info-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">入園案内</a>
-                            <a href="#temporary-childcare-info-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">一時保育について</a>
                             <a href="#parent-voices-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">保護者の声</a>
                         </div>
                     </div>
@@ -174,7 +173,7 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu -->
+        <!-- Mobile Menu (Updated) -->
         <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg z-40">
             <div>
                 <input type="checkbox" id="submenu-about-mobile" class="hidden peer">
@@ -183,10 +182,10 @@
                     <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
                 </label>
                 <div class="submenu bg-gray-50 pl-6">
-                    <a href="#about-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園について</a>
-                    <a href="motto" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">大切にしていること</a>
-                    <a href="#life-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園生活の一日</a>
-                    <a href="#npo-info-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">NPO法人について</a>
+                    <a href="about.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園について</a>
+                    <a href="about.html#motto" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">大切にしていること</a>
+                    <a href="about.html#daily-life" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園生活の一日</a>
+                    <a href="about.html#npo-info" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">NPO法人について</a>
                 </div>
             </div>
              <div>
@@ -196,8 +195,8 @@
                     <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
                 </label>
                 <div class="submenu bg-gray-50 pl-6">
-                    <a href="#support-salon-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
-                    <a href="#support-cafe-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">ほっとひと息カフェ</a>
+                    <a href="support.html#salon" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
+                    <a href="support.html#cafe" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">ほっとひと息カフェ</a>
                 </div>
             </div>
             <div>
@@ -276,7 +275,7 @@
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- About Section (Link to new page) -->
         <section id="about-section" class="py-16 sm:py-24 bg-white observer-target">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -287,7 +286,7 @@
                             幼児園・親・教員の三者が対等なパートナーシップを築き、こどもを中心にすえ、共に育ちあう場、それが「こどものその」です。
                         </p>
                         <div class="text-center lg:text-left">
-                             <a href="#about-section" class="inline-block bg-green-500 text-white font-bold px-10 py-3 rounded-full hover:bg-green-600 transition-transform transform hover:scale-105 duration-300">園について詳しく</a>
+                             <a href="about.html" class="inline-block bg-green-500 text-white font-bold px-10 py-3 rounded-full hover:bg-green-600 transition-transform transform hover:scale-105 duration-300">園について詳しく</a>
                         </div>
                     </div>
                     <div class="slide-in-right">
@@ -297,7 +296,7 @@
             </div>
         </section>
 
-        <!-- Support Section -->
+        <!-- Support Section (Updated to link to support.html) -->
         <section id="support-salon-section" class="py-16 sm:py-24 bg-green-50 observer-target">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -315,7 +314,7 @@
                             「親ふれ」で園と関わり始め、慣れてきたら「一時保育」を利用し、最終的には本格的な入園へと繋がる、そんなステップもご用意しています。
                         </p>
                         <div class="mt-8 text-center lg:text-left">
-                             <a href="#support-salon-section" class="inline-block bg-yellow-500 text-white font-bold px-8 py-3 rounded-full hover:bg-yellow-600 transition-transform transform hover:scale-105 duration-300">「親ふれ」について詳しく</a>
+                             <a href="support.html#salon" class="inline-block bg-yellow-500 text-white font-bold px-8 py-3 rounded-full hover:bg-yellow-600 transition-transform transform hover:scale-105 duration-300">「親ふれ」について詳しく</a>
                         </div>
                     </div>
                 </div>
@@ -346,13 +345,10 @@
         </section>
 
         <!-- Hidden Sections for Navigation Links -->
-        <section id="philosophy-section" class="py-16 sm:py-24 bg-white hidden"> </section>
-        <section id="life-section" class="py-16 sm:py-24 hidden"> </section>
-        <section id="npo-info-section" class="py-16 sm:py-24 hidden"></section>
-        <section id="support-cafe-section" class="py-16 sm:py-24 bg-green-50 hidden"></section>
-        <section id="admission-info-section" class="py-16 sm:py-24 bg-white hidden"></section>
-        <section id="parent-voices-section" class="py-16 sm:py-24 bg-green-50 hidden"></section>
-        <section id="faq-main-section" class="py-16 sm:py-24 hidden"></section>
+        <section id="support-cafe-section" class="hidden"></section>
+        <section id="admission-info-section" class="hidden"></section>
+        <section id="parent-voices-section" class="hidden"></section>
+        <section id="faq-main-section" class="hidden"></section>
     </main>
 
     <!-- Fixed Buttons -->
@@ -363,7 +359,7 @@
         <ion-icon name="logo-instagram"></ion-icon>
     </a>
 
-    <!-- Footer -->
+    <!-- Footer (Updated) -->
     <footer class="bg-gray-800 text-white pt-16 pb-8">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 mb-12">
@@ -383,32 +379,32 @@
                 <div class="md:col-span-1">
                     <h4 class="font-bold text-lg mb-4 text-gray-300">園について</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#about-section" class="text-gray-400 hover:text-white">園について</a></li>
-                        <li><a href="motto" class="text-gray-400 hover:text-white">大切にしていること</a></li>
-                        <li><a href="#life-section" class="text-gray-400 hover:text-white">園生活の一日</a></li>
-                        <li><a href="#npo-info-section" class="text-gray-400 hover:text-white">NPO法人について</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">園について</a></li>
+                        <li><a href="about.html#motto" class="text-gray-400 hover:text-white">大切にしていること</a></li>
+                        <li><a href="about.html#daily-life" class="text-gray-400 hover:text-white">園生活の一日</a></li>
+                        <li><a href="about.html#npo-info" class="text-gray-400 hover:text-white">NPO法人について</a></li>
                     </ul>
                 </div>
                  <div class="md:col-span-1">
                     <h4 class="font-bold text-lg mb-4 text-gray-300">子育て支援</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#support-salon-section" class="text-gray-400 hover:text-white leading-tight">子育てサロン<br>「親と子のふれあい広場」</a></li>
-                        <li><a href="#support-cafe-section" class="text-gray-400 hover:text-white">ほっとひと息カフェ</a></li>
+                        <li><a href="support.html#salon" class="text-gray-400 hover:text-white leading-tight">子育てサロン<br>「親と子のふれあい広場」</a></li>
+                        <li><a href="support.html#cafe" class="text-gray-400 hover:text-white">ほっとひと息カフェ</a></li>
                     </ul>
                 </div>
                 <div class="md:col-span-1 grid grid-cols-2 gap-8">
                     <div>
                         <h4 class="font-bold text-lg mb-4 text-gray-300">入園案内</h4>
                         <ul class="space-y-2 text-sm">
-                            <li><a href="#admission-info-section" class="text-gray-400 hover:text-white">入園案内</a></li>
-                            <li><a href="#parent-voices-section" class="text-gray-400 hover:text-white">保護者の声</a></li>
+                            <li><a href="index.html#admission-info-section" class="text-gray-400 hover:text-white">入園案内</a></li>
+                            <li><a href="index.html#parent-voices-section" class="text-gray-400 hover:text-white">保護者の声</a></li>
                         </ul>
                     </div>
                     <div>
                         <h4 class="font-bold text-lg mb-4 text-gray-300">よくある質問</h4>
                         <ul class="space-y-2 text-sm">
-                            <li><a href="#faq-main-section" class="text-gray-400 hover:text-white">よくある質問</a></li>
-                            <li><a href="#access-section" class="text-gray-400 hover:text-white">アクセス</a></li>
+                            <li><a href="index.html#faq-main-section" class="text-gray-400 hover:text-white">よくある質問</a></li>
+                            <li><a href="index.html#access-section" class="text-gray-400 hover:text-white">アクセス</a></li>
                         </ul>
                     </div>
                 </div>
@@ -433,27 +429,32 @@
             menuCloseIcon.classList.toggle('hidden');
         });
         document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuOpenIcon.classList.remove('hidden');
-                menuCloseIcon.classList.add('hidden');
-                 document.querySelectorAll('#mobile-menu input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                // Close menu if it's an anchor link on the same page
+                if (href && href.startsWith('#')) {
+                     mobileMenu.classList.add('hidden');
+                     menuOpenIcon.classList.remove('hidden');
+                     menuCloseIcon.classList.add('hidden');
+                }
+                // Allow navigation to other pages (like about.html, support.html)
             });
         });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (this.closest('#mobile-menu') && !href.includes('-section') && href !== '#') return;
-                if (href === '#') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-                const targetElement = document.querySelector(href);
-                if (targetElement) {
-                    e.preventDefault();
-                    const headerOffset = document.getElementById('header')?.offsetHeight || 80; // Added fallback height
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                let href = this.getAttribute('href');
+                
+                if (href.startsWith('#')) {
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerOffset = document.getElementById('header')?.offsetHeight || 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerOffset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
                 }
             });
         });
@@ -512,4 +513,3 @@
 
 </body>
 </html>
-
