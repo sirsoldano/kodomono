@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よくある質問・アクセス - NPO法人こどものその</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .fixed-action-button {
+            position: fixed; right: 20px;
+            background-color: rgba(0, 0, 0, 0.6); color: white;
+            border-radius: 50%; width: 70px; height: 70px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease; z-index: 50; cursor: pointer;
+        }
+        .fixed-action-button:hover { transform: scale(1.05); }
+        #fixed-contact { bottom: 100px; background-color: rgba(52, 211, 153, 0.9); }
+        #fixed-instagram { bottom: 20px; background-color: rgba(239, 68, 68, 0.9); }
+        
+        /* Accordion */
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] > summary .icon { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img class="h-14 w-auto" src="https://placehold.co/100x64/f0f0f0/333333?text=Logo" alt="ロゴ">
+                    <div><span class="block text-xs text-gray-500 -mb-1">NPO法人</span><span class="block font-bold text-gray-700 text-lg">こどものその</span></div>
+                </a>
+                <nav class="hidden md:flex space-x-6 items-center font-bold text-gray-600">
+                    <a href="about.html" class="hover:text-green-600">園について</a>
+                    <a href="support.html" class="hover:text-green-600">子育て支援</a>
+                    <a href="admission.html" class="hover:text-green-600">入園案内</a>
+                    <a href="faq.html" class="text-green-600">よくある質問</a>
+                    <a href="#access" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition text-sm">アクセス</a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden text-3xl text-gray-600"><ion-icon name="menu-outline"></ion-icon></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full z-40">
+            <div class="flex flex-col p-4 space-y-4 font-bold text-gray-600">
+                <a href="about.html" class="block py-2 border-b">園について</a>
+                <a href="support.html" class="block py-2 border-b">子育て支援</a>
+                <a href="admission.html" class="block py-2 border-b">入園案内</a>
+                <a href="faq.html" class="block py-2 border-b text-green-600">よくある質問・アクセス</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-4xl py-16">
+        
+        <!-- FAQ Section -->
+        <section class="mb-24">
+            <h1 class="text-3xl font-bold text-center mb-4">よくあるご質問</h1>
+            <p class="text-center text-gray-600 mb-12">園について、保育内容や入園のことなど、よくいただくご質問をまとめました。<br>気になることやご不明点は、いつでもお気軽にお問い合わせください。</p>
+
+            <div class="space-y-4">
+                <!-- Q1 -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center p-6 font-bold text-gray-800">
+                        <span>Q1. こどものそのは幼稚園？保育園？</span>
+                        <ion-icon name="chevron-down-outline" class="icon text-gray-400 transition-transform duration-300"></ion-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-gray-50 border-t border-gray-100 p-4">
+                        <p>こどものそのは、国（厚生労働省）の基準を満たした「認可外保育施設」です。いわば “幼稚園型の保育園”。<br>
+                        「子育ての主役は親、教員は援助者」という理念のもと、先生と保護者が一緒に話し合いながら園づくりをしています。<br>
+                        親御さんはいつでも園に来て、お子さんの様子を見たり、保育に参加することができます。</p>
+                    </div>
+                </details>
+
+                <!-- Q2 -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center p-6 font-bold text-gray-800">
+                        <span>Q2. 園ではどんな活動をしていますか？</span>
+                        <ion-icon name="chevron-down-outline" class="icon text-gray-400 transition-transform duration-300"></ion-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-gray-50 border-t border-gray-100 p-4">
+                        <p>子どもが“自分で考え、行動する力”を育てることを大切にしています。<br>
+                        縦割り保育・モンテッソーリ教具・食育活動・競争しない運動会など、一人ひとりの「今」を見つめた活動を行っています。</p>
+                    </div>
+                </details>
+
+                <!-- Q3 -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center p-6 font-bold text-gray-800">
+                        <span>Q3. 何歳から入園できますか？</span>
+                        <ion-icon name="chevron-down-outline" class="icon text-gray-400 transition-transform duration-300"></ion-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-gray-50 border-t border-gray-100 p-4">
+                        <p>歩行ができ、普通食が食べられるお子さまから入園できます。<br>
+                        入園時期はお子さまの成長に合わせていつでもOK。おむつが取れていなくても大丈夫です。<br>
+                        お昼寝が必要なお子さまは園でお昼寝ができます。</p>
+                    </div>
+                </details>
+
+                <!-- Q4 -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center p-6 font-bold text-gray-800">
+                        <span>Q4. 保育時間や延長保育について教えてください。</span>
+                        <ion-icon name="chevron-down-outline" class="icon text-gray-400 transition-transform duration-300"></ion-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-gray-50 border-t border-gray-100 p-4">
+                        <p>通常保育：8:30〜15:00<br>
+                        早朝保育：7:00〜／延長保育：〜19:00 まで対応可能。<br>
+                        働くお母さん・お父さんも安心してご利用いただけます。土曜保育などもご希望があればご相談ください。</p>
+                    </div>
+                </details>
+                
+                <!-- Q5 -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center p-6 font-bold text-gray-800">
+                        <span>Q5. 送迎バスはありますか？</span>
+                        <ion-icon name="chevron-down-outline" class="icon text-gray-400 transition-transform duration-300"></ion-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-gray-50 border-t border-gray-100 p-4">
+                        <p>送迎バスはありません。<br>
+                        登降園の際に先生と直接お話ししながら、お子さんの小さな変化を共有できる時間を大切にしています。</p>
+                    </div>
+                </details>
+
+                <!-- Q6 -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center p-6 font-bold text-gray-800">
+                        <span>Q6. お昼ごはんはどうなっていますか？</span>
+                        <ion-icon name="chevron-down-outline" class="icon text-gray-400 transition-transform duration-300"></ion-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-gray-50 border-t border-gray-100 p-4">
+                        <p>主食はご家庭から、おかずはお弁当業者の給食です。子どもたちは当番制でテーブルを整え、お花を飾ります。<br>
+                        毎週金曜日は「おにぎりの日」。自分たちで作ったお味噌汁やスープと一緒にいただきます。</p>
+                    </div>
+                </details>
+
+                <!-- Q7 -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center p-6 font-bold text-gray-800">
+                        <span>Q7. 食物アレルギーがあるのですが…</span>
+                        <ion-icon name="chevron-down-outline" class="icon text-gray-400 transition-transform duration-300"></ion-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-gray-50 border-t border-gray-100 p-4">
+                        <p>アレルゲンを含むおかずを除いたメニューを提供します。必要に応じてお弁当の持参も可能です。<br>
+                        おやつや食育活動では、みんなが同じものを楽しめるよう工夫しています。</p>
+                    </div>
+                </details>
+
+                <!-- Q8 -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center p-6 font-bold text-gray-800">
+                        <span>Q8. 地域の保育園と迷っています…</span>
+                        <ion-icon name="chevron-down-outline" class="icon text-gray-400 transition-transform duration-300"></ion-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-gray-50 border-t border-gray-100 p-4">
+                        <p>こどものそのを卒園した子どもたちは、それぞれ違う小学校へ進んでもすぐに新しいお友だちをつくっています。<br>
+                        “自分らしく生きる力”を育てることが、この時期に大切だと考えています。<br>
+                        遠方（伏木・中田・射水・砺波など）から通う方も多くいらっしゃいます。</p>
+                    </div>
+                </details>
+
+                <!-- Q9 -->
+                <details class="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center p-6 font-bold text-gray-800">
+                        <span>Q9. 園費を教えてください。</span>
+                        <ion-icon name="chevron-down-outline" class="icon text-gray-400 transition-transform duration-300"></ion-icon>
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-600 leading-relaxed bg-gray-50 border-t border-gray-100 p-4">
+                        <p>・月額 40,000円<br>
+                        ・給食費 5,000円<br>
+                        ※1歳6か月以下のお子さまは＋2,000円／月<br>
+                        制服や持ち物は自由です。</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Access Section -->
+        <section id="access" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8 border-t border-gray-200 pt-12">アクセス</h2>
+            
+            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                <div class="md:flex gap-8 mb-6">
+                    <div class="md:w-1/2 mb-4 md:mb-0">
+                        <h3 class="font-bold text-xl mb-2">NPO法人 こどものその</h3>
+                        <p class="text-gray-600 mb-4">
+                            〒933-0914 富山県高岡市大町11-19<br>
+                            電話：0766-25-2231
+                        </p>
+                        <p class="text-sm text-gray-500">「こどものその」の看板と電柱広告が目印です。<br>もし迷われた場合は、お気軽にお電話ください。</p>
+                    </div>
+                    <div class="md:w-1/2 h-64 bg-gray-200 rounded-lg overflow-hidden">
+                        <!-- Placeholder for Map -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3196.8!2d137.0!3d36.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ1JzA1LjIiTiAxMzfCsDAwJzM4LjciRQ!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="text-center">
+                     <a href="https://maps.google.com/?q=富山県高岡市大町11-19" target="_blank" class="inline-flex items-center text-blue-600 font-bold hover:underline">
+                        <ion-icon name="map" class="mr-2"></ion-icon>
+                        Googleマップアプリで開く
+                     </a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Public Transport -->
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold mb-4 text-gray-700">🚌 公共交通機関をご利用の方へ</h3>
+                    <div class="bg-white p-4 rounded text-sm text-gray-600">
+                        <p class="font-bold mb-2">高岡駅からのアクセス</p>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>万葉線に乗車</li>
+                            <li>２駅目「片原町」で下車</li>
+                            <li>駅から徒歩約11分で到着です</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- Car -->
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="font-bold mb-4 text-gray-700">🚗 お車でお越しの方へ</h3>
+                    <div class="bg-white p-4 rounded text-sm text-gray-600">
+                        <p>園の前に駐車スペースがあります。<br>満車の場合はスタッフがご案内いたしますので、お声がけください。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center bg-yellow-50 p-4 rounded border border-yellow-200">
+                <p class="font-bold text-gray-700">もし道に迷われた時は</p>
+                <p class="text-2xl font-bold text-gray-800 my-2">0766-25-2231</p>
+                <p class="text-sm text-gray-600">までお気軽にお電話ください。</p>
+            </div>
+        </section>
+
+        <!-- Mobile Sticky Buttons (Simulated at bottom of content) -->
+        <div class="flex gap-2 mt-12 md:hidden">
+            <a href="https://maps.google.com/?q=富山県高岡市大町11-19" class="flex-1 bg-blue-500 text-white text-center py-3 rounded font-bold text-sm">📍 Mapで開く</a>
+            <a href="tel:0766252231" class="flex-1 bg-green-500 text-white text-center py-3 rounded font-bold text-sm">📞 電話する</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-10 pb-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-gray-400">&copy; 2025 NPO法人こどものその All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Buttons -->
+    <a href="admission.html#contact" id="fixed-contact" class="fixed-action-button"><div>見学<br>予約</div></a>
+    <a href="#" id="fixed-instagram" class="fixed-action-button"><ion-icon name="logo-instagram" class="text-3xl"></ion-icon></a>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
