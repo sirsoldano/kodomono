@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>園について - NPO法人こどものその</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .fixed-action-button {
+            position: fixed; right: 20px;
+            background-color: rgba(0, 0, 0, 0.6); color: white;
+            border-radius: 50%; width: 70px; height: 70px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease; z-index: 50; cursor: pointer;
+        }
+        .fixed-action-button:hover { transform: scale(1.05); }
+        #fixed-contact { bottom: 100px; background-color: rgba(52, 211, 153, 0.9); }
+        #fixed-instagram { bottom: 20px; background-color: rgba(239, 68, 68, 0.9); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img class="h-14 w-auto" src="https://placehold.co/100x64/f0f0f0/333333?text=Logo" alt="ロゴ">
+                    <div><span class="block text-xs text-gray-500 -mb-1">NPO法人</span><span class="block font-bold text-gray-700 text-lg">こどものその</span></div>
+                </a>
+                <nav class="hidden md:flex space-x-6 items-center font-bold text-gray-600">
+                    <a href="about.html" class="text-green-600">園について</a>
+                    <a href="support.html" class="hover:text-green-600">子育て支援</a>
+                    <a href="admission.html" class="hover:text-green-600">入園案内</a>
+                    <a href="faq.html" class="hover:text-green-600">よくある質問</a>
+                    <a href="faq.html#access" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition text-sm">アクセス</a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden text-3xl text-gray-600"><ion-icon name="menu-outline"></ion-icon></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full z-40">
+            <div class="flex flex-col p-4 space-y-4 font-bold text-gray-600">
+                <a href="about.html" class="block py-2 border-b text-green-600">園について</a>
+                <a href="support.html" class="block py-2 border-b">子育て支援</a>
+                <a href="admission.html" class="block py-2 border-b">入園案内</a>
+                <a href="faq.html" class="block py-2 border-b">よくある質問・アクセス</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative h-[400px] md:h-[500px] flex items-center justify-center text-white text-center">
+        <img src="https://placehold.co/1200x500/81C784/ffffff?text=Nature+and+Kids" alt="園風景" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 px-4 max-w-4xl">
+            <h1 class="text-2xl md:text-4xl font-bold mb-4">子どもが育ち、親も育つ。<br>――対話と共感の中で、共に歩む保育を。</h1>
+            <div class="text-sm md:text-lg font-light leading-relaxed">
+                <p class="mb-2">「こどものその」は、子ども一人ひとりの内にある力を信じ、その可能性をのびやかに伸ばしていく場です。</p>
+                <p>同時に、ここは“親も育つ場所”。子どもの成長を見つめながら、親同士・教員と語り合う時間を通して、大人もまた気づき、学び、成長していきます。</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 max-w-5xl py-16">
+        
+        <!-- Section 1: Philosophy -->
+        <section class="mb-20 grid md:grid-cols-2 gap-10 items-center">
+            <img src="https://placehold.co/500x350/e0e0e0/333333?text=History" alt="創立当初の写真" class="rounded-lg shadow-lg w-full h-auto">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">「こどものその」という名に込めた想い</h2>
+                <div class="bg-white p-6 rounded border-l-4 border-green-500 shadow-sm text-gray-700 leading-relaxed">
+                    <p class="mb-4">子ども・親・教員の三者が対等に関わり、共に考え、支え合う関係づくりを大切にしています。</p>
+                    <p>「こどものその」という名には、“こどもの、こどもによる、こどものための園”という想いが込められています。<br>
+                    NPO法人として、地域や社会にもその輪を広げながら、これからも子どもたちの笑顔があふれる場所であり続けます。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Overview -->
+        <section class="mb-20 bg-[#f7f7f3] p-8 md:p-12 rounded-xl">
+            <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">園概要</h2>
+            <div class="bg-white rounded-lg shadow overflow-hidden max-w-3xl mx-auto">
+                <table class="w-full">
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <th class="py-4 px-6 bg-gray-50 text-left font-bold text-gray-600">名称</th>
+                            <td class="py-4 px-6">NPO法人こどものその</td>
+                        </tr>
+                        <tr>
+                            <th class="py-4 px-6 bg-gray-50 text-left font-bold text-gray-600">園長</th>
+                            <td class="py-4 px-6">柳 美喜子</td>
+                        </tr>
+                        <tr>
+                            <th class="py-4 px-6 bg-gray-50 text-left font-bold text-gray-600">所在地</th>
+                            <td class="py-4 px-6">〒933-0916 高岡市大町11-19</td>
+                        </tr>
+                        <tr>
+                            <th class="py-4 px-6 bg-gray-50 text-left font-bold text-gray-600">園児数</th>
+                            <td class="py-4 px-6">（2025年度）</td>
+                        </tr>
+                        <tr>
+                            <th class="py-4 px-6 bg-gray-50 text-left font-bold text-gray-600">スタッフ数</th>
+                            <td class="py-4 px-6">園長＋保育士4名</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 3: Values -->
+        <section class="mb-20">
+            <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">大切にしていること</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-green-700 mb-3">① 子どもひとりひとりが主役です</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">私たちは、子どもを他の誰かと比べることはしません。一人ひとりが持っている個性や成長のペースを尊重し、その子自身の「今」を大切に見守ります。</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-green-700 mb-3">② じっくり考え、のびのび動く力</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">大人が結果を急がず、子どもを信じて見守ることで、子どもたちは自分の中にある力を信じ、行動する意欲をのばしていきます。</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-green-700 mb-3">③ 自然とふれあい、五感で感じる</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">泥んこになって遊ぶ、風や光を感じる。そんな「身体で感じる体験」が、子どもたちの感性と想像力を育てます。</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-green-700 mb-3">④ 親も子も、いっしょに育つ園です</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">保護者や家族はいつでも園に足を運び、日々の成長の瞬間に立ち会えます。家庭と園が手を取り合い、子どもの成長を支えます。</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-green-700 mb-3">⑤ モンテッソーリ教育を基盤に</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">子ども自身が興味をもった教具を自分で選び、納得するまで取り組む。その過程で得られる集中と満足の経験が自信を与えます。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Daily Life -->
+        <section class="mb-20 bg-green-50 rounded-xl p-8 md:p-12" id="daily-life">
+            <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">園生活の1日</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <table class="w-full text-sm">
+                        <tbody class="divide-y">
+                            <tr><td class="py-2 font-bold text-green-600">8:30</td><td class="py-2">登園・自由活動</td></tr>
+                            <tr><td class="py-2 font-bold text-green-600">9:15</td><td class="py-2">運動</td></tr>
+                            <tr><td class="py-2 font-bold text-green-600">9:30</td><td class="py-2">朝の会</td></tr>
+                            <tr><td class="py-2 font-bold text-green-600">10:00</td><td class="py-2">年齢別活動・自由遊び</td></tr>
+                            <tr><td class="py-2 font-bold text-green-600">11:00</td><td class="py-2">当番活動（昼食準備）</td></tr>
+                            <tr><td class="py-2 font-bold text-green-600">11:30</td><td class="py-2">昼食・自由活動</td></tr>
+                            <tr><td class="py-2 font-bold text-green-600">13:00</td><td class="py-2">年齢別活動</td></tr>
+                            <tr><td class="py-2 font-bold text-green-600">13:50</td><td class="py-2">おやつ・掃除・降園準備</td></tr>
+                            <tr><td class="py-2 font-bold text-green-600">14:50</td><td class="py-2">帰りの会・降園（〜19:00延長保育あり）</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <img src="https://placehold.co/600x600/a5d6a7/ffffff?text=Life" alt="園生活の様子" class="rounded-lg shadow w-full h-auto object-cover">
+            </div>
+        </section>
+
+        <!-- Section 5: NPO Info -->
+        <section class="mb-20" id="npo">
+            <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">NPO法人こどものそのについて</h2>
+            <div class="bg-white p-8 rounded-lg border border-gray-200 shadow-sm max-w-4xl mx-auto text-gray-700 leading-relaxed mb-12">
+                <p class="mb-4">「こどものその」は、1977年に教育者・林三雄先生の理念のもと誕生しました。“子どものための園であり、親も共に育つ場であること”を大切に、親と教員が力を合わせて子どもの成長を支えてきました。</p>
+                <p>2006年にはNPO法人として新たな一歩を踏み出し、地域の中で信頼される子育て支援の拠点を目指しています。</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow border-t-4 border-green-500">
+                    <h3 class="font-bold text-lg mb-2">保育事業</h3>
+                    <p class="text-sm text-gray-600">幼稚園型施設「こどものその」を運営。</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-t-4 border-yellow-500">
+                    <h3 class="font-bold text-lg mb-2">子育て支援</h3>
+                    <p class="text-sm text-gray-600">親子が自由に集える「親と子のふれあい広場」「ホッと一息カフェ」各種ワークショップなどを開催。</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-t-4 border-blue-500">
+                    <h3 class="font-bold text-lg mb-2">普及・発信</h3>
+                    <p class="text-sm text-gray-600">SNSや通信で活動を発信。地域と子育てをつなぎます。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Membership & Corp -->
+        <section class="mb-12 bg-orange-50 p-8 rounded-xl">
+            <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">会員・ご支援のお願い</h2>
+            <p class="text-center text-gray-700 mb-8">私たちの活動は、皆さまの温かいご支援によって支えられています。<br>理念に共感し、共に学び育つ仲間として参加してくださる方を募集しています。</p>
+            <div class="bg-white rounded overflow-hidden max-w-2xl mx-auto mb-8">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-100 border-b">
+                        <tr><th class="py-2 px-4 text-left">種別</th><th class="py-2 px-4 text-left">内容</th><th class="py-2 px-4 text-left">年会費</th></tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr><td class="py-2 px-4 font-bold">正会員</td><td class="py-2 px-4">活動推進に参加する個人</td><td class="py-2 px-4">2,000円</td></tr>
+                        <tr><td class="py-2 px-4 font-bold">サポート会員</td><td class="py-2 px-4">活動を応援する個人・団体</td><td class="py-2 px-4">個人2,000円／団体5,000円</td></tr>
+                        <tr><td class="py-2 px-4 font-bold">寄付</td><td class="py-2 px-4">随時受付中</td><td class="py-2 px-4">ー</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center">
+                <a href="admission.html#contact" class="inline-block bg-green-600 text-white font-bold py-3 px-8 rounded-full hover:bg-green-700 transition">お問い合わせ・お申し込み</a>
+            </div>
+        </section>
+        
+        <section class="text-center text-gray-600 text-sm">
+             <h3 class="font-bold text-lg text-gray-800 mb-2">法人概要</h3>
+             <p>NPO法人こどものその 代表理事：柳 美喜子<br>〒933-0916 富山県高岡市大町11-19<br>ゆうちょ銀行 当座 0057010（加入者名：NPO法人こどものその）</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-10 pb-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-gray-400">&copy; 2025 NPO法人こどものその All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Buttons -->
+    <a href="admission.html#contact" id="fixed-contact" class="fixed-action-button"><div>見学<br>予約</div></a>
+    <a href="#" id="fixed-instagram" class="fixed-action-button"><ion-icon name="logo-instagram" class="text-3xl"></ion-icon></a>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
