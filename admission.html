@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>入園案内 - NPO法人こどものその</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .fixed-action-button {
+            position: fixed; right: 20px;
+            background-color: rgba(0, 0, 0, 0.6); color: white;
+            border-radius: 50%; width: 70px; height: 70px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease; z-index: 50; cursor: pointer;
+        }
+        .fixed-action-button:hover { transform: scale(1.05); }
+        #fixed-contact { bottom: 100px; background-color: rgba(52, 211, 153, 0.9); }
+        #fixed-instagram { bottom: 20px; background-color: rgba(239, 68, 68, 0.9); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img class="h-14 w-auto" src="https://placehold.co/100x64/f0f0f0/333333?text=Logo" alt="ロゴ">
+                    <div><span class="block text-xs text-gray-500 -mb-1">NPO法人</span><span class="block font-bold text-gray-700 text-lg">こどものその</span></div>
+                </a>
+                <nav class="hidden md:flex space-x-6 items-center font-bold text-gray-600">
+                    <a href="about.html" class="hover:text-green-600">園について</a>
+                    <a href="support.html" class="hover:text-green-600">子育て支援</a>
+                    <a href="admission.html" class="text-green-600">入園案内</a>
+                    <a href="faq.html" class="hover:text-green-600">よくある質問</a>
+                    <a href="faq.html#access" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition text-sm">アクセス</a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden text-3xl text-gray-600"><ion-icon name="menu-outline"></ion-icon></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full z-40">
+            <div class="flex flex-col p-4 space-y-4 font-bold text-gray-600">
+                <a href="about.html" class="block py-2 border-b">園について</a>
+                <a href="support.html" class="block py-2 border-b">子育て支援</a>
+                <a href="admission.html" class="block py-2 border-b text-green-600">入園案内</a>
+                <a href="faq.html" class="block py-2 border-b">よくある質問・アクセス</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-5xl py-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">入園案内</h1>
+        
+        <div class="text-center mb-16">
+            <a href="#contact" class="inline-block bg-green-500 text-white font-bold py-3 px-8 rounded-full m-2 hover:bg-green-600 transition">見学予約はこちら</a>
+            <a href="#contact" class="inline-block bg-white border-2 border-green-500 text-green-600 font-bold py-3 px-8 rounded-full m-2 hover:bg-green-50 transition">お問い合わせ</a>
+        </div>
+
+        <!-- Recruitment -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold border-l-4 border-green-500 pl-4 mb-8">募集要項</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="font-bold mb-4 text-gray-700">定員</h3>
+                    <table class="w-full border border-gray-300 mb-6 bg-white">
+                        <tr class="border-b"><td class="p-3 bg-gray-100 font-bold w-1/3">1歳児</td><td class="p-3">12名</td></tr>
+                        <tr class="border-b"><td class="p-3 bg-gray-100 font-bold">2歳児</td><td class="p-3">12名</td></tr>
+                        <tr class="border-b"><td class="p-3 bg-gray-100 font-bold">3歳児</td><td class="p-3">15名</td></tr>
+                        <tr class="border-b"><td class="p-3 bg-gray-100 font-bold">4歳児</td><td class="p-3">15名</td></tr>
+                        <tr><td class="p-3 bg-gray-100 font-bold">5歳児</td><td class="p-3">15名</td></tr>
+                    </table>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-4 text-gray-700">費用</h3>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-600">
+                        <li><strong>入会金：</strong>30,000円（入園時のみ）</li>
+                        <li><strong>保育料：</strong>40,000円／月<br><span class="text-xs text-gray-500">└ 幼児教育無償化対象：3歳児以上・両親共に月48時間以上勤務</span></li>
+                        <li><strong>給食費：</strong>5,000円／月<br><span class="text-xs text-gray-500">└ おかずは園で用意／月〜木は主食のみ持参／金曜はおにぎり／月1回お弁当日</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hours & Transport -->
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <section>
+                <h2 class="text-2xl font-bold border-l-4 border-green-500 pl-4 mb-6">保育時間</h2>
+                <div class="bg-white p-6 rounded shadow-sm">
+                    <h3 class="font-bold mb-2">通常保育</h3>
+                    <p class="mb-4 text-gray-600">月〜金：8:30〜15:00<br>休園日：土・日・祝日</p>
+                    <h3 class="font-bold mb-2">延長保育（働く保護者の方へ）</h3>
+                    <div class="text-sm bg-gray-50 p-3 rounded text-gray-600">
+                        <p>早朝：7:00〜8:30</p>
+                        <p>延長：15:00〜18:00（50円／30分）</p>
+                        <p>　　　18:00〜19:00（200円／60分）</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-2xl font-bold border-l-4 border-green-500 pl-4 mb-6">送迎について</h2>
+                <div class="bg-white p-6 rounded shadow-sm flex flex-col items-center">
+                    <img src="https://placehold.co/400x200/e0e0e0/ffffff?text=送迎風景" class="w-full h-32 object-cover rounded mb-4">
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        「こどものその」では送迎バスを設けていません。<br>
+                        朝はお子さんの様子を、帰りは園での出来事を、職員と直接話せる大切な時間です。<br>
+                        家庭と園がつながり、日々の成長を一緒に見守ります。
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Parent Involvement -->
+        <section class="mb-16 bg-[#f7f3e8] p-8 rounded-xl">
+            <h2 class="text-2xl font-bold text-center mb-6">保護者の方の関わり</h2>
+            <p class="text-center mb-8 font-bold text-gray-700">「こどものその」は、親・子・教員が共に育ち合う園です。</p>
+            <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                <div class="bg-white p-4 rounded text-center shadow-sm">NPO法人正会員として園運営に関わる</div>
+                <div class="bg-white p-4 rounded text-center shadow-sm">親は自由に保育に参加ができる</div>
+                <div class="bg-white p-4 rounded text-center shadow-sm">月1回の懇談会で子どもの成長を話し合う</div>
+                <div class="bg-white p-4 rounded text-center shadow-sm">行事も親と教員が協力して作り上げる</div>
+            </div>
+        </section>
+
+        <!-- Legal & Subsidy -->
+        <section class="mb-16 grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded border border-gray-200">
+                <h3 class="font-bold mb-3">園の位置づけ・制度について</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    「こどものその」は、認可外幼児園として富山県の定める基準を満たし、NPO法人によって運営されています。<br>地域と連携しながら、安心して過ごせる環境を整えています。
+                </p>
+            </div>
+            <div class="bg-white p-6 rounded border border-gray-200">
+                <h3 class="font-bold mb-3">幼児教育・保育の無償化について</h3>
+                <ul class="text-sm text-gray-600 list-disc pl-5 mb-2">
+                    <li>対象者：3歳児以上、両親共に月48時間以上勤務</li>
+                    <li>補助上限額：月額 37,000円まで</li>
+                </ul>
+                <p class="text-xs text-gray-500">詳細・申請はお住まいの市区町村にてお手続きください。</p>
+            </div>
+        </section>
+
+        <!-- Parent Voices -->
+        <section class="py-16 bg-white">
+            <h2 class="text-3xl font-bold text-center mb-4">保護者の声</h2>
+            <p class="text-center text-gray-600 mb-12">“こどものその”での日々を通して感じた、保護者の方々のリアルな声をご紹介します。</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Voice 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg relative">
+                    <div class="absolute -top-3 left-6 text-4xl text-green-200">❝</div>
+                    <p class="text-gray-600 text-sm mb-4 relative z-10">子どもが毎日『きょうも楽しかった！』と笑顔で話してくれることが何より嬉しいです。先生方も一人ひとりをしっかり見てくださっていて安心しています。</p>
+                    <div class="font-bold text-xs text-gray-500 text-right">年少・男の子の母</div>
+                </div>
+                <!-- Voice 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg relative">
+                    <div class="absolute -top-3 left-6 text-4xl text-green-200">❝</div>
+                    <p class="text-gray-600 text-sm mb-4 relative z-10">子どもの成長だけでなく、親としての学びもたくさんあります。懇談会では他の保護者と意見交換ができ、考え方の幅が広がりました。</p>
+                    <div class="font-bold text-xs text-gray-500 text-right">年中・女の子の父</div>
+                </div>
+                <!-- Voice 3 -->
+                <div class="bg-gray-50 p-6 rounded-lg relative">
+                    <div class="absolute -top-3 left-6 text-4xl text-green-200">❝</div>
+                    <p class="text-gray-600 text-sm mb-4 relative z-10">初めての集団生活で不安もありましたが、先生方の温かいサポートで、今ではすっかり園が大好きに。親子で安心して通えています。</p>
+                    <div class="font-bold text-xs text-gray-500 text-right">2歳児クラス・母</div>
+                </div>
+                <!-- Voice 4 -->
+                <div class="bg-gray-50 p-6 rounded-lg relative">
+                    <div class="absolute -top-3 left-6 text-4xl text-green-200">❝</div>
+                    <p class="text-gray-600 text-sm mb-4 relative z-10">“自分で考えて行動する力”が自然と身につくのを感じます。結果を急がず見守るという姿勢を、家庭でも意識するようになりました。</p>
+                    <div class="font-bold text-xs text-gray-500 text-right">年長・男の子の母</div>
+                </div>
+                <!-- Voice 5 -->
+                <div class="bg-gray-50 p-6 rounded-lg relative">
+                    <div class="absolute -top-3 left-6 text-4xl text-green-200">❝</div>
+                    <p class="text-gray-600 text-sm mb-4 relative z-10">2人それぞれの個性を尊重して接してくださるのがありがたいです。親も行事や日常の中で一緒に関われるのが、この園ならではの良さですね。</p>
+                    <div class="font-bold text-xs text-gray-500 text-right">年少・双子の母</div>
+                </div>
+                <!-- Voice 6 -->
+                <div class="bg-gray-50 p-6 rounded-lg relative">
+                    <div class="absolute -top-3 left-6 text-4xl text-green-200">❝</div>
+                    <p class="text-gray-600 text-sm mb-4 relative z-10">自然の中で思いきり遊ぶ姿が印象的。泥んこになって帰ってくる日もありますが（笑）、それだけ全身で楽しんでいる証拠だなと感じています。</p>
+                    <div class="font-bold text-xs text-gray-500 text-right">年中・女の子の母</div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center bg-gray-100 p-8 rounded-xl">
+                <h3 class="font-bold mb-2">あなたの声もお聞かせください</h3>
+                <p class="text-sm text-gray-600 mb-4">“こどものその”で感じたこと、伝えたい想いを募集しています。</p>
+                <a href="#" class="text-green-600 font-bold underline">投稿・お問い合わせフォームへ &rarr;</a>
+            </div>
+        </section>
+
+        <!-- Contact Form Anchor -->
+        <section id="contact" class="bg-green-50 p-10 rounded-xl text-center">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">お問い合わせ</h2>
+            <p class="text-gray-600 mb-8">入園に関するご質問や見学のご予約はお気軽にどうぞ。</p>
+            <p class="font-bold text-lg mb-2">0766-25-2231</p>
+            <p class="text-sm text-gray-500 mb-8">〒933-0916 富山県高岡市大町11-19</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-green-600 text-white font-bold py-4 px-10 rounded-full hover:bg-green-700 shadow-lg transition">見学予約</button>
+                <button class="bg-white border-2 border-green-600 text-green-600 font-bold py-4 px-10 rounded-full hover:bg-green-50 shadow-lg transition">お問い合わせ</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-10 pb-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-gray-400">&copy; 2025 NPO法人こどものその All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed Buttons -->
+    <a href="#contact" id="fixed-contact" class="fixed-action-button"><div>見学<br>予約</div></a>
+    <a href="#" id="fixed-instagram" class="fixed-action-button"><ion-icon name="logo-instagram" class="text-3xl"></ion-icon></a>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
