@@ -7,54 +7,120 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Kosugi+Maru&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
         body { font-family: 'Noto Sans JP', sans-serif; }
         .font-kosugi { font-family: 'Kosugi Maru', sans-serif; }
-        .fixed-action-button {
-            position: fixed; right: 20px;
-            background-color: rgba(0, 0, 0, 0.6); color: white;
-            border-radius: 50%; width: 70px; height: 70px;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease; z-index: 50; cursor: pointer;
-        }
-        .fixed-action-button:hover { transform: scale(1.05); }
-        #fixed-contact { bottom: 100px; background-color: rgba(52, 211, 153, 0.9); }
-        #fixed-instagram { bottom: 20px; background-color: rgba(239, 68, 68, 0.9); }
+        /* Dropdown Menu */
+        .group .group-hover\:block { display: none; }
+        .group:hover .group-hover\:block { display: block; }
+        .dropdown-menu { opacity: 0; transform: translateY(10px) scale(0.98); transition: opacity 0.2s ease-out, transform 0.2s ease-out; pointer-events: none; }
+        .group:hover .dropdown-menu { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        /* Mobile Menu Accordion */
+        .submenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        input[type="checkbox"]:checked + label + .submenu { max-height: 500px; }
+        input[type="checkbox"] { display: none; }
+        /* Fixed Buttons */
+        .fixed-action-button { position: fixed; right: 25px; background-color: rgba(0, 0, 0, 0.6); color: white; border-radius: 50%; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); transition: background-color 0.3s ease, transform 0.3s ease; z-index: 1000; text-align: center; font-size: 11px; line-height: 1.1; padding: 5px; box-sizing: border-box; cursor: pointer; }
+        .fixed-action-button:hover { background-color: rgba(0, 0, 0, 0.8); transform: scale(1.05); }
+        .fixed-action-button ion-icon { font-size: 36px; }
+        #fixed-contact { bottom: 105px; background-color: rgba(52, 211, 153, 0.7); }
+        #fixed-contact:hover { background-color: rgba(16, 185, 129, 1); }
+        #fixed-instagram { bottom: 25px; background-color: rgba(239, 68, 68, 0.7); }
+        #fixed-instagram:hover { background-color: rgba(220, 38, 38, 1); }
     </style>
 </head>
 <body class="bg-[#fffdf9] text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4">
+    <header id="header" class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <img class="h-14 w-auto" src="https://placehold.co/100x64/f0f0f0/333333?text=Logo" alt="ロゴ">
-                    <div><span class="block text-xs text-gray-500 -mb-1">NPO法人</span><span class="block font-bold text-gray-700 text-lg">こどものその</span></div>
-                </a>
-                <nav class="hidden md:flex space-x-6 items-center font-bold text-gray-600">
-                    <a href="about.html" class="hover:text-green-600">園について</a>
-                    <a href="support.html" class="text-green-600">子育て支援</a>
-                    <a href="admission.html" class="hover:text-green-600">入園案内</a>
-                    <a href="faq.html" class="hover:text-green-600">よくある質問</a>
-                    <a href="faq.html#access" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition text-sm">アクセス</a>
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img class="h-16 w-auto" src="kodomonosono_logo.png" alt="NPO法人こどものその ロゴ" onerror="this.onerror=null;this.src='https://placehold.co/100x64/f0f0f0/333333?text=Logo';">
+                        <div><span class="block text-xs text-gray-500 -mb-1">NPO法人</span><span class="block font-bold text-gray-700 md:text-lg">こどものその</span></div>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-4 lg:space-x-6 items-center">
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">園について</button>
+                        <div class="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                            <a href="about.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園について</a>
+                            <a href="about.html#motto" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">大切にしていること</a>
+                            <a href="about.html#daily-life" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">園生活の一日</a>
+                            <a href="about.html#npo-info" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">NPO法人について</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="text-green-600 font-semibold inline-flex items-center py-2">子育て支援</button>
+                        <div class="absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                            <a href="support.html#salon" class="block px-4 py-2 text-sm text-green-600 font-semibold hover:bg-gray-100 leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
+                            <a href="support.html#cafe" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ほっとひと息カフェ</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">入園案内</button>
+                        <div class="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                            <a href="admission.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">入園案内</a>
+                            <a href="admission.html#parent-voices-section" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">保護者の声</a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-green-600 transition duration-300 inline-flex items-center py-2">よくある質問</button>
+                        <div class="absolute right-0 mt-0 w-48 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
+                            <a href="faq.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">よくある質問</a>
+                            <a href="faq.html#access" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">アクセス</a>
+                        </div>
+                    </div>
                 </nav>
-                <button id="mobile-menu-btn" class="md:hidden text-3xl text-gray-600"><ion-icon name="menu-outline"></ion-icon></button>
+                <div class="md:hidden flex items-center space-x-4">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-green-600 focus:outline-none">
+                         <ion-icon name="menu-outline" class="text-3xl" id="menu-open-icon"></ion-icon>
+                         <ion-icon name="close-outline" class="text-3xl hidden" id="menu-close-icon"></ion-icon>
+                    </button>
+                </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full z-40">
-            <div class="flex flex-col p-4 space-y-4 font-bold text-gray-600">
-                <a href="about.html" class="block py-2 border-b">園について</a>
-                <a href="support.html" class="block py-2 border-b text-green-600">子育て支援</a>
-                <a href="admission.html" class="block py-2 border-b">入園案内</a>
-                <a href="faq.html" class="block py-2 border-b">よくある質問・アクセス</a>
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg z-40">
+            <div>
+                <input type="checkbox" id="submenu-about-mobile" class="hidden peer">
+                <label for="submenu-about-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">園について<ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon></label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="about.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園について</a>
+                    <a href="about.html#motto" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">大切にしていること</a>
+                    <a href="about.html#daily-life" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園生活の一日</a>
+                    <a href="about.html#npo-info" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">NPO法人について</a>
+                </div>
+            </div>
+             <div>
+                <input type="checkbox" id="submenu-support-mobile" class="hidden peer" checked>
+                <label for="submenu-support-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">子育て支援<ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon></label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="support.html#salon" class="block py-2 px-4 text-sm text-green-600 font-semibold hover:bg-gray-200 mobile-link leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
+                    <a href="support.html#cafe" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">ほっとひと息カフェ</a>
+                </div>
+            </div>
+            <div>
+                <input type="checkbox" id="submenu-admission-mobile" class="hidden peer">
+                <label for="submenu-admission-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">入園案内<ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon></label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="admission.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">入園案内</a>
+                    <a href="admission.html#parent-voices-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">保護者の声</a>
+                </div>
+            </div>
+            <div>
+                <input type="checkbox" id="submenu-faq-mobile" class="hidden peer">
+                <label for="submenu-faq-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">よくある質問<ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon></label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="faq.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">よくある質問</a>
+                    <a href="faq.html#access" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">アクセス</a>
+                </div>
             </div>
         </div>
     </header>
 
     <main class="py-12">
-        
         <!-- SALON SECTION -->
         <section id="salon" class="container mx-auto px-4 max-w-4xl mb-24">
             <div class="text-center mb-12">
@@ -64,8 +130,7 @@
                     <a href="#schedule" class="inline-block bg-yellow-500 text-white font-bold py-2 px-6 rounded-full hover:bg-yellow-600 transition">最新の開催予定を見る</a>
                 </div>
             </div>
-
-            <!-- What is Oya-Fure -->
+            <!-- Content from previous support.html -->
             <div class="bg-white p-8 rounded-xl shadow-sm mb-12 flex flex-col md:flex-row items-center gap-8">
                 <div class="md:w-1/2">
                     <img src="https://placehold.co/500x350/fff9c4/888888?text=Oyafure" alt="親ふれ風景" class="rounded-lg w-full">
@@ -78,8 +143,6 @@
                     </p>
                 </div>
             </div>
-
-            <!-- Philosophy -->
             <div class="bg-[#fef9c3] p-8 rounded-xl shadow-sm mb-12 text-center relative overflow-hidden">
                 <div class="relative z-10">
                     <h2 class="text-2xl font-bold mb-4 text-gray-800">あそびながら、育児も“育自”も</h2>
@@ -90,7 +153,6 @@
                     <a href="#" class="text-yellow-700 font-bold underline">参加のようすを見る &rarr;</a>
                 </div>
             </div>
-
             <!-- Art Program -->
             <div class="mb-12 flex flex-col md:flex-row items-center gap-8">
                 <div class="md:w-2/3">
@@ -111,7 +173,6 @@
                     <img src="https://placehold.co/400x400/e0f2f1/00695c?text=Art" alt="アート活動" class="rounded-lg shadow w-full">
                 </div>
             </div>
-
             <!-- Schedule -->
             <div id="schedule" class="grid md:grid-cols-2 gap-6 mb-12">
                 <div class="bg-white p-6 rounded-lg shadow border-t-4 border-yellow-500">
@@ -132,8 +193,6 @@
                 </div>
             </div>
             <p class="text-center text-gray-600 mb-12">火曜と水曜は助産師も対応しております。赤ちゃん連れでも安心してどうぞ。<br>みんなで楽しく、ゆったり子育てしましょう。</p>
-
-            <!-- Recommendation -->
             <div class="bg-[#ffe4e1] p-8 rounded-xl text-center mb-12">
                 <h3 class="text-xl font-bold mb-4">こんな方におすすめ</h3>
                 <ul class="inline-block text-left text-gray-700 space-y-2 mb-6">
@@ -144,8 +203,6 @@
                 </ul>
                 <p class="font-kosugi text-lg">“親ふれ”は、子どもがのびのび育ち、親も笑顔になれる小さな居場所です。</p>
             </div>
-
-            <!-- CTA -->
             <div class="text-center space-y-4">
                 <a href="#" class="block sm:inline-block bg-white border-2 border-gray-800 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-100">最新の開催日をチェック</a>
                 <a href="admission.html#contact" class="block sm:inline-block bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600">参加申し込み・お問い合わせ</a>
@@ -160,7 +217,6 @@
                 <h2 class="text-3xl font-bold text-stone-600 mb-2">ホッとひと息カフェ</h2>
                 <p class="font-kosugi text-lg text-gray-500">〜ママもパパも、“自分”に戻る時間〜</p>
             </div>
-
             <div class="grid md:grid-cols-2 gap-10 items-center mb-12">
                 <img src="https://placehold.co/500x400/d7ccc8/5d4037?text=Cafe" alt="カフェの様子" class="rounded-lg shadow w-full">
                 <div>
@@ -172,8 +228,6 @@
                     </p>
                 </div>
             </div>
-
-            <!-- Features -->
             <div class="grid md:grid-cols-3 gap-6 mb-12">
                 <div class="bg-stone-50 p-4 rounded text-center">
                     <div class="text-3xl mb-2">🗣️</div>
@@ -191,8 +245,6 @@
                     <p class="text-sm text-gray-600">保育士と一緒に、ママの見える場所で楽しく遊べます。</p>
                 </div>
             </div>
-
-            <!-- Cafe Info -->
             <div class="bg-white border border-gray-200 rounded-lg p-6 max-w-2xl mx-auto mb-12">
                 <table class="w-full">
                     <tbody class="divide-y">
@@ -203,8 +255,6 @@
                     </tbody>
                 </table>
             </div>
-
-            <!-- Voices -->
             <div class="mb-12">
                 <h3 class="text-xl font-bold text-center mb-6">参加された方の声</h3>
                 <div class="grid md:grid-cols-2 gap-6">
@@ -218,8 +268,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Message & CTA -->
             <div class="bg-[#f5f5f4] p-8 rounded-xl text-center">
                 <p class="font-kosugi text-lg text-gray-700 mb-6">
                     ハーブティーの香り、やさしい声、あたたかな笑顔。<br>
@@ -229,24 +277,74 @@
                 <a href="#schedule" class="inline-block bg-stone-600 text-white font-bold py-3 px-8 rounded-full hover:bg-stone-700 transition">開催スケジュールを見る</a>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white pt-10 pb-6 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-sm text-gray-400">&copy; 2025 NPO法人こどものその All Rights Reserved.</p>
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-1">
+                    <div><span class="block text-xs text-gray-400 -mb-1">NPO法人</span><span class="block font-bold text-lg mb-2">こどものその</span></div>
+                    <p class="text-sm text-gray-400">〒933-0916 富山県高岡市大町11-19</p>
+                    <p class="text-sm text-gray-400 mb-4">TEL: 0766-25-2231</p>
+                    <a href="#" class="inline-flex items-center bg-yellow-500 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-600 transition duration-300 text-sm mt-4"><ion-icon name="document-text-outline" class="mr-2 text-lg"></ion-icon>登園許可証<br>ダウンロード</a>
+                </div>
+                <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg mb-4 text-gray-300">園について</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">園について</a></li>
+                        <li><a href="about.html#motto" class="text-gray-400 hover:text-white">大切にしていること</a></li>
+                        <li><a href="about.html#daily-life" class="text-gray-400 hover:text-white">園生活の一日</a></li>
+                        <li><a href="about.html#npo-info" class="text-gray-400 hover:text-white">NPO法人について</a></li>
+                    </ul>
+                </div>
+                 <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg mb-4 text-gray-300">子育て支援</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="support.html#salon" class="text-gray-400 hover:text-white leading-tight">子育てサロン<br>「親と子のふれあい広場」</a></li>
+                        <li><a href="support.html#cafe" class="text-gray-400 hover:text-white">ほっとひと息カフェ</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-1 grid grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-gray-300">入園案内</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="admission.html" class="text-gray-400 hover:text-white">入園案内</a></li>
+                            <li><a href="admission.html#parent-voices-section" class="text-gray-400 hover:text-white">保護者の声</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-gray-300">よくある質問</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="faq.html" class="text-gray-400 hover:text-white">よくある質問</a></li>
+                            <li><a href="faq.html#access" class="text-gray-400 hover:text-white">アクセス</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-500">
+                <p>&copy; 2025 NPO法人こどものその. All Rights Reserved.</p>
+                 <a href="#" class="text-gray-500 hover:text-white ml-4">プライバシーポリシー</a>
+            </div>
         </div>
     </footer>
 
     <!-- Fixed Buttons -->
-    <a href="admission.html#contact" id="fixed-contact" class="fixed-action-button"><div>見学<br>予約</div></a>
-    <a href="#" id="fixed-instagram" class="fixed-action-button"><ion-icon name="logo-instagram" class="text-3xl"></ion-icon></a>
+    <a href="admission.html#contact" id="fixed-contact" class="fixed-action-button" aria-label="見学予約">予約・<br>お問い<br>合わせ</a>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" id="fixed-instagram" class="fixed-action-button" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
 
     <script>
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOpenIcon = document.getElementById('menu-open-icon');
+        const menuCloseIcon = document.getElementById('menu-close-icon');
+        if (mobileMenuButton && mobileMenu && menuOpenIcon && menuCloseIcon) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuOpenIcon.classList.toggle('hidden');
+                menuCloseIcon.classList.toggle('hidden');
+            });
+        }
     </script>
 </body>
 </html>
