@@ -56,7 +56,6 @@
                         <button class="text-green-600 font-semibold inline-flex items-center py-2">子育て支援</button>
                         <div class="absolute left-0 mt-0 w-56 bg-white rounded-md shadow-lg py-1 dropdown-menu z-10">
                             <a href="support.html#salon" class="block px-4 py-2 text-sm text-green-600 font-semibold hover:bg-gray-100 leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
-                            <a href="support.html#cafe" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ほっとひと息カフェ</a>
                             <a href="support.html#temporary-care" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">一時保育</a>
                         </div>
                     </div>
@@ -99,7 +98,6 @@
                 <label for="submenu-support-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">子育て支援<ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon></label>
                 <div class="submenu bg-gray-50 pl-6">
                     <a href="support.html#salon" class="block py-2 px-4 text-sm text-green-600 font-semibold hover:bg-gray-200 mobile-link leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
-                    <a href="support.html#cafe" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">ほっとひと息カフェ</a>
                     <a href="support.html#temporary-care" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">一時保育</a>
                 </div>
             </div>
@@ -123,166 +121,143 @@
     </header>
 
     <main class="py-12">
-        <!-- SALON SECTION -->
+        <!-- 1. HERO -->
+        <section class="container mx-auto px-4 max-w-6xl mb-20">
+            <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                <img src="https://placehold.co/1200x600/fef3c7/854d0e?text=Parent+Child" alt="親子が笑顔で遊んでいる写真" class="w-full h-[400px] md:h-[500px] object-cover">
+                <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center text-white p-6">
+                    <h1 class="text-xl md:text-2xl font-bold mb-2 tracking-wider">子育て支援</h1>
+                    <h2 class="text-3xl md:text-5xl font-bold font-kosugi mb-6">親と子のふれあいサロン「親ふれ」</h2>
+                    <p class="text-lg md:text-xl font-medium leading-relaxed">0〜3歳の親子が、安心して集い、<br>遊び・話し・ホッとできる場所。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. What is Oya-Fure -->
         <section id="salon" class="container mx-auto px-4 max-w-4xl mb-24">
-            <div class="text-center mb-12">
-                <h1 class="text-3xl md:text-4xl font-bold text-yellow-600 mb-2">子育てサロン「親と子のふれあい広場」</h1>
-                <p class="font-kosugi text-xl text-gray-600">〜わらって、はなして、ほっとする時間〜</p>
-                <div class="mt-6">
-                    <a href="#schedule" class="inline-block bg-yellow-500 text-white font-bold py-2 px-6 rounded-full hover:bg-yellow-600 transition">最新の開催予定を見る</a>
-                </div>
-            </div>
-            <!-- Content from previous support.html -->
-            <div class="bg-white p-8 rounded-xl shadow-sm mb-12 flex flex-col md:flex-row items-center gap-8">
-                <div class="md:w-1/2">
-                    <img src="https://placehold.co/500x350/fff9c4/888888?text=Oyafure" alt="親ふれ風景" class="rounded-lg w-full">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://placehold.co/500x500/fff9c4/888888?text=Conversation" alt="先生と親子が会話している様子" class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover shadow-lg border-8 border-yellow-50">
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="text-2xl font-bold mb-4 text-gray-800">“親ふれ”ってなあに？</h2>
-                    <p class="text-gray-600 leading-relaxed">
-                        「親と子のふれあい広場（親ふれ）」は、0〜3歳までの未就園児と保護者のための子育てサロンです。<br><br>
-                        こどものそのの先生とボランティアスタッフが中心になって、季節のあそびや工作、絵本やおうたを通して、親子でゆったりと楽しめる時間をつくっています。
-                    </p>
-                </div>
-            </div>
-            <div class="bg-[#fef9c3] p-8 rounded-xl shadow-sm mb-12 text-center relative overflow-hidden">
-                <div class="relative z-10">
-                    <h2 class="text-2xl font-bold mb-4 text-gray-800">あそびながら、育児も“育自”も</h2>
-                    <p class="text-gray-700 leading-relaxed mb-6">
-                        在園児・卒園児のママたちが「0〜3歳を大切にしたい」との想いから始めました。<br>
-                        保育士や助産師と話しながら、子どもの成長も、ママ自身の気持ちも、ゆったり育てていける場所です。
-                    </p>
-                    <a href="#" class="text-yellow-700 font-bold underline">参加のようすを見る &rarr;</a>
-                </div>
-            </div>
-            <!-- Art Program -->
-            <div class="mb-12 flex flex-col md:flex-row items-center gap-8">
-                <div class="md:w-2/3">
-                    <h2 class="text-2xl font-bold mb-4 text-gray-800">🎨 臨床美術プログラム</h2>
-                    <p class="text-gray-700 mb-4 font-bold">親子で感性のコラボレーションを楽しもう</p>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        アートの力で、感じる心・表現する気持ち・達成する心を育てる臨床美術。<br>
-                        親子で一緒に制作を楽しみながら、感性が響き合う時間を過ごします。
-                    </p>
-                    <div class="bg-white border border-gray-200 p-5 rounded-lg text-sm">
-                        <p><strong>講師：</strong>渡邊恭子先生</p>
-                        <p><strong>日時：</strong>不定期開催（午前9:45受付／10:00〜11:00）</p>
-                        <p><strong>定員：</strong>7組</p>
-                        <p><strong>参加費：</strong>2,300円（要予約）</p>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b-4 border-yellow-200 inline-block">親ふれって、なあに？</h3>
+                    <div class="text-gray-600 leading-loose space-y-4">
+                        <p>「親ふれ」は、0〜3歳までの未就園児の親子が集える、こどものそのの子育て支援サロンです。</p>
+                        <p>子育てはうれしいことも多いけれど、ちょっと不安になったり、誰かと話したくなることもありますよね。</p>
+                        <p>「親ふれ」は、そんな毎日の中で親子が安心して過ごし、ほっとできる居場所として生まれました。</p>
+                        <p>こどものそのの先生やボランティアスタッフが企画・運営し、保育士や助産師とお話ししながら、親子で楽しい時間を過ごすことができます。</p>
+                        <p>在園児・卒園児のママたちの「0〜3歳の時期こそ、親子で支え合える場が大切」という想いから始まった活動です。</p>
+                    </div>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <a href="https://www.instagram.com/" target="_blank" class="inline-flex justify-center items-center bg-pink-500 text-white font-bold py-3 px-6 rounded-full hover:bg-pink-600 transition shadow">
+                            <ion-icon name="logo-instagram" class="mr-2 text-xl"></ion-icon> 参加のようすを見る
+                        </a>
+                        <a href="#schedule" class="inline-flex justify-center items-center bg-yellow-500 text-white font-bold py-3 px-6 rounded-full hover:bg-yellow-600 transition shadow">
+                            開催日はこちら
+                        </a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- 3. Standard Program -->
+        <section class="container mx-auto px-4 max-w-4xl mb-24 bg-[#fcfbf9] py-16 rounded-3xl">
+            <h3 class="text-2xl font-bold text-center text-gray-800 mb-10">通常プログラムのご紹介</h3>
+            
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <img src="https://placehold.co/600x400/e0f2f1/00695c?text=Play" alt="季節の遊び" class="rounded-xl shadow w-full h-48 object-cover">
+                <img src="https://placehold.co/600x400/ffecb3/ff6f00?text=Craft" alt="制作の様子" class="rounded-xl shadow w-full h-48 object-cover">
+            </div>
+
+            <div class="text-center text-gray-700 leading-relaxed mb-10 max-w-2xl mx-auto">
+                <p class="mb-4">親ふれでは、火・水・木曜日を中心に、<strong>季節のあそびや工作、体を動かす遊び</strong>などを楽しんでいます。</p>
+                <p class="mb-4">感触を味わったり、音に耳をすませたり、子どもたちは遊びの中で、自然とたくさんのことを感じ、学んでいきます。</p>
+                <p>保育士が常にそばにいるので、初めての方や赤ちゃん連れの方も安心してご参加ください。</p>
+            </div>
+
+            <div id="schedule" class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center">
+                    <div class="bg-green-100 p-3 rounded-full mb-3 text-green-600"><ion-icon name="calendar" class="text-2xl"></ion-icon></div>
+                    <h4 class="font-bold text-gray-800 mb-2">開催日</h4>
+                    <p class="text-lg font-bold text-green-600">火・水・木</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center">
+                    <div class="bg-yellow-100 p-3 rounded-full mb-3 text-yellow-600"><ion-icon name="wallet" class="text-2xl"></ion-icon></div>
+                    <h4 class="font-bold text-gray-800 mb-2">参加費</h4>
+                    <p class="text-sm text-gray-600">火曜・木曜：<span class="text-lg font-bold text-yellow-600">無料</span></p>
+                    <p class="text-sm text-gray-600">水曜のみ：<span class="text-lg font-bold text-yellow-600">100円</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Cafe -->
+        <section id="cafe" class="container mx-auto px-4 max-w-5xl mb-24">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
+                <div class="grid md:grid-cols-2">
+                    <div class="h-64 md:h-auto relative">
+                        <img src="https://placehold.co/800x800/d7ccc8/5d4037?text=Cafe+Time" alt="飲み物と談笑するママたち" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-stone-700 mb-2">ホッとひと息カフェ</h3>
+                        <p class="text-stone-500 font-kosugi mb-6">ママもパパも、自分に戻る時間。</p>
+                        
+                        <div class="text-gray-600 leading-relaxed space-y-4 mb-8">
+                            <p>飲み物を飲みながら、子育てのこと、日々のこと、何でも気軽にお話ししませんか？</p>
+                            <p>助産師への育児相談や、参加者同士の情報交換もできます。</p>
+                            <p>カフェタイム中、お子さまは<strong>ママの顔が見える場所で、保育士と一緒に遊ぶことも可能</strong>です。</p>
+                        </div>
+
+                        <div class="bg-stone-50 p-6 rounded-xl border border-stone-200">
+                            <ul class="space-y-3 text-stone-700 font-bold">
+                                <li class="flex items-center"><span class="text-xl mr-3">🕰</span> 10:00〜11:00</li>
+                                <li class="flex items-center"><span class="text-xl mr-3">💰</span> 200円（飲み物付き）</li>
+                                <li class="flex items-center"><span class="text-xl mr-3">📌</span> 予約不要</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Clinical Art -->
+        <section class="container mx-auto px-4 max-w-4xl mb-24">
+            <div class="text-center mb-10">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">臨床美術プログラム</h3>
+                <p class="text-gray-500 font-kosugi">感じる・表現する・親子で楽しむアート体験</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-10 items-start">
                 <div class="md:w-1/3">
-                    <img src="https://placehold.co/400x400/e0f2f1/00695c?text=Art" alt="アート活動" class="rounded-lg shadow w-full">
+                    <img src="https://placehold.co/500x500/e3f2fd/1565c0?text=Art+Work" alt="アート制作中の親子" class="rounded-2xl shadow-lg w-full aspect-square object-cover">
                 </div>
-            </div>
-            <!-- Schedule -->
-            <div id="schedule" class="grid md:grid-cols-2 gap-6 mb-12">
-                <div class="bg-white p-6 rounded-lg shadow border-t-4 border-yellow-500">
-                    <h3 class="font-bold text-lg mb-4 text-center">🌞 通常プログラム</h3>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li><strong>開催日：</strong>火・水・木曜</li>
-                        <li><strong>参加費：</strong>無料 / 水曜のみ100円</li>
-                        <li><strong>対象：</strong>0〜3歳児と保護者</li>
-                    </ul>
+                <div class="md:w-2/3">
+                    <div class="text-gray-600 leading-relaxed space-y-4 mb-8">
+                        <p>アートの力で、感じる心・表現する気持ち・達成感を育てるプログラムです。</p>
+                        <p>臨床美術は、上手・下手を評価するものではありません。「感じたまま」「そのまま」を大切に、親子で感性のコラボレーションを楽しみます。</p>
+                        <p>こどものそのの子どもたちも体験しているプログラムを、親子で一緒に味わってみませんか？</p>
+                    </div>
+                    
+                    <a href="https://arttherapy.gr.jp/about_theraphy/" target="_blank" class="inline-block border-b-2 border-blue-400 text-blue-500 hover:text-blue-700 font-bold mb-8 pb-1">
+                        臨床美術について詳しく &rarr;
+                    </a>
+
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100 text-sm md:text-base">
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-bold text-blue-800 w-24 inline-block">開催</span> 不定期開催（事前予約制）</li>
+                            <li><span class="font-bold text-blue-800 w-24 inline-block">講師</span> 渡邊恭子先生</li>
+                            <li><span class="font-bold text-blue-800 w-24 inline-block">時間</span> 10:00〜11:00</li>
+                            <li><span class="font-bold text-blue-800 w-24 inline-block">定員</span> 7組</li>
+                            <li><span class="font-bold text-blue-800 w-24 inline-block">参加費</span> 2,300円</li>
+                            <li><span class="font-bold text-blue-800 w-24 inline-block">持ち物</span> 汚れてもいい服</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow border-t-4 border-purple-500">
-                    <h3 class="font-bold text-lg mb-4 text-center">🎨 臨床美術プログラム</h3>
-                    <ul class="space-y-3 text-sm text-gray-700">
-                        <li><strong>開催日：</strong>不定期開催（要予約）</li>
-                        <li><strong>参加費：</strong>2,300円</li>
-                        <li><strong>対象：</strong>親子でご参加ください</li>
-                    </ul>
-                </div>
-            </div>
-            <p class="text-center text-gray-600 mb-12">火曜と水曜は助産師も対応しております。赤ちゃん連れでも安心してどうぞ。<br>みんなで楽しく、ゆったり子育てしましょう。</p>
-            <div class="bg-[#ffe4e1] p-8 rounded-xl text-center mb-12">
-                <h3 class="text-xl font-bold mb-4">こんな方におすすめ</h3>
-                <ul class="inline-block text-left text-gray-700 space-y-2 mb-6">
-                    <li>✅ 子どもと一緒に安心して遊べる場所を探している</li>
-                    <li>✅ 同じ年頃のママ・パパとつながりたい</li>
-                    <li>✅ 子育ての相談を気軽にしたい</li>
-                    <li>✅ 感性を育むアート体験をしてみたい</li>
-                </ul>
-                <p class="font-kosugi text-lg">“親ふれ”は、子どもがのびのび育ち、親も笑顔になれる小さな居場所です。</p>
-            </div>
-            <div class="text-center space-y-4">
-                <a href="#" class="block sm:inline-block bg-white border-2 border-gray-800 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-100">最新の開催日をチェック</a>
-                <a href="admission.html#contact" class="block sm:inline-block bg-green-500 text-white font-bold py-3 px-8 rounded-full hover:bg-green-600">参加申し込み・お問い合わせ</a>
             </div>
         </section>
 
         <div class="border-t border-dashed border-gray-300 my-16"></div>
 
-        <!-- CAFE SECTION -->
-        <section id="cafe" class="container mx-auto px-4 max-w-4xl mb-24">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-stone-600 mb-2">ホッとひと息カフェ</h2>
-                <p class="font-kosugi text-lg text-gray-500">〜ママもパパも、“自分”に戻る時間〜</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-10 items-center mb-12">
-                <img src="https://placehold.co/500x400/d7ccc8/5d4037?text=Cafe" alt="カフェの様子" class="rounded-lg shadow w-full">
-                <div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-stone-400 italic text-gray-600 mb-4">
-                        子育て中は、毎日がめまぐるしく過ぎていきます。そんな日々の中でも、ちょっと一息ついて「お母さん」「お父さん」ではなく“自分”として過ごせる時間を。
-                    </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        「ホッとひと息カフェ」は、子育て中のママ・パパが気軽に立ち寄れる小さなサロン。カフェのように飲み物を飲みながら、子育ての悩み、嬉しかったこと、日常のことを話せるあたたかい場所です。
-                    </p>
-                </div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <div class="bg-stone-50 p-4 rounded text-center">
-                    <div class="text-3xl mb-2">🗣️</div>
-                    <h3 class="font-bold mb-2">おしゃべりタイム</h3>
-                    <p class="text-sm text-gray-600">飲み物を片手にリラックス。日々のことを自由にお話しできます。</p>
-                </div>
-                <div class="bg-stone-50 p-4 rounded text-center">
-                    <div class="text-3xl mb-2">👩‍⚕️</div>
-                    <h3 class="font-bold mb-2">助産師さんの育児相談</h3>
-                    <p class="text-sm text-gray-600">授乳・離乳食・産後の体調など、専門家に気軽に質問できます。</p>
-                </div>
-                <div class="bg-stone-50 p-4 rounded text-center">
-                    <div class="text-3xl mb-2">👶</div>
-                    <h3 class="font-bold mb-2">お子さんは安心サポート</h3>
-                    <p class="text-sm text-gray-600">保育士と一緒に、ママの見える場所で楽しく遊べます。</p>
-                </div>
-            </div>
-            <div class="bg-white border border-gray-200 rounded-lg p-6 max-w-2xl mx-auto mb-12">
-                <table class="w-full">
-                    <tbody class="divide-y">
-                        <tr><th class="py-3 text-left">開催時間</th><td class="py-3 text-right">午前10:00〜11:00</td></tr>
-                        <tr><th class="py-3 text-left">参加費</th><td class="py-3 text-right">200円（飲み物付き）</td></tr>
-                        <tr><th class="py-3 text-left">予約</th><td class="py-3 text-right">不要・当日参加OK</td></tr>
-                        <tr><th class="py-3 text-left">対象</th><td class="py-3 text-right">子育て中の保護者（お子さま連れOK）</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="mb-12">
-                <h3 class="text-xl font-bold text-center mb-6">参加された方の声</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-lg shadow-sm relative">
-                        <div class="text-gray-600 italic mb-2">「子どもから離れて“自分”として会話できた時間が本当にありがたかったです。自分を取り戻せました！」</div>
-                        <div class="text-right text-xs text-gray-400">— 30代・1歳児ママ</div>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm relative">
-                        <div class="text-gray-600 italic mb-2">「初めてでも安心して話せました。笑顔で迎えてもらえて、また来たいと思いました。」</div>
-                        <div class="text-right text-xs text-gray-400">— 30代・0歳児ママ</div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-[#f5f5f4] p-8 rounded-xl text-center">
-                <p class="font-kosugi text-lg text-gray-700 mb-6">
-                    ハーブティーの香り、やさしい声、あたたかな笑顔。<br>
-                    ここは、子育ての途中で“ほっと”できる小さなカフェです。<br>
-                    どうぞ、気軽にのぞいてみてくださいね。
-                </p>
-                <a href="#schedule" class="inline-block bg-stone-600 text-white font-bold py-3 px-8 rounded-full hover:bg-stone-700 transition">開催スケジュールを見る</a>
-            </div>
-        </section>
-
-        <div class="border-t border-dashed border-gray-300 my-16"></div>
-
-        <!-- TEMPORARY CARE SECTION (ADDED) -->
+        <!-- TEMPORARY CARE -->
         <section id="temporary-care" class="container mx-auto px-4 max-w-4xl mb-24">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-pink-600 mb-2">一時保育のご案内</h2>
@@ -392,13 +367,13 @@
                         <li><a href="about.html#motto" class="text-gray-400 hover:text-white">大切にしていること</a></li>
                         <li><a href="about.html#daily-life" class="text-gray-400 hover:text-white">園生活の一日</a></li>
                         <li><a href="about.html#npo-info" class="text-gray-400 hover:text-white">NPO法人について</a></li>
+                        <li><a href="history.html" class="text-gray-400 hover:text-white">園のあゆみ</a></li>
                     </ul>
                 </div>
                  <div class="md:col-span-1">
                     <h4 class="font-bold text-lg mb-4 text-gray-300">子育て支援</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="support.html#salon" class="text-gray-400 hover:text-white leading-tight">子育てサロン<br>「親と子のふれあい広場」</a></li>
-                        <li><a href="support.html#cafe" class="text-gray-400 hover:text-white">ほっとひと息カフェ</a></li>
                         <li><a href="support.html#temporary-care" class="text-gray-400 hover:text-white">一時保育</a></li>
                     </ul>
                 </div>
