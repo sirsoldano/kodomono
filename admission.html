@@ -11,50 +11,16 @@
     <style>
         body { font-family: 'Noto Sans JP', sans-serif; }
         .font-kosugi { font-family: 'Kosugi Maru', sans-serif; }
-        
-        /* --- Animation for Parent Voices (Slider) --- */
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-320px * 6)); } /* カード幅300px + gap 20px * カード枚数 */
-        }
-        .slider-container {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-            padding: 20px 0;
-        }
-        .slider-track {
-            display: flex;
-            width: calc(320px * 12); /* 6枚のカードをループさせるため2倍 */
-            animation: scroll 40s linear infinite;
-        }
-        .slider-track:hover {
-            animation-play-state: paused;
-        }
-        .voice-card {
-            width: 300px;
-            flex-shrink: 0;
-            margin: 0 10px;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .voice-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background-color: #f3f4f6;
-        }
-        /* ------------------------------------------ */
-
+        /* Dropdown Menu */
         .group .group-hover\:block { display: none; }
         .group:hover .group-hover\:block { display: block; }
         .dropdown-menu { opacity: 0; transform: translateY(10px) scale(0.98); transition: opacity 0.2s ease-out, transform 0.2s ease-out; pointer-events: none; }
         .group:hover .dropdown-menu { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        /* Mobile Menu Accordion */
         .submenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
         input[type="checkbox"]:checked + label + .submenu { max-height: 500px; }
         input[type="checkbox"] { display: none; }
+        /* Fixed Buttons */
         .fixed-action-button { position: fixed; right: 25px; background-color: rgba(0, 0, 0, 0.6); color: white; border-radius: 50%; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); transition: background-color 0.3s ease, transform 0.3s ease; z-index: 1000; text-align: center; font-size: 11px; line-height: 1.1; padding: 5px; box-sizing: border-box; cursor: pointer; }
         .fixed-action-button:hover { background-color: rgba(0, 0, 0, 0.8); transform: scale(1.05); }
         .fixed-action-button ion-icon { font-size: 36px; }
@@ -62,6 +28,16 @@
         #fixed-contact:hover { background-color: rgba(16, 185, 129, 1); }
         #fixed-instagram { bottom: 25px; background-color: rgba(239, 68, 68, 0.7); }
         #fixed-instagram:hover { background-color: rgba(220, 38, 38, 1); }
+
+        /* 保護者の声 スライダーアニメーション */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-350px * 6)); }
+        }
+        .slider-container { overflow: hidden; white-space: nowrap; padding: 20px 0; position: relative; }
+        .slider-track { display: flex; width: calc(350px * 12); animation: scroll 60s linear infinite; }
+        .slider-track:hover { animation-play-state: paused; }
+        .voice-card { width: 320px; flex-shrink: 0; margin: 0 15px; white-space: normal; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -115,7 +91,55 @@
                 </div>
             </div>
         </div>
-        </header>
+        <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-lg z-40">
+            <div>
+                <input type="checkbox" id="submenu-about-mobile" class="hidden peer">
+                <label for="submenu-about-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+                    園について
+                    <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
+                </label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="about.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園について</a>
+                    <a href="about.html#motto" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">大切にしていること</a>
+                    <a href="about.html#daily-life" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">園生活の一日</a>
+                    <a href="about.html#npo-info" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">NPO法人について</a>
+                </div>
+            </div>
+             <div>
+                <input type="checkbox" id="submenu-support-mobile" class="hidden peer">
+                <label for="submenu-support-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+                    子育て支援
+                    <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
+                </label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="support.html#salon" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link leading-tight">子育てサロン<br>「親と子のふれあい広場」</a>
+                    <a href="support.html#temporary-care" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">一時保育</a>
+                </div>
+            </div>
+            <div>
+                <input type="checkbox" id="submenu-admission-mobile" class="hidden peer" checked>
+                <label for="submenu-admission-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-green-600 font-semibold hover:bg-gray-100 cursor-pointer">
+                    入園案内
+                    <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
+                </label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="admission.html" class="block py-2 px-4 text-green-600 font-semibold hover:bg-gray-200 mobile-link">入園案内</a>
+                    <a href="admission.html#parent-voices-section" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">保護者の声</a>
+                </div>
+            </div>
+            <div>
+                <input type="checkbox" id="submenu-faq-mobile" class="hidden peer">
+                <label for="submenu-faq-mobile" class="flex justify-between items-center py-3 px-4 text-sm text-gray-600 hover:bg-gray-100 cursor-pointer">
+                    よくある質問
+                    <ion-icon name="chevron-down-outline" class="text-lg transition-transform duration-300 peer-checked:rotate-180"></ion-icon>
+                </label>
+                <div class="submenu bg-gray-50 pl-6">
+                    <a href="faq.html" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">よくある質問</a>
+                    <a href="faq.html#access" class="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-200 mobile-link">アクセス</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <main class="container mx-auto px-4 max-w-5xl py-12">
         <h1 class="text-3xl md:text-4xl font-bold text-center mb-8">入園案内</h1>
@@ -151,6 +175,7 @@
                             <li>対象者：3歳児以上、両親共に月48時間以上勤務</li>
                             <li>補助上限額：月額 37,000円まで</li>
                         </ul>
+                        <p class="text-xs text-gray-500">詳細・申請はお住まいの市区町村にてお手続きください。</p>
                     </div>
                 </div>
             </div>
@@ -179,9 +204,34 @@
             </div>
         </section>
 
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold border-l-4 border-green-500 pl-4 mb-6">送迎について</h2>
+            <div class="bg-white p-6 rounded shadow-sm flex flex-col items-center border border-gray-100">
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    「こどものその」では送迎バスを設けていません。<br>
+                    朝はお子さんの様子を、帰りは園での出来事を、職員と直接話せる大切な時間です。<br>
+                    家庭と園がつながり、日々の成長を一緒に見守ります。
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold border-l-4 border-green-500 pl-4 mb-6">園の位置づけ・制度について</h2>
+            <div class="bg-white p-6 rounded shadow-sm border border-gray-100 text-gray-700 leading-relaxed">
+                <p class="mb-4">こどものそのは、「認可外保育施設」として富山県の定める基準を満たし、NPO法人によって運営されています。</p>
+                <p class="mb-4">地域と連携しながら安心して過ごせる環境を整えています。</p>
+                <p>また、入園の際は市役所でのお手続きは不要で、園と直接行っていただけます。<br>見学やご相談から入園まで、どうぞお気軽に園までお問い合わせください。</p>
+            </div>
+        </section>
+
         <section class="mb-20 bg-yellow-50 py-16 -mx-4 px-4 sm:mx-0 sm:rounded-xl">
             <div class="container mx-auto max-w-4xl text-center">
                 <h2 class="text-3xl font-bold text-gray-800 mb-4">入園体験のご案内 <span class="text-base font-normal bg-yellow-200 px-2 py-1 rounded ml-2 inline-block align-middle">事前予約制</span></h2>
+                <p class="text-lg text-gray-700 mb-10 font-kosugi">
+                    園生活を、実際に体験してみませんか？<br>
+                    少人数制で、ゆったりと園の雰囲気を感じていただけます。
+                </p>
+
                 <div class="bg-white p-8 rounded-xl shadow-lg text-left max-w-3xl mx-auto">
                     <div class="grid md:grid-cols-2 gap-8 mb-8">
                         <div>
@@ -192,9 +242,31 @@
                             <h3 class="font-bold text-yellow-600 border-b-2 border-yellow-200 mb-3 pb-1">時間</h3>
                             <p class="text-gray-700">9:45〜11:00</p>
                         </div>
+                        <div>
+                            <h3 class="font-bold text-yellow-600 border-b-2 border-yellow-200 mb-3 pb-1">持ち物</h3>
+                            <p class="text-gray-700">水筒・着替え<br><span class="text-sm text-gray-500">※内履き（お持ちの方）、夏季は帽子</span></p>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-yellow-600 border-b-2 border-yellow-200 mb-3 pb-1">定員</h3>
+                            <p class="text-gray-700">各回 2〜3組（少人数制）<br><span class="text-sm text-gray-500">※お父さま・お母さまもご一緒に参加いただけます</span></p>
+                        </div>
                     </div>
+                    
+                    <div class="text-center bg-gray-50 p-6 rounded-lg mb-8">
+                        <h3 class="font-bold text-gray-800 mb-4">開催日程</h3>
+                        <a href="#" class="inline-block bg-white border-2 border-yellow-500 text-yellow-600 font-bold py-2 px-8 rounded-full hover:bg-yellow-50 transition mb-2">
+                            開催日程を見る
+                        </a>
+                        <p class="text-xs text-gray-500 mt-2">※上記日程以外の見学・体験も可能です。お気軽にご相談ください。</p>
+                    </div>
+
                     <div class="text-center">
-                        <a href="#contact" class="inline-block bg-yellow-500 text-white font-bold py-3 px-10 rounded-full hover:bg-yellow-600 transition shadow-lg transform hover:scale-105">ご予約はこちらから</a>
+                        <p class="font-bold text-gray-800 mb-4">入園体験は事前予約制です。</p>
+                        <div class="text-2xl font-bold text-gray-800 mb-4 flex justify-center items-center"><ion-icon name="call" class="mr-2"></ion-icon> 0766-25-2231</div>
+                        <p class="text-gray-600 mb-4">または</p>
+                        <a href="#contact" class="inline-block bg-yellow-500 text-white font-bold py-3 px-10 rounded-full hover:bg-yellow-600 transition shadow-lg transform hover:scale-105">
+                            ご予約はこちらから
+                        </a>
                     </div>
                 </div>
             </div>
@@ -202,60 +274,65 @@
 
         <section class="py-16 bg-white overflow-hidden" id="parent-voices-section">
             <h2 class="text-3xl font-bold text-center mb-4">保護者の声</h2>
-            <p class="text-center text-gray-600 mb-12">“こどものその”での日々を通して感じた、保護者の方々の想い</p>
+            <p class="text-center text-gray-600 mb-12">“こどものその”での日々を通して感じた、保護者の方々のリアルな声をご紹介します。</p>
             
             <div class="slider-container">
                 <div class="slider-track">
-                    <div class="voice-card">
-                        <img src="https://placehold.co/400x300/e8f5e9/2e7d32?text=Natural+Play" alt="イメージ" class="voice-img">
-                        <div class="p-6">
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-4">子どもが毎日『きょうも楽しかった！』と笑顔で話してくれることが何より嬉しいです。先生方も一人ひとりをしっかり見てくださっていて安心しています。</p>
-                            <p class="font-bold text-xs text-green-600 text-right">年少・男の子の母</p>
-                        </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">子どもが毎日『きょうも楽しかった！』と笑顔で話してくれることが何より嬉しいです。先生方も一人ひとりをしっかり見てくださっていて安心しています。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">年少・男の子の母</div>
                     </div>
-                    <div class="voice-card">
-                        <img src="https://placehold.co/400x300/fff3e0/e65100?text=Growth" alt="イメージ" class="voice-img">
-                        <div class="p-6">
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-4">子どもの成長だけでなく、親としての学びもたくさんあります。懇談会では他の保護者と意見交換ができ、考え方の幅が広がりました。</p>
-                            <p class="font-bold text-xs text-green-600 text-right">年中・女の子の父</p>
-                        </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">子どもの成長だけでなく、親としての学びもたくさんあります。懇談会では他の保護者と意見交換ができ、考え方の幅が広がりました。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">年中・女の子の父</div>
                     </div>
-                    <div class="voice-card">
-                        <img src="https://placehold.co/400x300/e3f2fd/1565c0?text=Trust" alt="イメージ" class="voice-img">
-                        <div class="p-6">
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-4">初めての集団生活で不安もありましたが、先生方の温かいサポートで、今ではすっかり園が大好きに。親子で安心して通えています。</p>
-                            <p class="font-bold text-xs text-green-600 text-right">2歳児クラス・母</p>
-                        </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">初めての集団生活で不安もありましたが、先生方の温かいサポートで、今ではすっかり園が大好きに。親子で安心して通えています。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">2歳児クラス・母</div>
                     </div>
-                    <div class="voice-card">
-                        <img src="https://placehold.co/400x300/f3e5f5/7b1fa2?text=Action" alt="イメージ" class="voice-img">
-                        <div class="p-6">
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-4">“自分で考えて行動する力”が自然と身につくのを感じます。結果を急がず見守るという姿勢を、家庭でも意識するようになりました。</p>
-                            <p class="font-bold text-xs text-green-600 text-right">年長・男の子の母</p>
-                        </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">“自分で考えて行動する力”が自然と身につくのを感じます。結果を急がず見守るという姿勢を、家庭でも意識するようになりました。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">年長・男の子の母</div>
                     </div>
-                    <div class="voice-card">
-                        <img src="https://placehold.co/400x300/efebe9/4e342e?text=Twins" alt="イメージ" class="voice-img">
-                        <div class="p-6">
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-4">2人それぞれの個性を尊重して接してくださるのがありがたいです。親も行事や日常の中で一緒に関われるのが、この園ならではの良さですね。</p>
-                            <p class="font-bold text-xs text-green-600 text-right">年少・双子の母</p>
-                        </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">2人それぞれの個性を尊重して接してくださるのがありがたいです。親も行事や日常の中で一緒に関われるのが、この園ならではの良さですね。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">年少・双子の母</div>
                     </div>
-                    <div class="voice-card">
-                        <img src="https://placehold.co/400x300/f1f8e9/33691e?text=Nature" alt="イメージ" class="voice-img">
-                        <div class="p-6">
-                            <p class="text-sm text-gray-600 mb-4 line-clamp-4">自然の中で思いきり遊ぶ姿が印象的。泥んこになって帰ってくる日もありますが、それだけ全身で楽しんでいる証拠だなと感じています。</p>
-                            <p class="font-bold text-xs text-green-600 text-right">年中・女の子の母</p>
-                        </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">自然の中で思いきり遊ぶ姿が印象的。泥んこになって帰ってくる日もありますが、それだけ全身で楽しんでいる証拠だなと感じています。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">年中・女の子の母</div>
                     </div>
-
-                    <div class="voice-card"><img src="https://placehold.co/400x300/e8f5e9/2e7d32?text=Natural+Play" class="voice-img"><div class="p-6"><p class="text-sm text-gray-600 mb-4 line-clamp-4">子どもが毎日『きょうも楽しかった！』と笑顔で話してくれることが何より嬉しいです。</p><p class="font-bold text-xs text-green-600 text-right">年少・男の子の母</p></div></div>
-                    <div class="voice-card"><img src="https://placehold.co/400x300/fff3e0/e65100?text=Growth" class="voice-img"><div class="p-6"><p class="text-sm text-gray-600 mb-4 line-clamp-4">子どもの成長だけでなく、親としての学びもたくさんあります。</p><p class="font-bold text-xs text-green-600 text-right">年中・女の子の父</p></div></div>
-                    <div class="voice-card"><img src="https://placehold.co/400x300/e3f2fd/1565c0?text=Trust" class="voice-img"><div class="p-6"><p class="text-sm text-gray-600 mb-4 line-clamp-4">初めての集団生活で不安もありましたが、先生方の温かいサポートで安心しています。</p><p class="font-bold text-xs text-green-600 text-right">2歳児クラス・母</p></div></div>
-                    <div class="voice-card"><img src="https://placehold.co/400x300/f3e5f5/7b1fa2?text=Action" class="voice-img"><div class="p-6"><p class="text-sm text-gray-600 mb-4 line-clamp-4">“自分で考えて行動する力”が自然と身につくのを感じます。</p><p class="font-bold text-xs text-green-600 text-right">年長・男の子の母</p></div></div>
-                    <div class="voice-card"><img src="https://placehold.co/400x300/efebe9/4e342e?text=Twins" class="voice-img"><div class="p-6"><p class="text-sm text-gray-600 mb-4 line-clamp-4">2人それぞれの個性を尊重して接してくださるのがありがたいです。</p><p class="font-bold text-xs text-green-600 text-right">年少・双子の母</p></div></div>
-                    <div class="voice-card"><img src="https://placehold.co/400x300/f1f8e9/33691e?text=Nature" class="voice-img"><div class="p-6"><p class="text-sm text-gray-600 mb-4 line-clamp-4">自然の中で思いきり遊ぶ姿が印象的。泥んこになって帰ってくる日もあります。</p><p class="font-bold text-xs text-green-600 text-right">年中・女の子の母</p></div></div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">子どもが毎日『きょうも楽しかった！』と笑顔で話してくれることが何より嬉しいです。先生方も一人ひとりをしっかり見てくださっていて安心しています。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">年少・男の子の母</div>
+                    </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">子どもの成長だけでなく、親としての学びもたくさんあります。懇談会では他の保護者と意見交換ができ、考え方の幅が広がりました。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">年中・女の子の父</div>
+                    </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">初めての集団生活で不安もありましたが、先生方の温かいサポートで、今ではすっかり園が大好きに。親子で安心して通えています。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">2歳児クラス・母</div>
+                    </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">“自分で考えて行動する力”が自然と身につくのを感じます。結果を急がず見守るという姿勢を、家庭でも意識するようになりました。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">年長・男の子の母</div>
+                    </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">2人それぞれの個性を尊重して接してくださるのがありがたいです。親も行事や日常の中で一緒に関われるのが、この園ならではの良さですね。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">年少・双子の母</div>
+                    </div>
+                    <div class="voice-card p-6 flex flex-col justify-between">
+                        <p class="text-gray-600 text-sm leading-relaxed">自然の中で思いきり遊ぶ姿が印象的。泥んこになって帰ってくる日もありますが、それだけ全身で楽しんでいる証拠だなと感じています。</p>
+                        <div class="mt-4 font-bold text-xs text-green-600 text-right">年中・女の子の母</div>
+                    </div>
                 </div>
+            </div>
+
+            <div class="mt-12 text-center bg-gray-100 p-8 rounded-xl max-w-4xl mx-auto">
+                <h3 class="font-bold mb-2">あなたの声もお聞かせください</h3>
+                <p class="text-sm text-gray-600 mb-4">“こどものその”で感じたこと、伝えたい想いを募集しています。</p>
+                <a href="#" class="text-green-600 font-bold underline">投稿・お問い合わせフォームへ &rarr;</a>
             </div>
         </section>
 
@@ -263,6 +340,7 @@
             <h2 class="text-2xl font-bold mb-4 text-gray-800">お問い合わせ</h2>
             <p class="text-gray-600 mb-8">入園に関するご質問や見学のご予約はお気軽にどうぞ。</p>
             <p class="font-bold text-lg mb-2">0766-25-2231</p>
+            <p class="text-sm text-gray-500 mb-8">〒933-0916 富山県高岡市大町11-19</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <button class="bg-green-600 text-white font-bold py-4 px-10 rounded-full hover:bg-green-700 shadow-lg transition">見学予約</button>
                 <button class="bg-white border-2 border-green-600 text-green-600 font-bold py-4 px-10 rounded-full hover:bg-green-50 shadow-lg transition">お問い合わせ</button>
@@ -272,7 +350,54 @@
     </main>
 
     <footer class="bg-gray-800 text-white pt-16 pb-8">
-        </footer>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-1">
+                    <div><span class="block text-xs text-gray-400 -mb-1">NPO法人</span><span class="block font-bold text-lg mb-2">こどものその</span></div>
+                    <p class="text-sm text-gray-400">〒933-0916 富山県高岡市大町11-19</p>
+                    <p class="text-sm text-gray-400 mb-4">TEL: 0766-25-2231</p>
+                    <a href="#" class="inline-flex items-center bg-yellow-500 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-600 transition duration-300 text-sm mt-4"><ion-icon name="document-text-outline" class="mr-2 text-lg"></ion-icon>登園許可証<br>ダウンロード</a>
+                </div>
+                <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg mb-4 text-gray-300">園について</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">園について</a></li>
+                        <li><a href="about.html#motto" class="text-gray-400 hover:text-white">大切にしていること</a></li>
+                        <li><a href="about.html#daily-life" class="text-gray-400 hover:text-white">園生活の一日</a></li>
+                        <li><a href="about.html#npo-info" class="text-gray-400 hover:text-white">NPO法人について</a></li>
+                        <li><a href="history.html" class="text-gray-400 hover:text-white">園のあゆみ</a></li>
+                    </ul>
+                </div>
+                 <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg mb-4 text-gray-300">子育て支援</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="support.html#salon" class="text-gray-400 hover:text-white leading-tight">子育てサロン<br>「親と子のふれあい広場」</a></li>
+                        <li><a href="support.html#temporary-care" class="text-gray-400 hover:text-white">一時保育</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-1 grid grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-gray-300">入園案内</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="admission.html" class="text-gray-400 hover:text-white">入園案内</a></li>
+                            <li><a href="admission.html#parent-voices-section" class="text-gray-400 hover:text-white">保護者の声</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-gray-300">よくある質問</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="faq.html" class="text-gray-400 hover:text-white">よくある質問</a></li>
+                            <li><a href="faq.html#access" class="text-gray-400 hover:text-white">アクセス</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-500">
+                <p>&copy; 2025 NPO法人こどものその. All Rights Reserved.</p>
+                 <a href="#" class="text-gray-500 hover:text-white ml-4">プライバシーポリシー</a>
+            </div>
+        </div>
+    </footer>
 
     <a href="admission.html#contact" id="fixed-contact" class="fixed-action-button" aria-label="見学予約">予約・<br>お問い<br>合わせ</a>
     <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" id="fixed-instagram" class="fixed-action-button" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
