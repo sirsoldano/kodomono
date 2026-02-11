@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>園について - NPO法人こどものその</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .font-kosugi { font-family: 'Kosugi Maru', sans-serif; }
+        .dropdown-menu {
+            opacity: 0;
+            transform: translateY(10px) scale(0.98);
+            transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+            pointer-events: none;
+        }
+        .group:hover .dropdown-menu {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        .fixed-action-button {
+            position: fixed;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 50;
+            transition: transform 0.3s ease;
+        }
+        #fixed-contact { bottom: 110px; background-color: #E67E22; }
+        #fixed-instagram { bottom: 20px; background-color: #E1306C; }
+        .fixed-action-button:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body class="bg-stone-50 text-gray-800 leading-relaxed">
+
+    <header class="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="https://placehold.jp/40x40.png?text=Logo" alt="こどものその ロゴ" class="w-10 h-10 rounded-full">
+                <span class="text-xl font-bold text-emerald-700 font-kosugi">こどものその</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center font-medium">
+                <div class="relative group">
+                    <a href="about.html" class="text-emerald-700 border-b-2 border-emerald-500 pb-1 flex items-center">
+                        園について <ion-icon name="chevron-down-outline" class="ml-1"></ion-icon>
+                    </a>
+                    <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white shadow-xl rounded-lg py-2 border border-emerald-50">
+                        <a href="about.html#philosophy" class="block px-4 py-2 hover:bg-emerald-50 text-gray-700">教育方針</a>
+                        <a href="about.html#history" class="block px-4 py-2 hover:bg-emerald-50 text-gray-700">園の沿革</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <a href="daily-life.html" class="hover:text-emerald-600 transition flex items-center text-gray-700">
+                        園での生活 <ion-icon name="chevron-down-outline" class="ml-1"></ion-icon>
+                    </a>
+                    <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white shadow-xl rounded-lg py-2 border border-emerald-50">
+                        <a href="daily-life.html#schedule" class="block px-4 py-2 hover:bg-emerald-50 text-gray-700">1日の流れ</a>
+                        <a href="daily-life.html#events" class="block px-4 py-2 hover:bg-emerald-50 text-gray-700">年間行事</a>
+                    </div>
+                </div>
+                <a href="admission.html" class="hover:text-emerald-600 transition text-gray-700">入園案内</a>
+                <a href="faq.html" class="hover:text-emerald-600 transition text-gray-700">よくある質問</a>
+                <a href="admission.html#contact" class="bg-emerald-600 text-white px-5 py-2 rounded-full hover:bg-emerald-700 transition shadow-md">お問い合わせ</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-3xl text-emerald-700">
+                <ion-icon name="menu-outline"></ion-icon>
+            </button>
+        </div>
+    </header>
+
+    <section class="relative h-[40vh] flex items-center justify-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="園の風景" class="absolute inset-0 w-full h-full object-cover brightness-75">
+        <div class="relative text-center text-white px-4">
+            <h1 class="text-4xl md:text-5xl font-bold font-kosugi mb-4 drop-shadow-lg">園について</h1>
+            <p class="text-lg md:text-xl font-medium drop-shadow-md">子どもたちの無限の可能性を信じて</p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-16 max-w-5xl">
+        
+        <section id="philosophy" class="mb-24">
+            <div class="text-center mb-12">
+                <span class="text-emerald-600 font-bold tracking-widest uppercase text-sm">Our Philosophy</span>
+                <h2 class="text-3xl font-bold font-kosugi mt-2 relative inline-block">
+                    大切にしていること
+                    <span class="absolute -bottom-2 left-0 w-full h-1 bg-emerald-200"></span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-12">
+                    <div class="border-l-4 border-emerald-500 pl-6">
+                        <h3 class="text-2xl font-bold mb-4 text-emerald-800">遊びは子どもの仕事です</h3>
+                        <p class="text-gray-700 leading-loose">
+                            子どもは遊びを通して世界を知り、人間関係を学び、自分自身を形作っていきます。「遊び」こそが、将来の学びや生きる力の土台となると考え、十分な時間と環境を保障します。
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-emerald-500 pl-6">
+                        <h3 class="text-2xl font-bold mb-4 text-emerald-800">子どもと一緒に親も集える園</h3>
+                        <p class="text-gray-700 leading-loose">
+                            「こどものその」は、子どもの成長を共に喜び、時には悩みを分かち合える親たちの居場所でもあります。お互いに支え合い、大人も共に学び育ち合うコミュニティを大切にしています。
+                        </p>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden shadow-xl transform rotate-1">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="子どもたちの活動" class="w-full h-auto">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="mb-24 bg-emerald-50 -mx-4 px-4 py-16 md:mx-0 md:rounded-3xl">
+            <div class="text-center mb-12">
+                <span class="text-emerald-600 font-bold tracking-widest uppercase text-sm">Characteristics</span>
+                <h2 class="text-3xl font-bold font-kosugi mt-2 relative inline-block">
+                    園の特色
+                    <span class="absolute -bottom-2 left-0 w-full h-1 bg-emerald-200"></span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 text-2xl mb-4">
+                        <ion-icon name="leaf-outline"></ion-icon>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-800">モンテッソーリ教育</h3>
+                    <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+                        「自分のことは自分でできるように手伝って」という子どもの願いを尊重します。整えられた環境の中で、自ら選んだ活動（仕事）に集中することで、自立心、集中力、そして他者への思いやりを育みます。
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-2xl mb-4">
+                        <ion-icon name="restaurant-outline"></ion-icon>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-800">食育</h3>
+                    <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+                        命をいただくことへの感謝を大切にしています。安全な食材を選び、日々の給食や調理活動を通じて、五感で食べ物の大切さを学びます。共に作り、共に食べる喜びが、健やかな体と豊かな心を育みます。
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl mb-4">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-800">たてわり活動</h3>
+                    <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+                        異年齢の子どもたちが一つのクラスで過ごします。年上の子が年下の子を世話し、年下の子は年上の子に憧れを抱く。多様な人間関係の中で、互いに認め合い、助け合う社会性を自然に身につけていきます。
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 text-2xl mb-4">
+                        <ion-icon name="book-outline"></ion-icon>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-800">こども文庫</h3>
+                    <p class="text-gray-700 text-sm md:text-base leading-relaxed">
+                        園内には良質な絵本を揃えた「こども文庫」があり、貸し出しも行っています。本を通じて広がる想像力や共感力は、一生の宝物です。おうちの方と一緒に本を選ぶ時間も、大切な親子のひとときとなります。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="history" class="mb-16">
+            <div class="text-center mb-12">
+                <span class="text-emerald-600 font-bold tracking-widest uppercase text-sm">History</span>
+                <h2 class="text-3xl font-bold font-kosugi mt-2 relative inline-block">
+                    園の沿革
+                    <span class="absolute -bottom-2 left-0 w-full h-1 bg-emerald-200"></span>
+                </h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-emerald-300 before:to-transparent">
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-emerald-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <ion-icon name="flag-outline"></ion-icon>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[45%] p-4 rounded-xl border border-emerald-100 bg-white shadow-sm">
+                            <div class="flex items-center justify-between space-x-2 mb-1">
+                                <time class="font-bold text-emerald-600">1979年</time>
+                            </div>
+                            <div class="text-gray-600">お母さんたちの手により「こどものその」が産声を上げる。</div>
+                        </div>
+                    </div>
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-emerald-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[45%] p-4 rounded-xl border border-emerald-100 bg-white shadow-sm">
+                            <div class="flex items-center justify-between space-x-2 mb-1">
+                                <time class="font-bold text-emerald-600">2005年</time>
+                            </div>
+                            <div class="text-gray-600">NPO法人「こどものその」として認可を受ける。</div>
+                        </div>
+                    </div>
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-emerald-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </div>
+                        <div class="w-[calc(100%-4rem)] md:w-[45%] p-4 rounded-xl border border-emerald-100 bg-white shadow-sm">
+                            <div class="flex items-center justify-between space-x-2 mb-1">
+                                <time class="font-bold text-emerald-600">2020年</time>
+                            </div>
+                            <div class="text-gray-600">園舎をリニューアル。木のぬくもりを感じる空間へ。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold font-kosugi mb-4 text-emerald-400">こどものその</h3>
+                    <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                        〒000-0000<br>
+                        神奈川県〇〇市〇〇区1-2-3<br>
+                        TEL: 00-0000-0000
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl hover:text-emerald-400 transition"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="text-2xl hover:text-emerald-400 transition"><ion-icon name="logo-facebook"></ion-icon></a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-gray-300">園について</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="about.html" class="text-gray-400 hover:text-white">教育方針</a></li>
+                            <li><a href="daily-life.html" class="text-gray-400 hover:text-white">1日の流れ</a></li>
+                            <li><a href="admission.html" class="text-gray-400 hover:text-white">入園案内</a></li>
+                            <li><a href="admission.html#parent-voices-section" class="text-gray-400 hover:text-white">保護者の声</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-4 text-gray-300">よくある質問</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="faq.html" class="text-gray-400 hover:text-white">よくある質問</a></li>
+                            <li><a href="faq.html#access" class="text-gray-400 hover:text-white">アクセス</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-500">
+                <p>&copy; 2025 NPO法人こどものその. All Rights Reserved.</p>
+                 <a href="#" class="text-gray-500 hover:text-white ml-4">プライバシーポリシー</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="admission.html#contact" id="fixed-contact" class="fixed-action-button"><div>見学<br>予約</div></a>
+    <a href="#" id="fixed-instagram" class="fixed-action-button"><ion-icon name="logo-instagram" class="text-3xl"></ion-icon></a>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            // モバイルメニューのトグル処理をここに追加
+            alert('モバイルメニューは開発中です');
+        });
+    </script>
+</body>
+</html>
